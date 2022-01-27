@@ -105,34 +105,37 @@ a:hover {
   color: red;
 }
 #first-name{
-  padding-left: 8.25;
-  height: 36px;
-  width: 80%;
-}
-#last-name{
-  padding-left: 8.25;
-  height: 36px;
-  width: 80%;
-}
-#user-name{
-  background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
-  position: left;
-  background-size: 13px;
-  background-position: 2%;
-  padding-left: 30px;
-  height: 36px;
-  width: 80%;
-}
-#password{
-  background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
-  position: left;
-  background-size: 13px;
-  background-position: 2%;
-  padding-left: 30px;
-  height: 36px;
-  width: 80%;
+			padding-left: 8.25;
+			height: 36px;
+      width: 80%;
+		}
+		#last-name{
+			padding-left: 8.25;
+			margin-top: 2.5px;
+			height: 36px;
+      width: 80%;
+		}
+		#user-name{
+			background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+			position: left;
+			margin-top: 2.5px;
+		  background-size: 13px;
+			background-position: 2%;
+			padding-left: 30px;
+			height: 36px;
+      width: 80%;
+    }
+		#password{
+			background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
+			position: left;
+			margin-top: 2.5px;
+			background-size: 13px;
+			background-position: 2%;
+			padding-left: 30px;
+			height: 36px;
+      width: 80%;
 
-}
+		}
 
 #welcomeText {
   box-sizing: border-box;
