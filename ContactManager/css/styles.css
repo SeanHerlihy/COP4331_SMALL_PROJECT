@@ -28,6 +28,19 @@
 		text-align: center;
 		border-radius: 10px;
 	}
+	#searchInput {
+	 background-image: url(https://i.ibb.co/KLPnryx/icons8-search-client-32.png); /* Add a search icon to input */
+	 background-position: 5px 5px; /* Position the search icon */
+	 background-size: 30px;
+	 background-repeat: no-repeat; /* Do not repeat the icon image */
+	 width: 80%; /* Full-width */
+	 font-size: 16px; /* Increase font-size */
+	 padding: 12px 20px 12px 40px; /* Add some padding */
+	 border: 1px solid #ddd; /* Add a grey border */
+	 margin-top: 4%;
+	 margin-left: 15%;
+	 margin-bottom: 3%; /* Add some space below the input */
+	}
 	#names {
 		display: inline-block;
 		text-align: left;
