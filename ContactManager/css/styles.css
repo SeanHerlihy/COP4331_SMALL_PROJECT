@@ -6,10 +6,24 @@
 		margin-left: 10px;
 		margin-right: 10px;
 	}
+	.Username{
+		background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+		position: left;
+		background-size: 30px;
+		background-position: 2%;
+		padding-left: 6%;
+	}
+	.phone-number{
+		background: url(https://i.ibb.co/x5zxFw5/2055904.png) no-repeat;
+		position: left;
+		background-size: 30px;
+		background-position: 2%;
+		padding-left: 6%;
+}
 	#title {
 		text-align: center;
 		text-align: center;
-		font-family: 'Helvetica', sans-serif;
+		font-family: 'Brush Script MT', sans-serif;
 		font-size: 30pt;
 	}
 	#inner-screen {
@@ -36,9 +50,10 @@
 	 width: 80%; /* Full-width */
 	 font-size: 16px; /* Increase font-size */
 	 padding: 12px 20px 12px 40px; /* Add some padding */
+	 border-radius: 30px;
 	 border: 1px solid #ddd; /* Add a grey border */
 	 margin-top: 4%;
-	 margin-left: 15%;
+	 margin-left: 10%;
 	 margin-bottom: 3%; /* Add some space below the input */
 	}
 	#names {
@@ -60,21 +75,23 @@
 	}
 	#profile-pic {
 		border-radius: 50%;
-		width: 12%;
-		height: 12%;
+		width: 11%;
+		height: 11%;
 		margin-left: 5%;
 		margin-top: 3%;
+		margin-bottom: .5%;
 	}
 	#profile-name {
-		font-family: 'Helvetica', sans-serif;
-		margin-left: 5%;
+		font-family: Arial, sans-serif;
+		margin-left: 3%;
 		margin-top: 6%;
-		font-size: 40pt;
+		font-size: 35pt;
+		margin-bottom: .5%;
 	}
 	#secondary-info {
-		font-family: 'Helvetica', sans-serif;
-		font-size: 30pt;
-		margin-left: 10%;
+		font-family: Arial, sans-serif;
+		font-size: 20pt;
+		margin-left: 1%;
 	}
 	::-webkit-scrollbar-corner {
 		background: none;
