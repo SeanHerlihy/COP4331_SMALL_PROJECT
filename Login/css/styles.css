@@ -43,7 +43,7 @@ a:hover {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.accountContainer {
+.loginContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,7 +75,7 @@ a:hover {
   margin-right: 5px;
   margin-left: 10%;
 }
-.signup {
+.login {
   border-color: #CBC3E3;
   border-style: solid;
   border-width: 2px;
@@ -104,16 +104,7 @@ a:hover {
 .invalid{
   color: red;
 }
-#first-name{
-  padding-left: 8.25;
-  height: 36px;
-  width: 80%;
-}
-#last-name{
-  padding-left: 8.25;
-  height: 36px;
-  width: 80%;
-}
+
 #user-name{
   background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
   position: left;
@@ -131,7 +122,6 @@ a:hover {
   padding-left: 30px;
   height: 36px;
   width: 80%;
-
 }
 
 #welcomeText {
@@ -173,7 +163,7 @@ a:hover {
   position: relative;
   overflow: auto;
 }
-#accountHeading {
+#loginHeading {
   position: relative;
   font-family: Arial;
   font-size: max(1.6vw, 25px);
@@ -193,11 +183,11 @@ a:hover {
   align-items: center;
   flex-direction: column;
 }
-#signup {
+#login {
   button-height: 36px;
   margin-right: 40px;
 }
-#signInText {
+#loginText {
   margin-top: 5px;
   text-align: center;
 }
