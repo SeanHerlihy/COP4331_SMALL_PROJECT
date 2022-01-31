@@ -20,6 +20,25 @@
 		background-position: 2%;
 		padding-left: 6%;
 }
+	/* all the icons */
+	#edit-icon{
+		width: 10%;
+		padding-left:75%;
+		position:relative;
+		bottom: 65%;
+}
+	#add-icon{
+		width: 22%;
+		padding-top: 2%;
+		position:relative;
+		top:7px; /* i think this is a "hard" fix, so there's for sure a better way to align
+		the image with the text */
+	}
+	#delete-icon{
+		width: 10%;
+		position:relative;
+		bottom: 65%;
+	}
 	#title {
 		text-align: center;
 		text-align: center;
@@ -93,6 +112,13 @@
 		font-size: 20pt;
 		margin-left: 1%;
 	}
+	#contact-subtitle {
+		font-family: Arial, sans-serif;
+		font-size: 30pt;
+		margin-top: 2%;
+		margin-bottom: .5%;
+		margin-left: 3%;
+	}
 	::-webkit-scrollbar-corner {
 		background: none;
 	}
@@ -111,3 +137,4 @@
 	::-webkit-scrollbar-thumb:hover {
 		background-color: #54116A;
 	}
+
