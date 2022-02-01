@@ -39,15 +39,10 @@
 		position:relative;
 		bottom: 65%;
 	}
-	#title {
-		text-align: center;
-		text-align: center;
-		font-family: 'Brush Script MT', sans-serif;
-		font-size: 30pt;
-	}
+
 	#inner-screen {
 		display: flex;
-		margin: -4% 2% 0% 2%;
+		margin: 5% 2% 0% 2%;
 		height: 80%;
 		border-radius: 10px;
 
@@ -137,4 +132,3 @@
 	::-webkit-scrollbar-thumb:hover {
 		background-color: #54116A;
 	}
-
