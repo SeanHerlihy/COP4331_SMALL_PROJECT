@@ -12,9 +12,9 @@ function createAccount()
 	var lName = document.getElementById("LastName").value;
 	var confirmPass = document.getElementById("CreateConfirmPass").value;
 
-	if(email == "")
+	if(login == "")
 	{
-		document.getElementById("CreateError").innerHTML = "Please enter an email.";
+		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
 		return;
 	}
 	else
@@ -62,7 +62,7 @@ function createAccount()
 				document.getElementById("CreateError").innerHTML = "Account created successfully!";
 
 				// force login after account creation can be removed if needed
-				login(email, pass);
+				login(login, pass);
 			}
 		};
 		xhr.send(jsonPayload);
@@ -73,11 +73,11 @@ function createAccount()
 	}
 }
 
-function login(email, pass)
+function login(login, pass)
 {
-	if(email == null || pass == null)
+	if(login == null || pass == null)
 	{
-		email = document.getElementById("LoginEmail").value;
+		login = document.getElementById("LoginUserName").value;
 		pass = document.getElementById("LoginPass").value;
 	}
 }
