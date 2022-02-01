@@ -6,7 +6,7 @@ function createAccount()
 	userId = 0;
 	document.getElementById("CreateError").innerHTML = "";
 
-	var email = document.getElementById("CreateEmail").value;
+	var login = document.getElementById("CreateLogin").value;
 	var pass = document.getElementById("CreatePass").value;
 	var fName = document.getElementById("FirstName").value;
 	var lName = document.getElementById("LastName").value;
@@ -35,7 +35,7 @@ function createAccount()
 		return;
 	}
 
-	var jsonPayload = JSON.stringify({email:email,password:pass,firstName:fName,lastName:lName});
+	var jsonPayload = JSON.stringify({FirstName:fName,LastName:lName,Login:login,Password:pass});
 	var url = urlBase + 'LAMPAPI/CreateAccount.' + extension;
 
 	let xhr = new XMLHttpRequest();
