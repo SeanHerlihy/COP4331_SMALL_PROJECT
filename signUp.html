@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
   <head>
-      <link rel="stylesheet" href="./css/styles.css">
+      <link rel="stylesheet" href="./css/signUpStyles.css">
 
   </head>
       <body>
@@ -24,19 +24,23 @@
         -->
       </div>
 
-      <div class="loginContainer" class="round-borders">
+      <div class="accountContainer" class="round-borders">
 
         <div class="inputContainer">
-          <h1 id="loginHeading">
-            Sign In
+          <h1 id="accountHeading">
+            Create Account
           </h1>
 
           <div id="nameContainer">
-            <input type="text" id = "UserName" placeholder = "username" class = "round-borders">
-            <input type="password" id = "PassWord" placeholder = "password" class = "round-borders">
-            <button type="submit" class="login">Login</button>
-            <p id="loginText">New here? <a href = "./signUp.html">
-              Create an account</a></p>
+            <input type="text" id = "FirstName" placeholder = " first name" class = "round-borders">
+            <input type="text" id = "LastName" placeholder = " last name" class = "round-borders">
+
+            <input type="text" id = "CreateEmail" placeholder = "username" class = "round-borders">
+            <input type="password" id = "CreatePass" placeholder = "password" class = "round-borders">
+            <input type="password" id = "CreateConfirmPass" placeholder = "confirm password" class = "round-borders">
+            <button type="submit" class="signup">Sign Up!</button>
+            <p id="signInText">Already a member? <a href = "./index.html">
+              Sign in</a></p>
           </div>
 
 

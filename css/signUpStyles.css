@@ -44,7 +44,7 @@ a:hover {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.loginContainer {
+.accountContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +76,7 @@ a:hover {
   margin-right: 5px;
   margin-left: 10%;
 }
-.login {
+.signup {
   border-color: #CBC3E3;
   border-style: solid;
   border-width: 2px;
@@ -105,26 +105,49 @@ a:hover {
 .invalid{
   color: red;
 }
+		#FirstName{
+			padding-left: 8.25;
+			height: 36px;
+      width: 80%;
+		}
+		#LastName{
+			padding-left: 8.25;
+			margin-top: 2.5px;
+			height: 36px;
+      width: 80%;
+		}
+		#CreateEmail{
+			background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+			position: left;
+			margin-top: 2.5px;
+		  background-size: 13px;
+			background-position: 2%;
+			padding-left: 30px;
+			height: 36px;
+      width: 80%;
+    }
+		#CreatePass{
+			background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
+			position: left;
+			margin-top: 2.5px;
+			background-size: 13px;
+			background-position: 2%;
+			padding-left: 30px;
+			height: 36px;
+      width: 80%;
 
-#UserName{
-  background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
-  position: left;
-  background-size: 13px;
-  background-position: 2%;
-  padding-left: 30px;
-  height: 36px;
-  width: 80%;
-}
-#PassWord{
-  background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
-  position: left;
-  background-size: 13px;
-  background-position: 2%;
-  padding-left: 30px;
-  height: 36px;
-  width: 80%;
-}
+		}
+		#CreateConfirmPass{
+		background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
+		position: left;
+		margin-top: 2.5px;
+		background-size: 13px;
+		background-position: 2%;
+		padding-left: 30px;
+		height: 36px;
+		width: 80%;
 
+	}
 #welcomeText {
   box-sizing: border-box;
   padding: 10px;
@@ -164,7 +187,7 @@ a:hover {
   position: relative;
   overflow: auto;
 }
-#loginHeading {
+#accountHeading {
   position: relative;
   font-family: Arial;
   font-size: max(1.6vw, 25px);
@@ -184,11 +207,11 @@ a:hover {
   align-items: center;
   flex-direction: column;
 }
-#login {
+#signup {
   button-height: 36px;
   margin-right: 40px;
 }
-#loginText {
+#signInText {
   margin-top: 5px;
   text-align: center;
 }
