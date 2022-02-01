@@ -36,7 +36,7 @@ function doRegister()
 	}
 
 	var jsonPayload = JSON.stringify({FirstName:fName,LastName:lName,Login:login,Password:pass});
-	var url = urlBase + 'LAMPAPI/CreateAccount.' + extension;
+	var url = urlBase + 'LAMPAPI/RegisterUser.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
