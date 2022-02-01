@@ -1,7 +1,7 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/signUp.html';
 const extension = 'php';
 
-function createAccount()
+function doRegister()
 {
 	userId = 0;
 	document.getElementById("CreateError").innerHTML = "";
@@ -62,7 +62,7 @@ function createAccount()
 				document.getElementById("CreateError").innerHTML = "Account created successfully!";
 
 				// force login after account creation can be removed if needed
-				login(login, pass);
+				doLogin(login, pass);
 			}
 		};
 		xhr.send(jsonPayload);
@@ -73,7 +73,7 @@ function createAccount()
 	}
 }
 
-function login(login, pass)
+function doLogin(login, pass)
 {
 	if(login == null || pass == null)
 	{
