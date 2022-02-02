@@ -1,4 +1,4 @@
-const urlBase = 'http://superawesomecontactmanager3000.com/signUp.html';
+const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
 function doRegister()
