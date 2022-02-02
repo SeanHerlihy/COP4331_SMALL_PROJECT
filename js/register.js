@@ -50,7 +50,7 @@ function doRegister()
 			}
 		};
 		xhr.send(jsonPayload);
-		window.location.replace(urlBase + "index.html")
+		window.location.replace(urlBase + "index.html");
 	}
 	catch(err)
 	{

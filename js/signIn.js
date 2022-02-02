@@ -1,15 +1,17 @@
-const urlBase = 'http://superawesomecontactmanager3000.com/index.html';
+const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
 function signIn()
 {
 	var userName = document.getElementById("UserName").value;
-	var pass = document.getElementById("PassWord").value;
+	var pass = document.getElementById("Password").value;
+	
 	if (userName == "")
 	{
 		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
 			return;
 	}
+	
 	var jsonPayload = JSON.stringify(email:userName, password:pass);
 
 	try
@@ -31,8 +33,6 @@ function signIn()
 
 				document.getElementById("CreateError").innerHTML = "Login Successful";
 
-				// force login after account creation can be removed if needed
-				login(email, pass);
 			}
 		};
 		xhr.send(jsonPayload);
@@ -40,14 +40,5 @@ function signIn()
 	catch(err)
 	{
 		document.getElementById("CreateError").innerHTML = err.message;
-	}
-}
-
-function login(email, pass)
-{
-	if(email == null || pass == null)
-	{
-		email = document.getElementById("LoginEmail").value;
-		pass = document.getElementById("LoginPass").value;
 	}
 }
