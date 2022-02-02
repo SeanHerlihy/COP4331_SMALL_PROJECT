@@ -3,7 +3,6 @@ const extension = 'php';
 
 function doRegister()
 {
-	userId = 0;
 	document.getElementById("CreateError").innerHTML = "";
 
 	var login = document.getElementById("CreateLogin").value;
@@ -16,17 +15,6 @@ function doRegister()
 	{
 		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
 		return;
-	}
-	else
-	{
-		/*
-		test if email is valid if we wanna bother
-		if(!valid)
-		{
-			document.getElementById("createError").innerHTML = "Please enter a valid email.";
-			return;
-		}
-		*/
 	}
 
 	if(pass != confirmPass)
@@ -50,9 +38,8 @@ function doRegister()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				let jsonObject = JSON.parse( xhr.responseText );
+				let jsonObject = JSON.parse(xhr.responseText);
 
-				// this if statement could be could be wrong but I think its functional
 				if(jsonObject.error.length > 0)
 				{
 					document.getElementById("CreateError").innerHTML = jsonObject.error;
@@ -60,24 +47,13 @@ function doRegister()
 				}
 
 				document.getElementById("CreateError").innerHTML = "Account created successfully!";
-
-				// force login after account creation can be removed if needed
-				doLogin(login, pass);
 			}
 		};
 		xhr.send(jsonPayload);
+		window.location.replace(urlBase + "index.html");
 	}
 	catch(err)
 	{
 		document.getElementById("CreateError").innerHTML = err.message;
-	}
-}
-
-function doLogin(login, pass)
-{
-	if(login == null || pass == null)
-	{
-		login = document.getElementById("LoginUserName").value;
-		pass = document.getElementById("LoginPass").value;
 	}
 }
