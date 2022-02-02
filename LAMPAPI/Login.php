@@ -51,7 +51,7 @@
 
 	function returnWithInfo( $FirstName, $LastName, $ID )
 	{
-		$retValue = '{"ID":' . $ID . ',"FirstName":"' . $FirstName . '","lastName":"' . $LastName . '","error":""}';
+		$retValue = '{"ID":' . $ID . ',"FirstName":"' . $FirstName . '","LastName":"' . $LastName . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 
