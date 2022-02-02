@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <html>
   <head>
+	 <script type="text/javascript" src="./js/login.js"></script>
       <link rel="stylesheet" href="./css/styles.css">
 
   </head>
@@ -33,8 +34,9 @@
 
           <div id="nameContainer">
             <input type="text" id = "UserName" placeholder = "username" class = "round-borders">
-            <input type="password" id = "PassWord" placeholder = "password" class = "round-borders">
-            <button type="submit" class="login">Login</button>
+            <input type="password" id = "Password" placeholder = "password" class = "round-borders">
+            <button type="submit" id="loginButton" class="login" onclick="doLogin();"> Login</button>
+		  <span id="loginResult"></span>
             <p id="loginText">New here? <a href = "./signUp.html">
               Create an account</a></p>
           </div>
