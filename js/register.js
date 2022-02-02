@@ -47,10 +47,11 @@ function doRegister()
 				}
 
 				document.getElementById("CreateError").innerHTML = "Account created successfully!";
+				window.location.href = "index.html";
 			}
 		};
 		xhr.send(jsonPayload);
-		window.location.replace(urlBase + "index.html");
+
 	}
 	catch(err)
 	{
