@@ -3,6 +3,8 @@ const extension = 'php';
 
 function doRegister()
 {
+	document.getElementById("CreateError").innerHTML = "";
+
 	var login = document.getElementById("CreateLogin").value;
 	var pass = document.getElementById("CreatePass").value;
 	var fName = document.getElementById("FirstName").value;
@@ -48,6 +50,7 @@ function doRegister()
 			}
 		};
 		xhr.send(jsonPayload);
+		window.location.replace(urlBase + "index.html");
 	}
 	catch(err)
 	{
