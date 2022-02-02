@@ -1,51 +1,47 @@
 <!DOCTYPE>
 <html>
   <head>
-	 <script type="text/javascript" src="./js/login.js"></script>
-      <link rel="stylesheet" href="./css/styles.css">
-
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
-      <body>
-<!--  <body background="https://i.ibb.co/b5rWY7q/light-blue-pattern-wavy-lines-modern-minimalist-design-vector-illustration-light-blue-pattern-wavy-l.jpg" class="main-background"> --->
-		<div class="mainContainer" class="round-borders">
-      <div class="logoContainer">
-				<!--- This is where we put title text --->
-        <div class="inside" class="round-borders">
-          <h1 class="titleText" id="welcomeText">Welcome to </h1>
-          <h1 class="titleText">SUPER AWESOME</h1>
-          <h1 class="titleText">CONTACT MANAGER</h1>
-          <h1 class="titleText">3000!!!</h1>
-        </div>
-
-        <!--- This is where we put our logo --->
-        <!--
-        <div class="inside" class="round-borders">
-          <img class="responsive-image" src="https://i.ibb.co/RvR8cJv/Super-Awesome-Contact-Manager-3000.png" alt="Super-Awesome-Contact-Manager-3000" border="0">
-        </div>
-        -->
+  <body>
+    <div class="mainContainer" class="round-borders">
+        <div class="logoContainer">
+              <!--- This is where we put title text --->
+      <div class="inside" class="round-borders">
+        <h1 class="titleText" id="welcomeText">Welcome to </h1>
+        <h1 class="titleText">SUPER AWESOME</h1>
+        <h1 class="titleText">CONTACT MANAGER</h1>
+        <h1 class="titleText">3000!!!</h1>
       </div>
+
+      <!--- This is where we put our logo --->
+      <!--
+      <div class="inside" class="round-borders">
+        <img class="responsive-image" src="https://i.ibb.co/RvR8cJv/Super-Awesome-Contact-Manager-3000.png" alt="Super-Awesome-Contact-Manager-3000" border="0">
+      </div>
+      -->
+        </div>
 
       <div class="loginContainer" class="round-borders">
-
-        <div class="inputContainer">
-          <h1 id="loginHeading">
+        <h1 id="loginHeading">
             Sign In
           </h1>
-
-          <div id="nameContainer">
-            <input type="text" id = "UserName" placeholder = "username" class = "round-borders">
-            <input type="password" id = "Password" placeholder = "password" class = "round-borders">
-            <button type="submit" id="loginButton" class="login" onclick="doLogin();"> Login</button>
-		  <span id="loginResult"></span>
-            <p id="loginText">New here? <a href = "./signUp.html">
-              Create an account</a></p>
-          </div>
-
-
-        </div>
-        <!-- adding an invisible text box here --->
+      <div class="inputContainer">
+        
         <input id="error-box" type="text">
-      </div>
-    </div>
-  </body>
+
+        <div id="nameContainer">
+          <input type="text" id = "UserName" placeholder = "Username" class = "round-borders">
+          <input type="password" id = "Password" placeholder = "Password" class = "round-borders">
+          <button type="submit" id="loginButton" class="login" onclick="doLogin();"> Login</button>
+              <span id="loginResult"></span>
+          <p id="loginText">New here? <a href = "./signUp.html">
+            Create an account</a></p>
+        </div>
 </html>
+
+      </div>
+      <!-- adding an invisible text box here --->
+    </div>
+  </div>
+  </body>

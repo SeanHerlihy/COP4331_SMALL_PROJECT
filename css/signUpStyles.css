@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Montserrat:ital,wght@0,500;1,200&display=swap');
 
 body {
-  background: linear-gradient(45deg, #D790FF, #F1DCFF, #EEEDFE);
-  height: 89%;
+  background-image: url("./images/image.jpg");
+  background-size: cover;
 }
 img {
   max-width: 100%;
@@ -12,33 +12,40 @@ img {
   display: block;
   object-fit: contain;
 }
-
+button
+{
+  background: #215b81;
+    color: white;
+    font-weight: bold;
+}
 button:hover {
-  background-color: #CBC3E3;
+  background-color: lightblue;
 }
 a:hover {
-  color: lightblue;
+  color: #215b81;
 }
 
 .mainContainer {
+  opacity: 0.93;
   display: flex;
   flex-direction: row;
   margin: auto;
-  margin-top: 100px;
-  width: 75%;
-  height: 75%;
+  margin-top: 3%;
+  width: 85%;
+  height: 95%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .logoContainer {
+  opacity: 0.8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   padding: 10px;
-  background: linear-gradient(45deg, #C16FDB, #8C00B7, #C16FDB);
-  background-color: purple;
+  background: no-repeat linear-gradient(45deg, #215b81, #8bcceb, #b3c9e6);
+  background-color: rgb(0, 0, 0);
   width: 50%;
   height: 100%;
   border-top-left-radius: 10px;
@@ -64,20 +71,19 @@ a:hover {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 10%;
-  padding-top: 5%;
+  padding-top: 3%;
   overflow: auto;
 }
 .round-borders {
-  border-color: #CBC3E3;
+  border-color: #3c4d57;
   border-style: solid;
   border-width: 2px;
   border-radius: 50px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 10%;
+  margin:auto;
+  margin-bottom: 14px;
 }
 .signup {
-  border-color: #CBC3E3;
+  border-color: #3c4d57;
   border-style: solid;
   border-width: 2px;
   border-radius: 50px;
@@ -105,15 +111,26 @@ a:hover {
 .invalid{
   color: red;
 }
+@media (max-width: 875px)
+{
+    .logoContainer
+    {
+        display: none;
+    }
+    .accountContainer {
+        width: 100%;
+        opacity: 85%;
+    }
+}
 		#FirstName{
 			padding-left: 8.25;
-			height: 36px;
+			height: 50px;
       width: 80%;
 		}
 		#LastName{
 			padding-left: 8.25;
 			margin-top: 2.5px;
-			height: 36px;
+			height: 50px;
       width: 80%;
 		}
 		#CreateLogin{
@@ -123,7 +140,7 @@ a:hover {
 		  background-size: 13px;
 			background-position: 2%;
 			padding-left: 30px;
-			height: 36px;
+			height: 50px;
       width: 80%;
     }
 		#CreatePass{
@@ -133,7 +150,7 @@ a:hover {
 			background-size: 13px;
 			background-position: 2%;
 			padding-left: 30px;
-			height: 36px;
+			height: 50px;
       width: 80%;
 
 		}
@@ -144,7 +161,7 @@ a:hover {
 		background-size: 13px;
 		background-position: 2%;
 		padding-left: 30px;
-		height: 36px;
+		height: 50px;
 		width: 80%;
 
 	}
@@ -154,7 +171,7 @@ a:hover {
   font-family: Arial;
   font-size: max(2.5vmin, 14px);
   color: white;
-  text-shadow: 0 0 5px #49005F;
+  text-shadow: 0 0 5px #3c4d57;
   text-align: left;
   right: 4%;
   margin-top: 15.5%;
@@ -168,7 +185,7 @@ a:hover {
   font-family: Arial;
   font-size: max(4.3vmin, 20px);
   color: white;
-  text-shadow: 0 0 25px #49005F;
+  text-shadow: 0 0 25px #3c4d57;
   text-align: left;
   padding-left: 10%;
   padding-right: 1%;
@@ -190,11 +207,12 @@ a:hover {
 #accountHeading {
   position: relative;
   font-family: Arial;
-  font-size: max(1.6vw, 25px);
+  font-size: max(3vw, 30px);
   color: black;
   text-align: center;
   padding-top: 1px;
-  margin-top: 3.5%;
+  margin-top: 5%;
+  padding-bottom: 7%;
 }
 
 #nameContainer {
