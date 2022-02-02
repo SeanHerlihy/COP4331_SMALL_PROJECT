@@ -1,4 +1,4 @@
-const urlBase = 'http://www.superawesomecontactmanager3000.com/LAMPAPI';
+const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
 let userId = 0;
@@ -18,7 +18,7 @@ function doLogin()
 	let tmp = {Login:login,Password:password};
 	let jsonPayload = JSON.stringify( tmp );
 
-	let url = urlBase + '/Login.' + extension;
+	let url = urlBase + 'LAMPAPI/Login.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
