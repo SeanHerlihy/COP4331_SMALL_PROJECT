@@ -38,9 +38,8 @@ function doRegister()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				let jsonObject = JSON.parse( xhr.responseText );
+				let jsonObject = JSON.parse(xhr.responseText);
 
-				// this if statement could be could be wrong but I think its functional
 				if(jsonObject.error.length > 0)
 				{
 					document.getElementById("CreateError").innerHTML = jsonObject.error;
