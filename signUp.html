@@ -2,7 +2,7 @@
 <html>
   <head>
       <link rel="stylesheet" href="./css/signUpStyles.css">
-      <script type="text/javascript" src="./js/register.js"></script>
+
   </head>
       <body>
 <!--  <body background="https://i.ibb.co/b5rWY7q/light-blue-pattern-wavy-lines-modern-minimalist-design-vector-illustration-light-blue-pattern-wavy-l.jpg" class="main-background"> --->
@@ -35,10 +35,10 @@
             <input type="text" id = "FirstName" placeholder = " first name" class = "round-borders">
             <input type="text" id = "LastName" placeholder = " last name" class = "round-borders">
 
-            <input type="text" id = "CreateLogin" placeholder = "username" class = "round-borders">
+            <input type="text" id = "CreateEmail" placeholder = "username" class = "round-borders">
             <input type="password" id = "CreatePass" placeholder = "password" class = "round-borders">
             <input type="password" id = "CreateConfirmPass" placeholder = "confirm password" class = "round-borders">
-            <button type="submit" class="signup" onclick="doRegister();">Sign Up!</button>
+            <button type="submit" class="signup">Sign Up!</button>
             <p id="signInText">Already a member? <a href = "./index.html">
               Sign in</a></p>
           </div>
@@ -46,7 +46,7 @@
 
         </div>
         <!-- adding an invisible text box here --->
-        <input id="CreateError" type="text">
+        <input id="error-box" type="text">
       </div>
     </div>
   </body>
