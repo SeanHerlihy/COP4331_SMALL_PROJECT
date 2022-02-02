@@ -1,3 +1,5 @@
+<?php header('Access-Control-Allow-Origin: http://www.superawesomecontactmanager3000.com'); ?>
+<?php header('Access-Control-Allow-Origin: http://superawesomecontactmanager3000.com'); ?>
 <?php
 
 	$inData = getRequestInfo();

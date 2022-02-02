@@ -1,7 +1,5 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
-<?php header('Access-Control-Allow-Credentials', 'true'); ?>
-<?php header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT'); ?>
-<?php header('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'); ?>
+<?php header('Access-Control-Allow-Origin: http://www.superawesomecontactmanager3000.com'); ?>
+<?php header('Access-Control-Allow-Origin: http://superawesomecontactmanager3000.com'); ?>
 <?php
 
 	$inData = getRequestInfo();
