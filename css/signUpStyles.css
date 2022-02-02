@@ -215,7 +215,7 @@ a:hover {
   margin-top: 5px;
   text-align: center;
 }
-#error-box {
+#CreateError {
   width: 100%;
   height: 10%;
   display: none;
