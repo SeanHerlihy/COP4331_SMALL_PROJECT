@@ -1,5 +1,6 @@
 	body {
-		background: linear-gradient(45deg, #D790FF, #F1DCFF, #EEEDFE)
+		background-image: url("./images/image.jpg");
+		background-size: cover;
 	}
 	.white-page-line{
 		margin-top: 20px;
@@ -42,19 +43,19 @@
 
 	#inner-screen {
 		display: flex;
-		margin: 5% 2% 0% 2%;
-		height: 80%;
-		border-radius: 10px;
+		margin: 0% 0% 0% 0%;
+		height: 95%;
+		border-radius: 0px;
 
 	}
 	#scroll-bar {
-		background: linear-gradient(45deg, #C16FDB, #8C00B7, #C16FDB);
+		background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
 		flex: 1;
 		height: 100%;
-		margin-right: 1%;
+		margin-right: 0%;
 		overflow-y: scroll;
 		text-align: center;
-		border-radius: 10px;
+		border-radius: 0px;
 	}
 	#searchInput {
 	 background-image: url(https://i.ibb.co/KLPnryx/icons8-search-client-32.png); /* Add a search icon to input */
@@ -67,10 +68,11 @@
 	 border-radius: 30px;
 	 border: 1px solid #ddd; /* Add a grey border */
 	 margin-top: 4%;
-	 margin-left: 10%;
+	 margin-left: 3%;
 	 margin-bottom: 3%; /* Add some space below the input */
 	}
 	#names {
+		color: white;
 		display: inline-block;
 		text-align: left;
 		line-height: 2.0;
@@ -80,9 +82,13 @@
 	#info {
 		background-color: white;
 		flex: 3.5;
+		margin: 0% 0% 0% 0%;
 		height: 100%;
-		border-radius: 10px;
-
+		border-radius: 0px;
+	}
+	#header {
+		background-color: none;
+		height: 5%;
 	}
 	#top-info {
 		display:flex;
@@ -108,6 +114,7 @@
 		margin-left: 1%;
 	}
 	#contact-subtitle {
+		color: white;
 		font-family: Arial, sans-serif;
 		font-size: 30pt;
 		margin-top: 2%;
@@ -118,17 +125,17 @@
 		background: none;
 	}
 	::-webkit-scrollbar {
-		width: 15px;
+		width: 18px;
 	}
 	::-webkit-scrollbar-track {
-		border-radius: 7px;
-		background-color: #E28FFF;
-		box-shadow: inset 0 0 12px #7B179F;
+		border-radius: 0px;
+		background-color: #D6D6D6;
+		box-shadow: inset 0 0 12px #EAF7FA;
 	}
 	::-webkit-scrollbar-thumb {
-		border-radius: 6px;
-		background-color: #721C8F;
+		border-radius: 0px;
+		background-color: #939393;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background-color: #54116A;
+		background-color: #717171;
 	}
