@@ -12,7 +12,7 @@
       <div id="scroll-bar">
         <!––add contacts subtitle––>
        <h2 id="contact-subtitle">Contacts <img id="add-icon"
-         src="https://i.ibb.co/mTrzPXJ/125118-200.png" alt="add contact icon"> </h2>
+         src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png" alt="add contact icon"> </h2>
         <input type="text" id="searchInput" placeholder="Search..">
         <p id="names">
         Peter Mullen <br>
@@ -52,6 +52,7 @@
         Tucker Neal<br>
         </p>
       </div>
+    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)
     <div id="info">
       <div id="top-info">
         <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
@@ -70,5 +71,36 @@
       </div>
 			<hr class = white-page-line>
     </div>
+    -->
+
+    <!-- Create Account Div Element (replaced by info div element when viewing a contact)-->
+    <div id=CreateAccountDiv>
+      <div id="top-info">
+        <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
+        <!––edit and delete icons, images are not transparent, but i am planning on creating the icons, so that's alright for now - amrit ––>
+        <h2 id="profile-name"></h2>
+      </div>
+			<hr class = white-page-line>
+      <div id="secondary-info">
+        <!-- Input Fields for contact -->
+        <div class="inputContainer">
+          <h3 class="fieldText"> Name: </h3>
+          <input type="text" id = "Name" placeholder = "Name" class = "round-borders">
+          <h3 class="fieldText"> E-mail Address: </h3>
+          <input type="text" id = "Email" placeholder = "E-mail" class = "round-borders">
+          <h3 class="fieldText"> Phone Number: </h3>
+          <input type="text" id = "PhoneNumber" placeholder = "Phone #" class = "round-borders">
+          <h3 class="fieldText"> Date of Birth: </h3>
+          <input type="text" id = "Birthday" placeholder = "mm/dd/yyyy" class = "round-borders">
+          <div id = "contains-buttons">
+						<button type="submit" id = "CancelButton">Cancel</button>
+						<button type="submit" id = "CreateButton">Create</button>
+					</div>
+				</div>
+      </div>
+    </div>
+
+
+
   </div>
 </body>

@@ -2,6 +2,10 @@
 		background-image: url("./images/image.jpg");
 		background-size: cover;
 	}
+	button:hover
+	{
+  	background-color: lightblue;
+	}
 	.white-page-line{
 		margin-top: 20px;
 		margin-left: 10px;
@@ -29,7 +33,7 @@
 		bottom: 65%;
 	}
 	#add-icon{
-		width: 22%;
+		width: 15%;
 		padding-top: 2%;
 		position:relative;
 		top:7px; /* i think this is a "hard" fix, so there's for sure a better way to align
@@ -86,6 +90,12 @@
 		height: 100%;
 		border-radius: 0px;
 	}
+	#CreateAccountDiv {
+		background-color: white;
+		margin: 0% 0% 0% 0%;
+		height: 100%;
+		border-radius: 0px;
+	}
 	#header {
 		background-color: none;
 		height: 5%;
@@ -93,7 +103,46 @@
 	#top-info {
 		display:flex;
 		justify-content: center;
+		align-items: center;
 		margin-top: 4%;
+	}
+	#contains-buttons{
+		background-color: none;
+		display:flex;
+		flex-direction: row;
+		margin-left:
+	}
+	#CreateButton:hover{
+		background-color: lightblue;
+	}
+	#CreateButton {
+		display: inline-block;
+		background: #215b81;
+		font-weight: bold;
+		border-color: #3c4d57;
+	  border-style: solid;
+	  border-width: 2px;
+	  border-radius: 50px;
+	  margin-bottom: 5px;
+	  margin-right: 5px;
+		margin-left: 10%;
+	  height: 35px;
+	  margin-top: 17px;
+	  width: 30%;
+		color: white;
+	}
+	#CancelButton {
+		display: inline-block;
+		border-color: #CBC3E3;
+		border-style: solid;
+		border-width: 2px;
+		border-radius: 50px;
+		margin-bottom: 5px;
+		margin-right: 5px;
+		height: 35px;
+		margin-top: 17px;
+		font-weight: bold;
+		width: 30%;
 	}
 	#profile-pic {
 		border-radius: 50%;
@@ -101,6 +150,14 @@
 		height: 11%;
 		margin-left: 5%;
 		margin-top: 5%;
+		margin-bottom: .5%;
+	}
+	#create-profile-pic {
+		border-radius: 50%;
+		width: 15%;
+		height: 20%;
+		margin-left: 0%;
+		margin-top: 1.4%;
 		margin-bottom: .5%;
 	}
 	#profile-name {
@@ -111,10 +168,11 @@
 		margin-bottom: .5%;
 	}
 	#secondary-info {
+		align-items: center;
 		font-family: Arial, sans-serif;
 		font-size: 20pt;
-		margin-left: 7%;
-	}
+		margin-bottom: 5%;
+		}
 	#contact-subtitle {
 		color: white;
 		font-family: Arial, sans-serif;
@@ -122,6 +180,29 @@
 		margin-top: 2%;
 		margin-bottom: .5%;
 		margin-left: 3%;
+	}
+	.inputContainer {
+		background-color: none;
+		width: 80%;
+		height: 47%;
+		vertical-align: middle;
+		padding: 10%;
+		padding-top: 3%;
+		margin-left: 10%;
+		overflow: none;
+	}
+	.round-borders {
+	  border-color: #3c4d57;
+	  border-style: solid;
+	  border-width: 2px;
+	  border-radius: 50px;
+	  margin-bottom: 14px;
+		padding-left: 30px;
+		height: 50px;
+		width: 70%;
+	}
+	.fieldText {
+		font-size: 17px;
 	}
 	::-webkit-scrollbar-corner {
 		background: none;
