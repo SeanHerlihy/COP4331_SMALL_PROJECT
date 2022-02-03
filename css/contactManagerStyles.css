@@ -92,26 +92,28 @@
 	}
 	#top-info {
 		display:flex;
+		justify-content: center;
+		margin-top: 4%;
 	}
 	#profile-pic {
 		border-radius: 50%;
 		width: 11%;
 		height: 11%;
 		margin-left: 5%;
-		margin-top: 3%;
+		margin-top: 5%;
 		margin-bottom: .5%;
 	}
 	#profile-name {
 		font-family: Arial, sans-serif;
 		margin-left: 3%;
-		margin-top: 6%;
+		margin-top: 7%;
 		font-size: 35pt;
 		margin-bottom: .5%;
 	}
 	#secondary-info {
 		font-family: Arial, sans-serif;
 		font-size: 20pt;
-		margin-left: 1%;
+		margin-left: 7%;
 	}
 	#contact-subtitle {
 		color: white;
