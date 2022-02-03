@@ -1,4 +1,4 @@
-	body {
+		body {
 		background-image: url("./images/image.jpg");
 		background-size: cover;
 	}
@@ -24,6 +24,34 @@
 		background-size: 30px;
 		background-position: 2%;
 		padding-left: 6%;
+	}
+	.topBarIcons{
+		width: 2%;
+		margin-bottom: 0.5%;
+		margin-left: 1%;
+	}
+	#welcometext{
+		font-family: Arial, sans-serif;
+		margin-left: 1%;
+		display: inline-block;
+		position: relative;
+		bottom: 25%;
+	}
+	#topbar{
+		height: 8%;
+		margin:0 auto;
+		background-color: gray;
+	}
+	#LogOutButton{
+		border-color: #CBC3E3;
+		border-style: solid;
+		border-width: 2px;
+		margin-left: 93%;
+		position: relative;
+		bottom: 210%;
+		height: 35px;
+		margin-top: 17px;
+		font-weight: bold;
 	}
 	/* all the icons */
 	#edit-icon{
