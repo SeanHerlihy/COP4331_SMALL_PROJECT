@@ -13,7 +13,7 @@ function doRegister()
 
 	if(login == "")
 	{
-		document.getElementById("CreateError").innerHTML = "* Please enter a user name.";
+		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
 		return;
 	}
 	
@@ -25,7 +25,7 @@ function doRegister()
 
 	if(pass != confirmPass)
 	{
-		document.getElementById("CreateError").innerHTML = "* Passwords do not match.";
+		document.getElementById("CreateError").innerHTML = "Passwords do not match.";
 		return;
 	}
 
