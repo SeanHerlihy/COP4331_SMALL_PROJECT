@@ -1,26 +1,26 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
-var userId = 0;
-let fName = "";
-let lName = "";
+let userId = 0;
+let globalFName = "";
+let globalLName = "";
 
 function createClick()
 {
-	var fName = document.getElementById("FirstName").value;
-	var lName = document.getElementById("LastName").value;
-	var email = document.getElementById("Email").value;
-	var pNumber = document.getElementById("PhoneNumber").value;
-	var dob = document.getElementById("Birthday").value;
+	let fName = document.getElementById("FirstName").value;
+	let lName = document.getElementById("LastName").value;
+	let email = document.getElementById("Email").value;
+	let pNumber = document.getElementById("PhoneNumber").value;
+	let dob = document.getElementById("Birthday").value;
 	
-	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
+	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
 	createContact(args);
 }
 
 function createContact(args)
 {
-	var jsonPayload = JSON.stringify(args);
-	var url = urlBase + 'LAMPAPI/addContact.' + extension;
+	let jsonPayload = JSON.stringify(args);
+	let url = urlBase + 'LAMPAPI/addContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -58,9 +58,9 @@ function createContact(args)
 
 function editContact(args)
 {
-	var tmp = {contactId:args[0], firstName:args[1], lastName:args[2], address:args[3], email:args[4], phone:args[5]};
-	var jsonPayload = JSON.stringify(tmp);
-	var url = urlBase + 'LAMPAPI/editContact.' + extension;
+	let tmp = {contactId:args[0], firstName:args[1], lastName:args[2], address:args[3], email:args[4], phone:args[5]};
+	let jsonPayload = JSON.stringify(tmp);
+	let url = urlBase + 'LAMPAPI/editContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -99,9 +99,9 @@ function editContact(args)
 
 function deleteContact(contactId)
 {
-	var tmp = {userId:userId, contactId:contactId};
-	var jsonPayload = JSON.stringify(tmp);
-	var url = urlBase + 'LAMPAPI/deleteContact.' + extension;
+	let tmp = {userId:userId, contactId:contactId};
+	let jsonPayload = JSON.stringify(tmp);
+	let url = urlBase + 'LAMPAPI/deleteContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -149,7 +149,7 @@ function readCookie()
 	userId = -1;
 	let data = document.cookie;
 	let splits = data.split(",");
-	for(var i = 0; i < splits.length; i++)
+	for(let i = 0; i < splits.length; i++)
 	{
 		let thisOne = splits[i].trim();
 		let tokens = thisOne.split("=");
