@@ -1,6 +1,7 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
+<<<<<<< Updated upstream
 let userId = 0;
 let globalFName = "";
 let globalLName = "";
@@ -14,6 +15,21 @@ function createClick()
 	let dob = document.getElementById("Birthday").value;
 	
 	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
+=======
+var userId = 0;
+let uFName = "";
+let uLName = "";
+
+function createClick()
+{
+	var fName = document.getElementById("").value;
+	var lName = document.getElementById("").value;
+	var email = document.getElementById("").value;
+	var pNumber = document.getElementById("").value;
+	var dob = document.getElementById("").value;
+
+	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
+>>>>>>> Stashed changes
 	createContact(args);
 }
 
@@ -155,11 +171,11 @@ function readCookie()
 		let tokens = thisOne.split("=");
 		if( tokens[0] == "FirstName" )
 		{
-			ftName = tokens[1];
+			uFName = tokens[1];
 		}
 		else if( tokens[0] == "LastName" )
 		{
-			lName = tokens[1];
+			uLName = tokens[1];
 		}
 		else if( tokens[0] == "UserId" )
 		{
@@ -173,6 +189,6 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("UserName").innerHTML = "Logged in as " + fName + " " + lName;
+		document.getElementById("UserName").innerHTML = "Logged in as " + uFName + " " + uLName;
 	}
 }
