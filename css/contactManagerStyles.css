@@ -31,10 +31,11 @@ button:hover
 	padding-left: 6%;
 }
 #PhoneInfoText {
-	margin-left: 30px;
+	margin-left: 4%;
 }
 #phoneLabel {
-	margin-left: 86px;
+	/* for left justified */
+	margin-left: 0px;
 }
 #EmailDiv {
 	display: flex;
@@ -42,10 +43,10 @@ button:hover
 	position: left;
 	background-size: 30px;
 	background-position: 2%;
-	padding-left: 6%;
+	margin-left: -3%;
 }
 #EmailInfoText {
-	margin-left: 30px;
+	margin-left: 4%;
 }
 #emailLabel {
 	margin-left: 84px;
@@ -56,10 +57,10 @@ button:hover
 	position: left;
 	background-size: 30px;
 	background-position: 2%;
-	padding-left: 6%;
+	margin-left: -1%;
 }
 #BirthInfoText {
-	margin-left: 30px;
+	margin-left: 2%;
 }
 #birthLabel {
 	margin-left: 68px;
@@ -86,9 +87,9 @@ button:hover
 	border-color: #CBC3E3;
 	border-style: solid;
 	border-width: 2px;
-	margin-left: 93%;
+	margin-left: 94%;
 	position: relative;
-	bottom: 210%;
+	bottom: 180%;
 	height: 35px;
 	margin-top: 17px;
 	font-weight: bold;
@@ -107,8 +108,6 @@ button:hover
 	height: 20px;
 	width: 20px;
 
- /* i think this is a "hard" fix, so there's for sure a better way to align
-the image with the text */
 }
 #SearchAddDiv {
 	display: flex;
@@ -286,9 +285,9 @@ the image with the text */
 }
 #profile-pic {
 	border-radius: 50%;
-	width: 11%;
-	height: 11%;
-	margin-left: 5%;
+	width: 17%;
+	height: 17%;
+	margin-left: -4%;
 	margin-top: 5%;
 	margin-bottom: .5%;
 }
@@ -303,7 +302,7 @@ the image with the text */
 #profile-name {
 	font-family: Arial, sans-serif;
 	margin-left: 3%;
-	margin-top: 7%;
+	margin-top: 10%;
 	font-size: 35pt;
 	margin-bottom: .5%;
 }
