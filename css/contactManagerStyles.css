@@ -1,257 +1,281 @@
-		body {
-		background-image: url("./images/image.jpg");
-		background-size: cover;
-	}
-	button:hover
-	{
-  	background-color: lightblue;
-	}
-	.white-page-line{
-		margin-top: 20px;
-		margin-left: 10px;
-		margin-right: 10px;
-	}
-	.Username{
-		background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
-		position: left;
-		background-size: 30px;
-		background-position: 2%;
-		padding-left: 6%;
-	}
-	.phone-number{
-		background: url(https://i.ibb.co/x5zxFw5/2055904.png) no-repeat;
-		position: left;
-		background-size: 30px;
-		background-position: 2%;
-		padding-left: 6%;
-	}
-	.topBarIcons{
-		width: 2%;
-		margin-bottom: 0.5%;
-		margin-left: 1%;
-	}
-	#welcometext{
-		font-family: Arial, sans-serif;
-		margin-left: 1%;
-		display: inline-block;
-		position: relative;
-		bottom: 25%;
-	}
-	#topbar{
-		height: 8%;
-		margin:0 auto;
-		background-color: gray;
-	}
-	#LogOutButton{
-		border-color: #CBC3E3;
-		border-style: solid;
-		border-width: 2px;
-		margin-left: 93%;
-		position: relative;
-		bottom: 210%;
-		height: 35px;
-		margin-top: 17px;
-		font-weight: bold;
-	}
-	/* all the icons */
+body {
+	background-image: url("./images/image.jpg");
+	background-size: cover;
+}
+button:hover
+{
+	background-color: lightblue;
+}
+.white-page-line{
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.Username{
+	background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+	position: left;
+	background-size: 30px;
+	background-position: 2%;
+	padding-left: 6%;
+}
+.phone-number{
+	background: url(https://i.ibb.co/x5zxFw5/2055904.png) no-repeat;
+	position: left;
+	background-size: 30px;
+	background-position: 2%;
+	padding-left: 6%;
+}
+.topBarIcons{
+	width: 2%;
+	margin-bottom: 0.5%;
+	margin-left: 1%;
+}
+#welcometext{
+	font-family: Arial, sans-serif;
+	margin-left: 1%;
+	display: inline-block;
+	position: relative;
+	bottom: 25%;
+}
+#topbar{
+	height: 8%;
+	margin: auto;
+	background-color: gray;
+	width: 100%;
+}
+#LogOutButton{
+	border-color: #CBC3E3;
+	border-style: solid;
+	border-width: 2px;
+	margin-left: 93%;
+	position: relative;
+	bottom: 210%;
+	height: 35px;
+	margin-top: 17px;
+	font-weight: bold;
+}
+/* all the icons */
 	#edit-icon{
-		width: 10%;
-		padding-left:75%;
-		position:relative;
-		bottom: 65%;
-	}
-	#add-icon{
-		background-color: none;
-		padding-top: 2%;
-		position:relative;
-		height: 20px;
-		width: 20px;
+	width: 10%;
+	padding-left:75%;
+	position:relative;
+	bottom: 65%;
+}
+#add-icon{
+	background-color: none;
+	padding-top: 2%;
+	position:relative;
+	height: 20px;
+	width: 20px;
 
-		 /* i think this is a "hard" fix, so there's for sure a better way to align
-		the image with the text */
-	}
+ /* i think this is a "hard" fix, so there's for sure a better way to align
+the image with the text */
+}
 	#addContactButt {
-		height: 20px;
-		width: 20px;
-	}
+	height: 20px;
+	width: 20px;
+}
 	#delete-icon{
-		width: 10%;
-		position:relative;
-		bottom: 65%;
-	}
+	width: 10%;
+	position:relative;
+	bottom: 65%;
+}
 
-	#inner-screen {
-		display: flex;
-		height: 95%;
-	}
-	#scroll-bar {
-		background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
-		height: 100%;
-		margin-right: 0%;
-		overflow-y: scroll;
-		text-align: center;
-		border-radius: 0px;
-	}
-	#searchInput {
-	 background-image: url(https://i.ibb.co/KLPnryx/icons8-search-client-32.png); /* Add a search icon to input */
-	 background-position: 5px 5px; /* Position the search icon */
-	 background-size: 30px;
-	 background-repeat: no-repeat; /* Do not repeat the icon image */
-	 width: 80%; /* Full-width */
-	 font-size: 16px; /* Increase font-size */
-	 padding: 12px 20px 12px 40px; /* Add some padding */
-	 border-radius: 30px;
-	 border: 1px solid #ddd; /* Add a grey border */
-	 margin-top: 4%;
-	 margin-left: 3%;
-	 margin-bottom: 3%; /* Add some space below the input */
-	}
-	#names {
-		color: white;
-		display: inline-block;
-		text-align: left;
-		line-height: 2.0;
-		font-family: 'Helvetica', sans-serif;
-		font-size: 18pt;
-	}
-	#info {
-		background-color: white;
-		flex: 3.5;
-		margin: 0% 0% 0% 0%;
-		height: 100%;
-		border-radius: 0px;
-	}
-	#CreateAccountDiv {
-		background-color: white;
-		margin: 0% 0% 0% 0%;
-		height: 100%;
-		border-radius: 0px;
-		overflow: auto;
-	}
-	#header {
-		background-color: none;
-		height: 5%;
-	}
-	#top-info {
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: 4%;
-	}
-	#contains-buttons{
-		background-color: none;
-		display:flex;
-		flex-direction: row;
-		margin-left: 10%;
-		margin-top: 3%;
-	}
-	#CreateButton:hover{
-		background-color: lightblue;
-	}
-	#CreateButton {
-		display: inline-block;
-		background: #215b81;
-		font-weight: bold;
-		border-color: #3c4d57;
-	  border-style: solid;
-	  border-width: 2px;
-	  border-radius: 50px;
-	  margin-bottom: 5px;
-	  margin-right: 5px;
-		margin-left: 10%;
-	  height: 50px;
-	  margin-top: 17px;
-	  width: 40%;
-		color: white;
-	}
-	#CancelButton {
-		display: inline-block;
-		border-color: #CBC3E3;
-		border-style: solid;
-		border-width: 2px;
-		border-radius: 50px;
-		margin-bottom: 5px;
-		margin-right: 5px;
-		height: 50px;
-		margin-top: 17px;
-		font-weight: bold;
-		width: 40%;
-	}
-	#profile-pic {
-		border-radius: 50%;
-		width: 11%;
-		height: 11%;
-		margin-left: 5%;
-		margin-top: 5%;
-		margin-bottom: .5%;
-	}
-	#create-profile-pic {
-		border-radius: 50%;
-		width: 15%;
-		height: 20%;
-		margin-left: 0%;
-		margin-top: 1.4%;
-		margin-bottom: .5%;
-	}
-	#profile-name {
-		font-family: Arial, sans-serif;
-		margin-left: 3%;
-		margin-top: 7%;
-		font-size: 35pt;
-		margin-bottom: .5%;
-	}
-	#secondary-info {
-		background-color: none;
-		align-items: center;
-		font-family: Arial, sans-serif;
-		font-size: 20pt;
-		margin-bottom: 5%;
-		}
-	#contact-subtitle {
-		color: white;
-		font-family: Arial, sans-serif;
-		font-size: 30pt;
-		margin-top: 2%;
-		margin-bottom: .5%;
-		margin-left: 3%;
-	}
-	.inputContainer {
-		background-color: none;
-		width: 60%;
-		height: 47%;
-		vertical-align: middle;
-		margin:auto;
-		margin-top: 3%;
-		padding: 0%;
-	}
-	.round-borders {
-	  border-color: #3c4d57;
-	  border-style: solid;
-	  border-width: 2px;
-	  border-radius: 50px;
-	  margin-bottom: 14px;
-		padding-left: 30px;
-		height: 50px;
-		width: 100%;
-	}
-	.fieldText {
-		font-size: 17px;
-	}
-	::-webkit-scrollbar-corner {
-		background: none;
-	}
-	::-webkit-scrollbar {
-		width: 18px;
-	}
-	::-webkit-scrollbar-track {
-		border-radius: 0px;
-		background-color: #D6D6D6;
-		box-shadow: inset 0 0 12px #EAF7FA;
-	}
-	::-webkit-scrollbar-thumb {
-		border-radius: 0px;
-		background-color: #939393;
-	}
-	::-webkit-scrollbar-thumb:hover {
-		background-color: #717171;
-	}
+#inner-screen {
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height: 95%;
+	margin-left: 20%
+	background: red;
+}
+#scroll-bar {
+	background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
+	height: 100%;
+	margin-right: 0%;
+	overflow-y: scroll;
+	text-align: center;
+	border-radius: 0px;
+}
+#searchInput {
+	background-image: url(https://i.ibb.co/KLPnryx/icons8-search-client-32.png); /* Add a search icon to input */
+	background-position: 5px 5px; /* Position the search icon */
+	background-size: 30px;
+	background-repeat: no-repeat; /* Do not repeat the icon image */
+	width: 80%; /* Full-width */
+	font-size: 16px; /* Increase font-size */
+	padding: 12px 20px 12px 40px; /* Add some padding */
+	border-radius: 30px;
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-top: 4%;
+	margin-left: 3%;
+	margin-bottom: 3%; /* Add some space below the input */
+}
+#names {
+	color: white;
+	display: inline-block;
+	text-align: left;
+	line-height: 2.0;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 18pt;
+}
+#containsNames
+{
+
+}
+#FirstName {
+	color: white;
+	display: inline-block;
+	text-align: left;
+	line-height: 2.0;
+	font-family: 'Helvetica', sans-serif;
+}
+#LastName {
+	color: white;
+	display: inline-block;
+	text-align: left;
+	line-height: 2.0;
+	font-family: 'Helvetica', sans-serif;
+}
+#info {
+	background-color: white;
+	flex: 3.5;
+	margin: 0% 0% 0% 0%;
+	height: 100%;
+	border-radius: 0px;
+}
+#CreateAccountDiv {
+	background-color: white;
+	margin: 0% 0% 0% 0%;
+	height: 100%;
+	width:100%;
+	border-radius: 0px;
+	overflow: auto;
+}
+#header {
+	background-color: none;
+	height: 5%;
+}
+#top-info {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 4%;
+}
+#contains-buttons{
+	background-color: none;
+	display:flex;
+	flex-direction: row;
+	margin-left: 10%;
+	margin-top: 1%;
+}
+#CreateButton:hover{
+	background-color: lightblue;
+}
+#CreateButton {
+	display: inline-block;
+	background: #215b81;
+	font-weight: bold;
+	border-color: #3c4d57;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 50px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	margin-left: 10%;
+	height: 50px;
+	margin-top: 17px;
+	width: 40%;
+	color: white;
+}
+#CancelButton {
+	display: inline-block;
+	border-color: #CBC3E3;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 50px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	height: 50px;
+	margin-top: 17px;
+	font-weight: bold;
+	width: 40%;
+}
+#profile-pic {
+	border-radius: 50%;
+	width: 11%;
+	height: 11%;
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: .5%;
+}
+#create-profile-pic {
+	border-radius: 50%;
+	width: 15%;
+	height: 20%;
+	margin-left: 0%;
+	margin-top: 1.4%;
+	margin-bottom: .5%;
+}
+#profile-name {
+	font-family: Arial, sans-serif;
+	margin-left: 3%;
+	margin-top: 7%;
+	font-size: 35pt;
+	margin-bottom: .5%;
+}
+#secondary-info {
+	background-color: none;
+	align-items: center;
+	font-family: Arial, sans-serif;
+	font-size: 20pt;
+	margin-bottom: 5%;
+}
+#contact-subtitle {
+	color: white;
+	font-family: Arial, sans-serif;
+	font-size: 30pt;
+	margin-top: 2%;
+	margin-bottom: .5%;
+	margin-left: 3%;
+}
+.inputContainer {
+	background-color: none;
+	width: 60%;
+	height: 47%;
+	vertical-align: middle;
+	margin:auto;
+	margin-top: 3%;
+	padding: 0%;
+}
+.round-borders {
+	border-color: #3c4d57;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 50px;
+	margin-bottom: 3%;
+	padding-left: 3%;
+	height: 12%;
+	width: 100%;
+}
+.fieldText {
+	font-size: 17px;
+}
+::-webkit-scrollbar-corner {
+	background: none;
+}
+::-webkit-scrollbar {
+	width: 18px;
+}
+::-webkit-scrollbar-track {
+	border-radius: 0px;
+	background-color: #D6D6D6;
+	box-shadow: inset 0 0 12px #EAF7FA;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 0px;
+	background-color: #939393;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #717171;
+}

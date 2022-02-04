@@ -17,9 +17,10 @@
     <div id="inner-screen">
       <div id="scroll-bar">
         <!––add contacts subtitle––>
-       <h2 id="contact-subtitle">Contacts <button type = "submit" id="add-icon"
-          alt="add contact icon" onclick = "createClick();"> <img id ="addContactButt" src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png"> </button></h2>
-        <input type="text" id="searchInput" placeholder="Search..">
+       <h2 id="contact-subtitle">Contacts </h2>
+        <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon"
+           alt="add contact icon" onclick = "createContact();"> <img id ="addContactButt" src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png"> </button>>
+
         <p id="names">
         Peter Mullen <br>
         Tessa Chapman <br>
@@ -91,8 +92,11 @@
         <!-- Input Fields for contact -->
         <div class="inputContainer">
           <h3 class="fieldText"> Name: </h3>
-          <input type="text" id = "Name" placeholder = "Name" class = "round-borders">
-          <h3 class="fieldText"> E-mail Address: </h3>
+					<div id = "containsNames">
+          	<input type="text" id = "FirstName" placeholder = "First Name" class = "round-borders">
+						<input type="text" id = "LastName" placeholder = "Last Name" class = "round-borders">
+					</div>
+					<h3 class="fieldText"> E-mail Address: </h3>
           <input type="text" id = "Email" placeholder = "E-mail" class = "round-borders">
           <h3 class="fieldText"> Phone Number: </h3>
           <input type="text" id = "PhoneNumber" placeholder = "Phone #" class = "round-borders">
