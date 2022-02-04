@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="./css/contactManagerStyles.css">
     <script type="text/javascript" src="./js/contact.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   </head>
   <body onload="login();">
@@ -20,7 +21,8 @@
         <!––add contacts subtitle––>
        <h2 id="contact-subtitle">Contacts </h2>
         <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon"
-           alt="add contact icon" onclick = "createClick();"> <img id ="addContactButt" src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png"> </button>>
+           alt="add contact icon" onclick = "createClick();"> <img id ="addContactButt" src="https://i.ibb.co/DrybB4x/transparent-contact-icon-601b92afe026a1-6825716416124197599181.jpg"> </button>>
+        <hr class = white-page-line>
 
         <p id="names">
         Peter Mullen <br>
@@ -60,7 +62,7 @@
         Tucker Neal<br>
         </p>
       </div>
-    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)
+    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)-->
     <div id="info">
       <div id="top-info">
         <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
@@ -74,23 +76,35 @@
       </div>
 			<hr class = white-page-line>
       <div id="secondary-info">
-       	<p class = "Username"> Username: catsrock21 </p>
-				<p class = "phone-number"> Phone Number: (294)-294-1383 </p>
+        <div id="EmailDiv">
+          <p> <i class="far fa-envelope"></i> E-mail: </p>
+          <p id = "EmailInfoText"> helloworld@gmail.com </p>
+        </div>
+
+        <div id="PhoneNumberDiv">
+          <p> <i class="fas fa-phone"></i> Phone Number: </p>
+          <p id = "PhoneInfoText"> (294)-294-1383 </p>
+        </div>
+
+        <div id="BirthdayDiv">
+          <p> <i class="fas fa-birthday-cake"></i> Birthday: </p>
+          <p id = "BirthInfoText"> 01/01/2001</p>
+        </div>
+
       </div>
 			<hr class = white-page-line>
     </div>
-    -->
+
 
     <!-- Create Account Div Element (replaced by info div element when viewing a contact)-->
+    <!--
     <div id=CreateAccountDiv>
       <div id="top-info">
         <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
         <!––edit and delete icons, images are not transparent, but i am planning on creating the icons, so that's alright for now - amrit ––>
         <h2 id="profile-name"></h2>
       </div>
-			<hr class = white-page-line>
       <div id="secondary-info">
-        <!-- Input Fields for contact -->
         <div class="inputContainer">
 					<div id = "containsNames">
             <h3 class="fieldText"> First Name: </h3>
@@ -111,7 +125,7 @@
 				</div>
       </div>
     </div>
-
+  -->
 
 
   </div>
