@@ -18,16 +18,9 @@ button:hover
 	background-position: 2%;
 	padding-left: 6%;
 }
-#EmailDiv {
-	display: flex;
-	flex-direction: row;
-	position: left;
-	background-size: 30px;
-	background-position: 2%;
-	padding-left: 6%;
-}
-#EmailInfoText {
-	margin-left: 30px;
+.infoLabels {
+	text-align: right;
+	color:Gray;
 }
 #PhoneNumberDiv{
 	display: flex;
@@ -39,7 +32,23 @@ button:hover
 }
 #PhoneInfoText {
 	margin-left: 30px;
-
+}
+#phoneLabel {
+	margin-left: 86px;
+}
+#EmailDiv {
+	display: flex;
+	flex-direction: row;
+	position: left;
+	background-size: 30px;
+	background-position: 2%;
+	padding-left: 6%;
+}
+#EmailInfoText {
+	margin-left: 30px;
+}
+#emailLabel {
+	margin-left: 84px;
 }
 #BirthdayDiv {
 	display: flex;
@@ -51,7 +60,9 @@ button:hover
 }
 #BirthInfoText {
 	margin-left: 30px;
-
+}
+#birthLabel {
+	margin-left: 68px;
 }
 .topBarIcons{
 	width: 2%;
@@ -99,6 +110,23 @@ button:hover
  /* i think this is a "hard" fix, so there's for sure a better way to align
 the image with the text */
 }
+#SearchAddDiv {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px;
+}
+
+#AddContactButton {
+	height: 20%;
+	color: white;
+	border: solid;
+	padding: 7px;
+	margin-left: 5px;
+}
+#AddContactButton:hover {
+	color:#B6EDFF;
+}
 	#addContactButt {
 	height: 40px;
 	width: 40px;
@@ -120,13 +148,14 @@ the image with the text */
 #scroll-bar {
 	background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
 	height: 100%;
+	width: 25%;
 	margin-right: 0%;
 	overflow-y: scroll;
 	text-align: center;
 	border-radius: 0px;
 }
 #searchInput {
-	background-image: url(https://i.ibb.co/KLPnryx/icons8-search-client-32.png); /* Add a search icon to input */
+	background-image: url(https://i.ibb.co/qp7jfHD/search-Icon.png); /* Add a search icon to input */
 	background-position: 5px 5px; /* Position the search icon */
 	background-size: 30px;
 	background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -171,6 +200,34 @@ the image with the text */
 	border-radius: 0px;
 	overflow: auto;
 }
+#EditDeleteHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-right: 1%;
+}
+.clickableAwesomeFont {
+     cursor: pointer
+}
+#EditButton {
+	margin-right: 1%;
+	color: #1893BD;
+	background: none;
+	border: none;
+	padding: 1%;
+}
+#EditButton:hover {
+	color: #00506B;
+}
+#DeleteButton {
+	color: red;
+	background: none;
+	border: none;
+	padding: 1%;
+}
+#DeleteButton:hover {
+	color: #AD0000;
+}
 #CreateAccountDiv {
 	background-color: white;
 	margin: 0% 0% 0% 0%;
@@ -185,9 +242,8 @@ the image with the text */
 }
 #top-info {
 	display:flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 5%;
+	justify-content: flex-start;
+	margin-left: 7%;
 }
 #contains-buttons{
 	background-color: none;
@@ -262,10 +318,9 @@ the image with the text */
 #contact-subtitle {
 	color: white;
 	font-family: Arial, sans-serif;
-	font-size: 30pt;
-	margin-top: 2%;
+	font-size: 26pt;
+	margin-top: 5%;
 	margin-bottom: .5%;
-	margin-left: 3%;
 }
 .inputContainer {
 	background-color: none;

@@ -20,8 +20,14 @@
       <div id="scroll-bar">
         <!––add contacts subtitle––>
        <h2 id="contact-subtitle">Contacts </h2>
+       <!-- Commenting out older Add Contact Button
         <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon"
            alt="add contact icon" onclick = "createClick();"> <img id ="addContactButt" src="https://i.ibb.co/DrybB4x/transparent-contact-icon-601b92afe026a1-6825716416124197599181.jpg"> </button>>
+        -->
+        <div id="SearchAddDiv">
+          <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
+          <span class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"> <i class="fas fa-user-plus fa-lg" onclick="createClick();"></i> </span>
+        </div>
         <hr class = white-page-line>
 
         <p id="names">
@@ -64,30 +70,31 @@
       </div>
     <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)-->
     <div id="info">
+      <h1 id="EditDeleteHeader">
+        <span class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon"> <i class="far fa-edit fa-lg"></i> </span>
+        <span class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-lg"></i> </span>
+      </h1>
       <div id="top-info">
         <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
         <!––edit and delete icons, images are not transparent, but i am planning on creating the icons, so that's alright for now - amrit ––>
-        <h2 id="profile-name">Mr. Flufficans <img id="edit-icon"
-          src="https://i.ibb.co/QDs09dh/download-1.png" alt="edit contact icon">
-          <img id="delete-icon"
-          src="https://i.ibb.co/zZfYZYm/47-471196-icon-trash-png-font-awesome-trash-o-transparent.jpg"
-          alt="edit contact icon">
-        </h2>
+        <h2 id="profile-name">Mr. Flufficans</h2>
       </div>
 			<hr class = white-page-line>
       <div id="secondary-info">
-        <div id="EmailDiv">
-          <p> <i class="far fa-envelope"></i> E-mail: </p>
-          <p id = "EmailInfoText"> helloworld@gmail.com </p>
-        </div>
-
         <div id="PhoneNumberDiv">
-          <p> <i class="fas fa-phone"></i> Phone Number: </p>
+          <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
           <p id = "PhoneInfoText"> (294)-294-1383 </p>
         </div>
+        <hr>
+
+        <div id="EmailDiv">
+          <p class="infoLabels" id="emailLabel"> <i class="far fa-envelope"></i> E-mail </p>
+          <p id = "EmailInfoText"> helloworld@gmail.com </p>
+        </div>
+        <hr>
 
         <div id="BirthdayDiv">
-          <p> <i class="fas fa-birthday-cake"></i> Birthday: </p>
+          <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
           <p id = "BirthInfoText"> 01/01/2001</p>
         </div>
 
