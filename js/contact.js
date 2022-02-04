@@ -5,15 +5,14 @@ var userId = 0;
 
 function createClick()
 {
-	var fName = document.getElementById("").value;
-	var lName = document.getElementById("").value;
-	var email = document.getElementById("").value;
-	var pNumber = document.getElementById("").value;
-	var dob = document.getElementById("").value;
+	var fName = document.getElementById("FirstName").value;
+	var lName = document.getElementById("LastName").value;
+	var email = document.getElementById("Email").value;
+	var pNumber = document.getElementById("PhoneNumber").value;
+	var dob = document.getElementById("Birthday").value;
 	
 	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
 	createContact(args);
-	return;
 }
 
 function createContact(args)
