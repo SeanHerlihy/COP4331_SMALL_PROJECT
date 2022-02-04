@@ -2,9 +2,10 @@
 <html>
   <head>
     <link rel="stylesheet" href="./css/contactManagerStyles.css">
+    <script type="text/javascript" src="./js/contact.js"></script>
 
   </head>
-  <body>
+  <body onload="login();">
     <div id="topbar">
       <!-- image is temporary -->
       <img src="https://i.ibb.co/s1J54nS/80-805523-default-avatar-svg-png-icon-free-download-264157.jpg"
@@ -91,16 +92,17 @@
       <div id="secondary-info">
         <!-- Input Fields for contact -->
         <div class="inputContainer">
-          <h3 class="fieldText"> Name: </h3>
 					<div id = "containsNames">
+            <h3 class="fieldText"> First Name: </h3>
           	<input type="text" id = "FirstName" placeholder = "First Name" class = "round-borders">
+            <h3 class="fieldText"> Last Name: </h3>
 						<input type="text" id = "LastName" placeholder = "Last Name" class = "round-borders">
 					</div>
 					<h3 class="fieldText"> E-mail Address: </h3>
           <input type="text" id = "Email" placeholder = "E-mail" class = "round-borders">
           <h3 class="fieldText"> Phone Number: </h3>
           <input type="text" id = "PhoneNumber" placeholder = "Phone #" class = "round-borders">
-          <h3 class="fieldText"> Date of Birth: </h3>
+          <h3 class="fieldText"> Date of Birth (mm/dd/yyyy): </h3>
           <input type="text" id = "Birthday" placeholder = "mm/dd/yyyy" class = "round-borders">
           <div id = "contains-buttons">
 						<button type="submit" id = "CancelButton">Cancel</button>

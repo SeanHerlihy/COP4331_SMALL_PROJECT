@@ -124,14 +124,12 @@ the image with the text */
 
 }
 #FirstName {
-	color: white;
 	display: inline-block;
 	text-align: left;
 	line-height: 2.0;
 	font-family: 'Helvetica', sans-serif;
 }
 #LastName {
-	color: white;
 	display: inline-block;
 	text-align: left;
 	line-height: 2.0;
@@ -230,6 +228,7 @@ the image with the text */
 	font-family: Arial, sans-serif;
 	font-size: 20pt;
 	margin-bottom: 5%;
+	height: 100%;
 }
 #contact-subtitle {
 	color: white;
@@ -259,7 +258,7 @@ the image with the text */
 	width: 100%;
 }
 .fieldText {
-	font-size: 17px;
+	font-size: 80%;
 }
 ::-webkit-scrollbar-corner {
 	background: none;
