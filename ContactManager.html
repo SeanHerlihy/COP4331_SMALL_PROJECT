@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="./css/contactManagerStyles.css">
+
   </head>
   <body>
     <div id="topbar">
@@ -16,8 +17,8 @@
     <div id="inner-screen">
       <div id="scroll-bar">
         <!––add contacts subtitle––>
-       <h2 id="contact-subtitle">Contacts <img id="add-icon"
-         src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png" alt="add contact icon"> </h2>
+       <h2 id="contact-subtitle">Contacts <button type = "submit" id="add-icon"
+          alt="add contact icon" onclick = "createContact();"> <img id ="addContactButt" src="https://i.ibb.co/VHn5W8z/contact-icon-png-18.png"> </button></h2>
         <input type="text" id="searchInput" placeholder="Search..">
         <p id="names">
         Peter Mullen <br>
