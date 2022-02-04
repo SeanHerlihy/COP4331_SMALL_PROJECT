@@ -61,11 +61,18 @@
 		bottom: 65%;
 	}
 	#add-icon{
-		width: 15%;
+		background-color: none;
 		padding-top: 2%;
 		position:relative;
-		top:7px; /* i think this is a "hard" fix, so there's for sure a better way to align
+		height: 20px;
+		width: 20px;
+
+		 /* i think this is a "hard" fix, so there's for sure a better way to align
 		the image with the text */
+	}
+	#addContactButt {
+		height: 20px;
+		width: 20px;
 	}
 	#delete-icon{
 		width: 10%;
@@ -75,14 +82,10 @@
 
 	#inner-screen {
 		display: flex;
-		margin: 0% 0% 0% 0%;
 		height: 95%;
-		border-radius: 0px;
-
 	}
 	#scroll-bar {
 		background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
-		flex: 1;
 		height: 100%;
 		margin-right: 0%;
 		overflow-y: scroll;
@@ -123,6 +126,7 @@
 		margin: 0% 0% 0% 0%;
 		height: 100%;
 		border-radius: 0px;
+		overflow: auto;
 	}
 	#header {
 		background-color: none;
@@ -138,7 +142,8 @@
 		background-color: none;
 		display:flex;
 		flex-direction: row;
-		margin-left:
+		margin-left: 10%;
+		margin-top: 3%;
 	}
 	#CreateButton:hover{
 		background-color: lightblue;
@@ -154,9 +159,9 @@
 	  margin-bottom: 5px;
 	  margin-right: 5px;
 		margin-left: 10%;
-	  height: 35px;
+	  height: 50px;
 	  margin-top: 17px;
-	  width: 30%;
+	  width: 40%;
 		color: white;
 	}
 	#CancelButton {
@@ -167,10 +172,10 @@
 		border-radius: 50px;
 		margin-bottom: 5px;
 		margin-right: 5px;
-		height: 35px;
+		height: 50px;
 		margin-top: 17px;
 		font-weight: bold;
-		width: 30%;
+		width: 40%;
 	}
 	#profile-pic {
 		border-radius: 50%;
@@ -196,6 +201,7 @@
 		margin-bottom: .5%;
 	}
 	#secondary-info {
+		background-color: none;
 		align-items: center;
 		font-family: Arial, sans-serif;
 		font-size: 20pt;
@@ -211,13 +217,12 @@
 	}
 	.inputContainer {
 		background-color: none;
-		width: 80%;
+		width: 60%;
 		height: 47%;
 		vertical-align: middle;
-		padding: 10%;
-		padding-top: 3%;
-		margin-left: 10%;
-		overflow: none;
+		margin:auto;
+		margin-top: 3%;
+		padding: 0%;
 	}
 	.round-borders {
 	  border-color: #3c4d57;
@@ -227,7 +232,7 @@
 	  margin-bottom: 14px;
 		padding-left: 30px;
 		height: 50px;
-		width: 70%;
+		width: 100%;
 	}
 	.fieldText {
 		font-size: 17px;

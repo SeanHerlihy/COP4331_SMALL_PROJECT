@@ -5,10 +5,22 @@ var userId = 0;
 let fName = "";
 let lName = "";
 
+function createClick()
+{
+	var fName = document.getElementById("").value;
+	var lName = document.getElementById("").value;
+	var email = document.getElementById("").value;
+	var pNumber = document.getElementById("").value;
+	var dob = document.getElementById("").value;
+	
+	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
+	createContact(args);
+	return;
+}
+
 function createContact(args)
 {
-	var tmp = {id:userId, firstName:args[1], lastName:args[2], address:args[3], email:args[4], phone:args[5]};
-	var jsonPayload = JSON.stringify(tmp);
+	var jsonPayload = JSON.stringify(args);
 	var url = urlBase + 'LAMPAPI/addContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
