@@ -1,21 +1,6 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
-<<<<<<< Updated upstream
-let userId = 0;
-let globalFName = "";
-let globalLName = "";
-
-function createClick()
-{
-	let fName = document.getElementById("FirstName").value;
-	let lName = document.getElementById("LastName").value;
-	let email = document.getElementById("Email").value;
-	let pNumber = document.getElementById("PhoneNumber").value;
-	let dob = document.getElementById("Birthday").value;
-	
-	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
-=======
 var userId = 0;
 let uFName = "";
 let uLName = "";
@@ -29,7 +14,6 @@ function createClick()
 	var dob = document.getElementById("").value;
 
 	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
->>>>>>> Stashed changes
 	createContact(args);
 }
 
