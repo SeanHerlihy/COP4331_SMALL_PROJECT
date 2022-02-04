@@ -5,6 +5,12 @@ var userId = 0;
 let uFName = "";
 let uLName = "";
 
+function login()
+{
+	readCookie();
+	document.getElementById("welcometext").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
+}
+
 function createClick()
 {
 	var fName = document.getElementById("").value;
