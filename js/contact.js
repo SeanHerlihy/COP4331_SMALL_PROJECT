@@ -1,7 +1,7 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
-var userId = 0;
+let userId = 0;
 let uFName = "";
 let uLName = "";
 
@@ -13,13 +13,13 @@ function login()
 
 function createClick()
 {
-	var fName = document.getElementById("").value;
-	var lName = document.getElementById("").value;
-	var email = document.getElementById("").value;
-	var pNumber = document.getElementById("").value;
-	var dob = document.getElementById("").value;
+	let fName = document.getElementById("FirstName").value;
+	let lName = document.getElementById("LastName").value;
+	let email = document.getElementById("Email").value;
+	let pNumber = document.getElementById("PhoneNumber").value;
+	let dob = document.getElementById("Birthday").value;
 
-	var args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
+	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
 	createContact(args);
 }
 
@@ -62,10 +62,22 @@ function createContact(args)
 	}
 }
 
+function editClick()
+{
+	let ID = document.getElementById("EditID").value;
+	let fName = document.getElementById("EditFirstName").value;
+	let lName = document.getElementById("EditLastName").value;
+	let email = document.getElementById("EditEmail").value;
+	let pNumber = document.getElementById("EditPhoneNumber").value;
+	let dob = document.getElementById("EditBirthday").value;
+
+	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId, ID:ID};
+	editContact(args);
+}
+
 function editContact(args)
 {
-	let tmp = {contactId:args[0], firstName:args[1], lastName:args[2], address:args[3], email:args[4], phone:args[5]};
-	let jsonPayload = JSON.stringify(tmp);
+	let jsonPayload = JSON.stringify(args);
 	let url = urlBase + 'LAMPAPI/editContact.' + extension;
 
 	let xhr = new XMLHttpRequest();

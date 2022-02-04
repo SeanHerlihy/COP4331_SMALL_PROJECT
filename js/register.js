@@ -16,6 +16,12 @@ function doRegister()
 		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
 		return;
 	}
+	
+	if(pass == "")
+	{
+		document.getElementById("CreateError").innerHTML = "* Please enter a password.";
+		return;
+	}
 
 	if(pass != confirmPass)
 	{
