@@ -29,6 +29,7 @@ button:hover
 	background-size: 30px;
 	background-position: 2%;
 	padding-left: 6%;
+	margin-left: 5%;
 }
 #PhoneInfoText {
 	margin-left: 4%;
@@ -43,13 +44,14 @@ button:hover
 	position: left;
 	background-size: 30px;
 	background-position: 2%;
-	margin-left: -3%;
+	padding-left: 6%;
+	margin-left: 5%;
 }
 #EmailInfoText {
 	margin-left: 4%;
 }
 #emailLabel {
-	margin-left: 84px;
+	margin-left: 0px;
 }
 #BirthdayDiv {
 	display: flex;
@@ -57,13 +59,14 @@ button:hover
 	position: left;
 	background-size: 30px;
 	background-position: 2%;
-	margin-left: -1%;
+	padding-left: 6%;
+	margin-left: 4%;
 }
 #BirthInfoText {
-	margin-left: 2%;
+	margin-left: 4%;
 }
 #birthLabel {
-	margin-left: 68px;
+	margin-left: 0px;
 }
 .topBarIcons{
 	width: 2%;
@@ -242,7 +245,7 @@ button:hover
 #top-info {
 	display:flex;
 	justify-content: flex-start;
-	margin-left: 7%;
+	margin-left: 4%;
 }
 #contains-buttons{
 	background-color: none;
@@ -285,9 +288,9 @@ button:hover
 }
 #profile-pic {
 	border-radius: 50%;
-	width: 17%;
-	height: 17%;
-	margin-left: -4%;
+	width: 16%;
+	height: 16%;
+	margin-left: 0%;
 	margin-top: 5%;
 	margin-bottom: .5%;
 }
