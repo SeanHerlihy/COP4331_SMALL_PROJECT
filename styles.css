@@ -1,0 +1,221 @@
+body
+{
+    background-image: url("./images/image.jpg");
+    background-size: cover;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: auto;
+  display: block;
+  object-fit: contain;
+}
+button
+{
+    background: #215b81;
+    color: white;
+    font-weight: bold;
+}
+button:hover
+{
+  background-color: lightblue;
+}
+
+a:hover {
+  color: #215b81;
+}
+
+.mainContainer {
+  opacity: 0.93;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 2%;
+  width: 85%;
+  height: 95%;
+
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.logoContainer {
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  background: no-repeat linear-gradient(45deg, #215b81, #8bcceb, #b3c9e6);
+  background-color: rgb(0, 0, 0);
+  width: 50%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10%;
+  padding-top: 3%;
+  overflow: auto;
+}
+.round-borders {
+  border-color: #3c4d57;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50px;
+  margin:auto;
+  margin-bottom: 14px;
+}
+.login {
+  border-color: #3c4d57;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50px;
+  margin: auto;
+  margin-bottom: 5px;
+  height: 50px;
+  margin-top: 17px;
+  width: 80%;
+}
+
+.responsive-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6%;
+  height: auto;
+}
+.valid {
+  color: green;
+}
+.invalid{
+  color: red;
+}
+@media (max-width: 875px)
+{
+    .logoContainer
+    {
+        display: none;
+    }
+    .loginContainer {
+        width: 100%;
+        opacity: 85%;
+    }
+}
+
+#UserName{
+  background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+  position: left;
+  background-size: 13px;
+  background-position: 2%;
+  padding-left: 30px;
+  height: 50px;
+  width: 80%;
+}
+#PassWord{
+  background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
+  position: left;
+  background-size: 13px;
+  background-position: 2%;
+  padding-left: 30px;
+  height: 50px;
+  width: 80%;
+}
+
+#welcomeText {
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: Arial;
+  font-size: max(2.5vmin, 14px);
+  color: white;
+  text-shadow: 0 0 5px #3c4d57;
+  text-align: left;
+  right: 4%;
+  margin-top: 15.5%;
+}
+.titleText {
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 2px;
+  font-family: Arial;
+  font-size: max(4.3vmin, 20px);
+  color: white;
+  text-shadow: 0 0 25px #3c4d57;
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inside {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 10%;
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  align-items: center;
+  position: relative;
+  overflow: auto;
+}
+#loginHeading {
+  position: relative;
+  font-family: Arial;
+  font-size: max(3vw, 30px);
+  color: black;
+  text-align: center;
+  padding-top: 1px;
+  margin-top: -10%;
+  padding-bottom: 3%;
+}
+
+#nameContainer {
+  display: flex;
+  flex-direction: column;
+}
+#logoImageContainer {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#loginResult{
+  height: 10%;
+	color: red;
+	margin: auto;
+  padding-bottom: 5%;
+
+
+}
+#login {
+  button-height: 36px;
+  margin-right: 40px;
+}
+#loginText {
+  margin-top: 5px;
+  text-align: center;
+}
+
