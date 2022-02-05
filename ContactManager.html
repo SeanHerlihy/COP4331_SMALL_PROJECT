@@ -17,9 +17,10 @@
       <button type="submit" id = "LogOutButton">Log Out</button></li>
 
     </div>
-    <div id="inner-screen">
-      <div id="scroll-bar">
+		<div id="inner-screen">
+			<div id="scroll-bar">
         <!––add contacts subtitle––>
+        <hr> <!-- I tried making the line above contactss-->
        <h2 id="contact-subtitle">Contacts </h2>
        <div id="SearchAddDiv">
           <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
@@ -36,7 +37,7 @@
       </h1>
       <div id="top-info">
         <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
-        <h2 id="profile-name">Mr. Flufficans</h2>
+        <h2 id="ProfileNameFirst">Mr.</h2><h2 id="ProfileNameSecond">Flufficans</h2>
         <div id="NameEditDiv" class="editIconDiv">
         </div>
       </div>
@@ -46,7 +47,9 @@
           <div id="PhoneEditDiv" class="editIconDiv">
           </div>
           <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
-          <p id = "PhoneInfoText"> (294)-294-1383 </p>
+          <!--<p id = "PhoneInfoText"> (294)-294-1383 </p>
+					-->
+          <input type="text" id = "inputNumber" title="Enter a phone number" placeholder=" Please enter a phone number">
         </div>
         <hr>
 
@@ -54,7 +57,8 @@
           <div id="EmailEditDiv"class="editIconDiv">
           </div>
           <p class="infoLabels" id="emailLabel"> <i class="far fa-envelope"></i> E-mail </p>
-          <p id = "EmailInfoText"> helloworld@gmail.com </p>
+          <!--<p id = "EmailInfoText"> helloworld@gmail.com </p>
+					--><input type="text" id = "inputEmail" title="Enter a phone number" placeholder=" Please enter an email">
         </div>
         <hr>
 
@@ -62,7 +66,8 @@
           <div id="BirthEditDiv"class="editIconDiv">
           </div>
           <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
-          <p id = "BirthInfoText"> 01/01/2001</p>
+          <!--<p id = "BirthInfoText"> 01/01/2001</p>-->
+					<input type="text" id = "inputEmail" title="Enter a phone number" placeholder=" Please enter a birthday">
         </div>
         <div id = "CancelSaveButtonDiv">
         </div>

@@ -55,6 +55,33 @@ button:hover
 #PhoneInfoText {
 	margin-left: 4%;
 }
+#inputNumber {
+	margin-top: 1%;
+	padding-left: 8.8px;
+	margin-left: 3.3%;
+	height: 57px;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 10px;
+}
+#inputEmail {
+	margin-top: 1%;
+	padding-left: 8.8px;
+	margin-left: 3.8%;
+	height: 57px;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 10px;
+}
+#inputBirthday {
+	margin-top: 1%;
+	padding-left: 8.8px;
+	margin-left: 3.8%;
+	height: 57px;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 10px;
+}
 #phoneLabel {
 	/* for left justified */
 	margin-left: 0px;
@@ -93,16 +120,17 @@ button:hover
 	width: 3%;
 	margin-top: 0.5%;
 	margin-bottom: 0.5%;
-	margin-left: 1%;
+	margin-left: 1.5%;
 	border-radius: 50px;
 
 }
 #welcometext{
+	color: white;
 	font-family: Arial, sans-serif;
 	margin-left: 1%;
 	display: inline-block;
 	position: relative;
-	bottom: 25%;
+	bottom: 35%;
 }
 #topbar{
 	height: 8%;
@@ -113,20 +141,23 @@ button:hover
 	/*background: linear-gradient(45deg, #215b81, #8bcceb, #b3c9e6);*/
 
 	background: linear-gradient(-45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
-
 	background-color: gray;
 	width: 100%;
 }
 #LogOutButton{
-	border-color: #CBC3E3;
+	border-color: white;
+	color: #0D4C6
+	background-color: white;
 	border-style: solid;
 	border-width: 2px;
-	margin-left: 94%;
+	margin-left: 93%;
+	width: 5%;
 	position: relative;
-	bottom: 90%;
+	bottom: 125%;
 	height: 35px;
 	margin-top: 17px;
 	font-weight: bold;
+	border-radius: 15px;
 }
 /* all the icons */
 	#edit-icon{
@@ -404,7 +435,14 @@ button:hover
 	margin-top: 1.4%;
 	margin-bottom: .5%;
 }
-#profile-name {
+#ProfileNameFirst {
+	font-family: Arial, sans-serif;
+	margin-left: 3%;
+	font-size: 35pt;
+	margin-top: 4%;
+	margin-bottom: 0%;
+}
+#ProfileNameSecond {
 	font-family: Arial, sans-serif;
 	margin-left: 3%;
 	font-size: 35pt;
@@ -455,7 +493,7 @@ button:hover
 	width: 18px;
 }
 ::-webkit-scrollbar-track {
-	border-radius: 50px;
+	border-radius: 0px;
 	background-color: #D6D6D6;
 	box-shadow: inset 0 0 12px #EAF7FA;
 }
