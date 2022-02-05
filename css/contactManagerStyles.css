@@ -69,8 +69,8 @@ button:hover
 	margin-left: 0px;
 }
 .topBarIcons{
-	width: 3%;
-	margin-bottom: 0%;
+	width: 2%;
+	margin-bottom: 0.5%;
 	margin-left: 1%;
 }
 #welcometext{
@@ -87,9 +87,7 @@ button:hover
 	width: 100%;
 }
 #LogOutButton{
-	border-color: #000000;
-	color: white;
-	background-color: #0D4C60;
+	border-color: #CBC3E3;
 	border-style: solid;
 	border-width: 2px;
 	margin-left: 94%;
@@ -98,7 +96,6 @@ button:hover
 	height: 35px;
 	margin-top: 17px;
 	font-weight: bold;
-	border-radius: 15px;
 }
 /* all the icons */
 	#edit-icon{
