@@ -150,3 +150,37 @@ function displayContactInfo(firstName, lastName)
   displayScreen.innerHTML += htmlString;
 
 }
+
+function displayCreateUserPage()
+{
+  let htmlString = `<div id=CreateAccountDiv>
+  <div id="top-info">
+    <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
+    <h2 id="profile-name"></h2>
+  </div>
+  <div id="secondary-info">
+    <div class="inputContainer">
+      <div id = "containsNames">
+        <h3 class="fieldText"> First Name: </h3>
+        <input type="text" id = "FirstName" placeholder = "First Name" class = "round-borders">
+        <h3 class="fieldText"> Last Name: </h3>
+        <input type="text" id = "LastName" placeholder = "Last Name" class = "round-borders">
+      </div>
+      <h3 class="fieldText"> E-mail Address: </h3>
+      <input type="text" id = "Email" placeholder = "E-mail" class = "round-borders">
+      <h3 class="fieldText"> Phone Number: </h3>
+      <input type="text" id = "PhoneNumber" placeholder = "Phone #" class = "round-borders">
+      <h3 class="fieldText"> Date of Birth (mm/dd/yyyy): </h3>
+      <input type="text" id = "Birthday" placeholder = "mm/dd/yyyy" class = "round-borders">
+      <div id = "contains-buttons">
+        <button type="submit" id = "CancelButton">Cancel</button>
+        <button type="submit" id = "CreateButton">Create</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+  let displayScreen = document.getElementById("inner-screen");
+  displayScreen.lastElementChild.remove();
+  displayScreen.innerHTML += htmlString;
+}
