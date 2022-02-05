@@ -3,10 +3,11 @@
   <head>
     <link rel="stylesheet" href="./css/contactManagerStyles.css">
     <script type="text/javascript" src="./js/contact.js"></script>
+      <script type="text/javascript" src="./js/contactManagerPage.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   </head>
-  <body onload="login();">
+  <!--<body onload="login();">-->
     <div id="topbar">
       <!-- image is temporary -->
       <img src="https://i.ibb.co/5rZ5GSc/download-2-removebg-preview.png"
@@ -71,33 +72,39 @@
     <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)-->
     <div id="info">
       <h1 id="EditDeleteHeader">
-        <span class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon"> <i class="far fa-edit fa-lg"></i> </span>
-        <span class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-lg"></i> </span>
+        <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons()"> <i class="far fa-edit fa-3x"></i> </button>
+        <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-3x"></i> </button>
       </h1>
       <div id="top-info">
         <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
-        <!––edit and delete icons, images are not transparent, but i am planning on creating the icons, so that's alright for now - amrit ––>
         <h2 id="profile-name">Mr. Flufficans</h2>
       </div>
 			<hr class = white-page-line>
       <div id="secondary-info">
         <div id="PhoneNumberDiv">
+          <div id="PhoneEditDiv" class="editIconDiv">
+          </div>
           <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
           <p id = "PhoneInfoText"> (294)-294-1383 </p>
         </div>
         <hr>
 
         <div id="EmailDiv">
+          <div id="EmailEditDiv"class="editIconDiv">
+          </div>
           <p class="infoLabels" id="emailLabel"> <i class="far fa-envelope"></i> E-mail </p>
           <p id = "EmailInfoText"> helloworld@gmail.com </p>
         </div>
         <hr>
 
         <div id="BirthdayDiv">
+          <div id="BirthEditDiv"class="editIconDiv">
+          </div>
           <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
           <p id = "BirthInfoText"> 01/01/2001</p>
         </div>
-
+        <div id = "CancelSaveButtonDiv">
+        </div>
       </div>
 			<hr class = white-page-line>
     </div>
