@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   </head>
-  <body onload="login();">
+  <!--<body onload="login();">-->
     <div id="topbar">
       <!-- image is temporary -->
       <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg"
@@ -23,47 +23,10 @@
        <h2 id="contact-subtitle">Contacts </h2>
        <div id="SearchAddDiv">
           <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
-          <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"> <i class="fas fa-user-plus fa-lg" onclick="createClick();"></i> </button>
+          <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"  onclick= "appendUserContactsToSideBar();"> <i class="fas fa-user-plus fa-lg"></i> </button>
         </div>
         <hr class = white-page-line>
 
-        <p id="names">
-        Peter Mullen <br>
-        Tessa Chapman <br>
-        Antonio Gonzales <br>
-        Royce Acevedo <br>
-        Alfonso Mays <br>
-        Sidney Beasley <br>
-        June Mcdowell <br>
-        Jett Aguirre <br>
-        Rosa Holland <br>
-        Irene Aguirre <br>
-        Devyn Hudson <br>
-        Monique Avila <br>
-        Saige Patton<br>
-        Jerry Stokes<br>
-        Jaxon Roman<br>
-        Kale Gray<br>
-        Brayden Stafford<br>
-        Lindsay Benjamin<br>
-        Allan Hart<br>
-        Alexis Rojas<br>
-        Bailey Farrell<br>
-        Uriah Stuart<br>
-        Rowan Good<br>
-        Finn Bradley<br>
-        Axel Wells<br>
-        Amara Atkins<br>
-        Zane Berger<br>
-        Wesley Shields<br>
-        Juliet Jordan<br>
-        Renee Ross<br>
-        Keyla Li<br>
-        Kylie Dillon<br>
-        Vaughn Higgins<br>
-        Ismael Patrick<br>
-        Tucker Neal<br>
-        </p>
       </div>
     <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account) -->
     <div id="info">
