@@ -184,3 +184,18 @@ function displayCreateUserPage()
   displayScreen.lastElementChild.remove();
   displayScreen.innerHTML += htmlString;
 }
+
+function displayMainWelcomeScreen()
+{
+
+  let displayScreen = document.getElementById("inner-screen");
+  displayScreen.lastElementChild.remove();
+  displayScreen.innerHTML += `<div id="info">
+  <div id = "WelcomeInsideDiv">
+    <p id = "WelcomeMSG">Welcome back to SUPER AWESOME CONTACT MANAGER 3000</p>
+    <p id = "welcomeDivUserName"> @Person Logged-in!!!!</p>
+    <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
+  </div>
+</div>`;
+  
+}

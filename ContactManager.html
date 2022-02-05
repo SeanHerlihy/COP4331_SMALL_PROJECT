@@ -12,7 +12,7 @@
       <!-- image is temporary -->
       <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg"
       alt="profile icon" class="topBarIcons">
-      <h2 id = "welcometext">Welcome default name</h2> <!-- Is this set to update with JS already? -aribel -->
+      <a id = "welcometextNavBar" onclick="displayMainWelcomeScreen()">Welcome default name</a> <!-- Is this set to update with JS already? -aribel -->
 
       <button type="submit" id = "LogOutButton">Log Out</button></li>
 
@@ -29,99 +29,14 @@
         <hr class = white-page-line>
 
       </div>
-    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account) -->
 
-		<div id="info">
-      <h1 id="EditDeleteHeader">
-        <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons()"> <i class="far fa-edit fa-3x"></i> </button>
-        <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-3x"></i> </button>
-      </h1>
-      <div id="top-info">
-        <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
-        <h2 id="ProfileNameFirst">Mr.</h2><h2 id="ProfileNameSecond">Flufficans</h2>
-        <div id="NameEditDiv" class="editIconDiv">
+      <div id="info">
+        <div id = "WelcomeInsideDiv">
+          <p id = "WelcomeMSG">Welcome back to SUPER AWESOME CONTACT MANAGER 3000</p>
+          <p id = "welcomeDivUserName"> @Person Logged-in!!!!</p>
+          <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
         </div>
       </div>
-			<hr class = white-page-line>
-      <div id="secondary-info">
-        <div id="PhoneDiv">
-          <div id="PhoneEditDiv" class="editIconDiv">
-          </div>
-          <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
-          <!--
-          <input type="text" id = "inputNumber" title="Enter a phone number" placeholder=" Please enter a phone number">
-					-->
-	        <p id = "PhoneInfoText"> (294)-294-1383 </p>
-        </div>
-        <hr>
 
-        <div id="EmailDiv">
-          <div id="EmailEditDiv"class="editIconDiv">
-          </div>
-          <p class="infoLabels" id="emailLabel"> <i class="far fa-envelope"></i> E-mail </p>
-          <!--
-          <input type="text" id = "inputEmail" title="Enter a phone number" placeholder=" Please enter an email">
-          -->
-		      <p id = "EmailInfoText"> helloworld@gmail.com </p>
-        </div>
-        <hr>
-
-        <div id="BirthDiv">
-          <div id="BirthEditDiv"class="editIconDiv">
-          </div>
-          <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
-          <!--
-          <input type="text" id = "inputBirth" title="Enter a dat of birth" placeholder=" Please enter a birthday">
-        -->
-        <p id = "BirthInfoText"> 01/01/2001</p>
-        </div>
-        <div id = "CancelSaveButtonDiv">
-        </div>
-      </div>
-			<hr class = white-page-line>
     </div>
-
-
- 	<!-- Welcome page -->
-<!-- This is the welcome page commented out
-		<div id="info">
-			<p id = "WelcomeMSG">Welcome back to SUPER AWESOME CONTACT MANAGER 3000</p>
-			<p id = "usersName"> @Person Logged-in!!!!</p>
-			<img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg"
-      id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png">
-END OF WELCOME PAGE COMMENT-->
-
-
-    <!-- Create Account Div Element (replaced by info div element when viewing a contact)-->
-    <!--
-    <div id=CreateAccountDiv>
-      <div id="top-info">
-        <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
-        <h2 id="profile-name"></h2>
-      </div>
-      <div id="secondary-info">
-        <div class="inputContainer">
-					<div id = "containsNames">
-            <h3 class="fieldText"> First Name: </h3>
-          	<input type="text" id = "FirstName" placeholder = "First Name" class = "round-borders">
-            <h3 class="fieldText"> Last Name: </h3>
-						<input type="text" id = "LastName" placeholder = "Last Name" class = "round-borders">
-					</div>
-					<h3 class="fieldText"> E-mail Address: </h3>
-          <input type="text" id = "Email" placeholder = "E-mail" class = "round-borders">
-          <h3 class="fieldText"> Phone Number: </h3>
-          <input type="text" id = "PhoneNumber" placeholder = "Phone #" class = "round-borders">
-          <h3 class="fieldText"> Date of Birth (mm/dd/yyyy): </h3>
-          <input type="text" id = "Birthday" placeholder = "mm/dd/yyyy" class = "round-borders">
-          <div id = "contains-buttons">
-						<button type="submit" id = "CancelButton">Cancel</button>
-						<button type="submit" id = "CreateButton">Create</button>
-					</div>
-				</div>
-      </div>
-    </div>
-  -->
-
-
-  </div>
 </body>

@@ -136,14 +136,7 @@ button:hover
 	border-radius: 50px;
 
 }
-#welcometext{
-	color: white;
-	font-family: Arial, sans-serif;
-	margin-left: 1%;
-	display: inline-block;
-	position: relative;
-	bottom: 35%;
-}
+
 #topbar{
 	height: 8%;
 	border-top-left-radius: 50px;
@@ -271,6 +264,48 @@ button:hover
 	font-weight: bold;
 	font-size: 0.9vw;
 }
+
+/* start of welcome div box */
+
+#WelcomeInsideDiv
+{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+#WelcomeMSG {
+	font-style: bold;
+	font-size: 200%;
+	font-family: fantasy;
+	margin-top: 8%;
+}
+#welcomeDivUserName {
+	font-style: bold;
+	font-size: 200%;
+	font-family: fantasy;
+}
+
+#WelcomePic {
+	width: 20vw;
+	margin: auto;
+	margin-top: 5%;
+}
+
+
+/* end of welcome div box */
+
+#welcometextNavBar{
+	color: white;
+	font-family: Arial, sans-serif;
+	display: inline-block;
+	position: relative;
+	bottom: 35%;
+}
+
 #names {
 	border-top-left-radius: 50px;
 	color: white;
@@ -467,22 +502,7 @@ button:hover
 	margin-top: 5%;
 	margin-bottom: .5%;
 }
-#WelcomeMSG {
-	font-style: bold;
-	font-size: 200%;
-	margin-left: 12%;
-	font-family: fantasy;
-}
-#usersName {
-	font-style: bold;
-	font-size: 200%;
-	margin-left: 38%;
-	font-family: fantasy;
-}
-#WelcomePic {
-		margin-left: 25%;
-		width: 500px;
-}
+
 .inputContainer {
 	background-color: none;
 	width: 60%;
