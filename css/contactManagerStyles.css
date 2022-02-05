@@ -203,33 +203,36 @@ button:hover
 	margin-bottom: 3%; /* Add some space below the input */
 }
 
-#userContactSideBarDiv
-    {
-        background: rgba(163,190,199, 0.7);
-        width: 95%;
-        margin: auto;
-        margin-left: 5%;
-        display: flex;
-        padding: 5%;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        opacity: 80%;
-    }
+.userContactSideBarDiv
+{
+	background: rgba(163,190,199, 0.7);
+	width: 85%;
+	margin: auto;
+	margin-left: 5%;
+	display: flex;
+	padding: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	opacity: 80%;
+	border-radius: 20px;
+	border: 0;
+}
 
-    #profilePicture
-    {
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
+#profilePicture
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
 
-    }
+}
 
-    #contactFullName
-    {
-        margin-left: 15%;
-        color: white;
-        font-weight: bold;
-    }
+#contactFullName
+{
+	margin: auto;
+	color: white;
+	font-weight: bold;
+	font-size: 0.9vw;
+}
 #names {
 	border-top-left-radius: 50px;
 	color: white;
