@@ -452,7 +452,7 @@ button:hover
 	width: 18px;
 }
 ::-webkit-scrollbar-track {
-	border-radius: 0px;
+	border-radius: 50px;
 	background-color: #D6D6D6;
 	box-shadow: inset 0 0 12px #EAF7FA;
 }
