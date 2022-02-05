@@ -11,12 +11,23 @@ function doRegister()
 	var lName = document.getElementById("LastName").value;
 	var confirmPass = document.getElementById("CreateConfirmPass").value;
 
-	if(login == "")
+	if(fName == "")
 	{
-		document.getElementById("CreateError").innerHTML = "Please enter a user name.";
+		document.getElementById("CreateError").innerHTML = "* Please enter a first name.";
 		return;
 	}
-	
+
+	if(lName == "")
+	{
+		document.getElementById("CreateError").innerHTML = "* Please enter a last name.";
+		return;
+	}
+	if(login == "")
+	{
+		document.getElementById("CreateError").innerHTML = "* Please enter a user name.";
+		return;
+	}
+
 	if(pass == "")
 	{
 		document.getElementById("CreateError").innerHTML = "* Please enter a password.";
@@ -25,7 +36,7 @@ function doRegister()
 
 	if(pass != confirmPass)
 	{
-		document.getElementById("CreateError").innerHTML = "Passwords do not match.";
+		document.getElementById("CreateError").innerHTML = "* Passwords do not match.";
 		return;
 	}
 

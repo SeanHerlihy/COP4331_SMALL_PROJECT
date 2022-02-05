@@ -1,9 +1,7 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Montserrat:ital,wght@0,500;1,200&display=swap');
-
-body {
-  background-image: url("./images/image.jpg");
-  background-size: cover;
+body
+{
+    background-image: url("./images/image.jpg");
+    background-size: cover;
 }
 img {
   max-width: 100%;
@@ -14,13 +12,15 @@ img {
 }
 button
 {
-  background: #215b81;
+    background: #215b81;
     color: white;
     font-weight: bold;
 }
-button:hover {
+button:hover
+{
   background-color: lightblue;
 }
+
 a:hover {
   color: #215b81;
 }
@@ -33,6 +33,7 @@ a:hover {
   margin-top: 2%;
   width: 85%;
   height: 95%;
+
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
@@ -51,7 +52,7 @@ a:hover {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.accountContainer {
+.loginContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,28 +71,26 @@ a:hover {
   background-color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  height: 100%;
   padding: 10%;
-  padding-top: 0%;
+  padding-top: 3%;
   overflow: auto;
 }
 .round-borders {
   border-color: #3c4d57;
   border-style: solid;
-  border-width: 0.3%;
+  border-width: 2px;
   border-radius: 50px;
   margin:auto;
-  margin-bottom: 2%;
+  margin-bottom: 14px;
 }
-.signup {
+.login {
   border-color: #3c4d57;
   border-style: solid;
   border-width: 2px;
   border-radius: 50px;
+  margin: auto;
   margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 10%;
-  height: 35px;
+  height: 50px;
   margin-top: 17px;
   width: 80%;
 }
@@ -118,55 +117,31 @@ a:hover {
     {
         display: none;
     }
-    .accountContainer {
+    .loginContainer {
         width: 100%;
         opacity: 85%;
     }
 }
-		#FirstName{
-			padding-left: 8.25;
-      margin-top: 1%;
-			height: 50px;
-      width: 80%;
-		}
-		#LastName{
-			padding-left: 8.25;
-      margin-top: 1%;
-			height: 50px;
-      width: 80%;
-		}
-		#CreateLogin{
-			background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
-			position: left;
-      margin-top: 1%;
-		  background-size: 13px;
-			background-position: 2%;
-			padding-left: 30px;
-			height: 50px;
-      width: 80%;
-    }
-		#CreatePass{
-			background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
-			position: left;
-      margin-top: 1%;
-			background-size: 13px;
-			background-position: 2%;
-			padding-left: 30px;
-			height: 50px;
-      width: 80%;
 
-		}
-		#CreateConfirmPass{
-		background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
-		position: left;
-    margin-top: 1%;
-		background-size: 13px;
-		background-position: 2%;
-		padding-left: 30px;
-		height: 50px;
-		width: 80%;
+#UserName{
+  background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
+  position: left;
+  background-size: 13px;
+  background-position: 2%;
+  padding-left: 30px;
+  height: 50px;
+  width: 80%;
+}
+#PassWord{
+  background: url(https://i.ibb.co/mqjD9zj/png-clipart-computer-icons-font-awesome-password-user-font-others-typeface-computer-icons-thumbnail.png) no-repeat;
+  position: left;
+  background-size: 13px;
+  background-position: 2%;
+  padding-left: 30px;
+  height: 50px;
+  width: 80%;
+}
 
-	}
 #welcomeText {
   box-sizing: border-box;
   padding: 10px;
@@ -206,21 +181,20 @@ a:hover {
   position: relative;
   overflow: auto;
 }
-#accountHeading {
+#loginHeading {
   position: relative;
   font-family: Arial;
-  font-size: max(2vw, 30px);
+  font-size: max(3vw, 30px);
   color: black;
   text-align: center;
   padding-top: 1px;
-  margin-top: 10%;
-  padding-bottom: 0%;
+  margin-top: -10%;
+  padding-bottom: 3%;
 }
 
 #nameContainer {
   display: flex;
   flex-direction: column;
-  height: 95%;
 }
 #logoImageContainer {
   display:flex;
@@ -228,18 +202,20 @@ a:hover {
   align-items: center;
   flex-direction: column;
 }
-#signup {
+#loginResult{
+  height: 10%;
+	color: red;
+	margin: auto;
+  padding-bottom: 5%;
+
+
+}
+#login {
   button-height: 36px;
   margin-right: 40px;
 }
-#signInText {
+#loginText {
   margin-top: 5px;
   text-align: center;
 }
-#CreateError {
-  color: red;
-  width: 100%;
-  height: 5%;
-  text-align: center;
-  border:none;
-}
+

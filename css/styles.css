@@ -189,7 +189,7 @@ a:hover {
   text-align: center;
   padding-top: 1px;
   margin-top: -10%;
-  padding-bottom: 7%;
+  padding-bottom: 3%;
 }
 
 #nameContainer {
@@ -203,10 +203,16 @@ a:hover {
   flex-direction: column;
 }
 #loginResult{
-	width: 100%;
   height: 10%;
 	color: red;
+<<<<<<< HEAD
 	margin-left: 0%;
+=======
+	margin: auto;
+  padding-bottom: 5%;
+
+
+>>>>>>> ad3115246a7d9e4b8257528bccc5f11fa048d281
 }
 #login {
   button-height: 36px;
@@ -216,11 +222,13 @@ a:hover {
   margin-top: 5px;
   text-align: center;
 }
+<<<<<<< HEAD
 #error-box {
   width: 100%;
   height: 10%;
   display: none;
 	color: red;
 	margin-left: 0%;
+=======
+>>>>>>> ad3115246a7d9e4b8257528bccc5f11fa048d281
 
-}

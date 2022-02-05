@@ -13,10 +13,8 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("select * from Contacts where ((FirstName like ?) or (LastName like ?)) and UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
-		$contactName = "%" . $inData["search"] . "%";
-		$contactName2 = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ssss", $contactName, $contactName2, $inData["UserID"], $inData["Offset"]);
+		$stmt = $conn->prepare("select * from Contacts where UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
+		$stmt->bind_param("ss", $inData["UserID"], $inData["Offset"]);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
