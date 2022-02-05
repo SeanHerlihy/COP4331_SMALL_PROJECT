@@ -12,7 +12,7 @@
       <!-- image is temporary -->
       <img src="https://i.ibb.co/5rZ5GSc/download-2-removebg-preview.png"
       alt="profile icon" class="topBarIcons">
-      <h2 id = "welcometext"></h2> <!THIS IS SET TO UPDATE FROM JS BUT IS NOT WORKING>
+      <h2 id = "welcometext">Welcome default name</h2> <!-- Is this set to update with JS already? -aribel -->
 
       <button type="submit" id = "LogOutButton">Log Out</button></li>
 
@@ -21,16 +21,11 @@
       <div id="scroll-bar">
         <!––add contacts subtitle––>
        <h2 id="contact-subtitle">Contacts </h2>
-       <!-- Commenting out older Add Contact Button
-        <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon"
-           alt="add contact icon" onclick = "createClick();"> <img id ="addContactButt" src="https://i.ibb.co/DrybB4x/transparent-contact-icon-601b92afe026a1-6825716416124197599181.jpg"> </button>>
-        -->
-        <div id="SearchAddDiv">
+       <div id="SearchAddDiv">
           <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
           <span class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"> <i class="fas fa-user-plus fa-lg" onclick="createClick();"></i> </span>
         </div>
         <hr class = white-page-line>
-
         <p id="names">
         Peter Mullen <br>
         Tessa Chapman <br>
@@ -69,7 +64,7 @@
         Tucker Neal<br>
         </p>
       </div>
-    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account)-->
+    <!-- Contact Info Div Element (replaced by CreateAccountDiv when creating new account) -->
     <div id="info">
       <h1 id="EditDeleteHeader">
         <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons()"> <i class="far fa-edit fa-3x"></i> </button>
@@ -109,7 +104,6 @@
 			<hr class = white-page-line>
     </div>
 
-
     <!-- Create Account Div Element (replaced by info div element when viewing a contact)-->
     <!--
     <div id=CreateAccountDiv>
@@ -117,6 +111,7 @@
         <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
         <h2 id="profile-name"></h2>
       </div>
+			<hr class = white-page-line>
       <div id="secondary-info">
         <div class="inputContainer">
 					<div id = "containsNames">
