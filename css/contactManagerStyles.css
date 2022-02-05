@@ -467,6 +467,22 @@ button:hover
 	margin-top: 5%;
 	margin-bottom: .5%;
 }
+#WelcomeMSG {
+	font-style: bold;
+	font-size: 200%;
+	margin-left: 12%;
+	font-family: fantasy;
+}
+#usersName {
+	font-style: bold;
+	font-size: 200%;
+	margin-left: 38%;
+	font-family: fantasy;
+}
+#WelcomePic {
+		margin-left: 25%;
+		width: 500px;
+}
 .inputContainer {
 	background-color: none;
 	width: 60%;
