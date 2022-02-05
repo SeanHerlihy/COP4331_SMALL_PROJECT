@@ -1,4 +1,22 @@
-var isInserted = false;
+let isInserted = false;
+
+function editInfo(infoType)
+{
+  console.log(typeof infoType);
+  if (isInserted == true)
+  {
+    let infoDiv = document.getElementById(`${infoType}Div`);
+    let infoText = document.getElementById(`${infoType}InfoText`);
+    let editBtn = document.getElementById(`${infoType}EditIcon`);
+
+    let oldInfo =infoText.innerHTML;
+    console.log(oldInfo);
+    infoText.style.display = "none";
+
+    infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter new info'>`;
+    return oldInfo;
+  }
+}
 
 function insertEditIcons()
 {
@@ -10,10 +28,10 @@ function insertEditIcons()
       var birthEditObj = document.getElementById("BirthEditDiv");
       var cancelSaveDivObj = document.getElementById("CancelSaveButtonDiv");
 
-      nameEditObj.innerHTML +="<i id='NameEditIcon' class='fas fa-pen fa-2x editPenIcon'></i>";
-      phoneEditObj.innerHTML +="<i id='PhoneEditIcon' class='fas fa-pen fa editPenIcon'></i>";
-      emailEditObj.innerHTML +="<i id='EmailEditIcon' class='fas fa-pen fa editPenIcon'></i>";
-      birthEditObj.innerHTML +="<i id='BirthEditIcon' class='fas fa-pen fa editPenIcon'></i>";
+      nameEditObj.innerHTML +="<button id='NameEditIcon' class='fas fa-pen fa-2x editPenIcon'></button>";
+      phoneEditObj.innerHTML +=`<button id='PhoneEditIcon' onclick="editInfo('Phone')" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      emailEditObj.innerHTML +=`<button id='EmailEditIcon' onclick="editInfo('Email')" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      birthEditObj.innerHTML +=`<button id='BirthEditIcon' onclick="editInfo('Birth')" class='fas fa-pen fa-sm editPenIcon'></button>`;
       cancelSaveDivObj.innerHTML +="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
 
       isInserted = true;
@@ -31,12 +49,29 @@ function removeEditIcons()
     var cancelEditBtn = document.getElementById("CancelEditButton");
     var saveEditBtn = document.getElementById("SaveEditButton");
 
+    var phoneTextBox = document.getElementById("inputPhone");
+    var phoneInfo = document.getElementById("PhoneInfoText");
+
+    var emailTextBox = document.getElementById("inputEmail");
+    var emailInfo = document.getElementById("EmailInfoText");
+
+    var birthTextBox = document.getElementById("inputBirth");
+    var birthInfo = document.getElementById("BirthInfoText");
+
+
     nameEditObj.remove();
     phoneEditObj.remove();
     emailEditObj.remove();
     birthEditObj.remove();
     cancelEditBtn.remove();
     saveEditBtn.remove();
+    phoneTextBox.remove();
+    emailTextBox.remove();
+    birthTextBox.remove();
+
+    phoneInfo.style.display="block";
+    emailInfo.style.display="block";
+    birthInfo.style.display="block";
 
     isInserted = false;
   }
@@ -82,7 +117,7 @@ function displayContactInfo(firstName, lastName)
    </div>
    <hr class = white-page-line>
    <div id="secondary-info">
-     <div id="PhoneNumberDiv">
+     <div id="PhoneDiv">
        <div id="PhoneEditDiv" class="editIconDiv">
        </div>
        <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
@@ -98,7 +133,7 @@ function displayContactInfo(firstName, lastName)
      </div>
      <hr>
 
-     <div id="BirthdayDiv">
+     <div id="BirthDiv">
        <div id="BirthEditDiv"class="editIconDiv">
        </div>
        <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
@@ -113,5 +148,5 @@ function displayContactInfo(firstName, lastName)
   let displayScreen = document.getElementById("inner-screen");
   displayScreen.lastElementChild.remove();
   displayScreen.innerHTML += htmlString;
-  
+
 }
