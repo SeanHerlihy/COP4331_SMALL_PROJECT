@@ -4,122 +4,11 @@ const extension = 'php';
 let userId = 0;
 let uFName = "";
 let uLName = "";
-let dataDic = {};
-let offset = 0;
-let searchFlag = new Boolean(false);
 
 function login()
 {
 	readCookie();
 	document.getElementById("welcometext").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
-}
-
-function htmlGetData()
-{
-  args = {UserID:userId, Offset:offset};
-  temp = getData(args);
-  for(let i = 0; i < temp.length; i++)
-  {
-      dataDic.push(offset++:temp[i]);
-  }
-}
-
-function getData(args)
-{
-  let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
-
-  let temp = [];
-
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-	try
-	{
-		xhr.onreadystatechange() = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				let jsonObject = JSON.parse( xhr.responseText );
-
-				if(jsonObject.hasOwnProperty('error'))
-				{
-					document.getElementById("contactError").innerHTML = "Error creating contact";
-					console.log(jsonObject.error);
-					return;
-				}
-
-        let jsonObject = jsonObject.results;
-
-				for(let i=0; i < jsonObject.results.length; i++)
-        {
-          temp += jsonObject.results[i];
-        }
-
-				return temp;
-			}
-		};
-	}
-	catch(err)
-	{
-		// ???
-	}
-}
-
-function htmlSearchData()
-{
-  dataDic = {};
-  offset = 0;
-  args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
-  temp = searchData(args);
-  for(let i = 0; i < temp.length; i++)
-  {
-      dataDic.push(offset++:temp[i]);
-  }
-}
-
-function searchData(args)
-{
-  let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
-
-  let temp = [];
-
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-	try
-	{
-		xhr.onreadystatechange() = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				let jsonObject = JSON.parse( xhr.responseText );
-
-				if(jsonObject.hasOwnProperty('error'))
-				{
-					document.getElementById("contactError").innerHTML = "Error creating contact";
-					console.log(jsonObject.error);
-					return;
-				}
-
-        let jsonObject = jsonObject.results;
-
-				for(let i=0; i < jsonObject.results.length; i++)
-        {
-          temp += jsonObject.results[i];
-        }
-
-				return temp;
-			}
-		};
-	}
-	catch(err)
-	{
-		// ???
-	}
 }
 
 function createClick()
@@ -224,14 +113,6 @@ function editContact(args)
 	{
 		// still dont know
 	}
-}
-
-function deleteClick()
-{
-	let ID = document.getElementById("DeleteID").value;
-
-	let args = {ID:ID, UserID:userId};
-	editContact(args);
 }
 
 function deleteContact(contactId)
