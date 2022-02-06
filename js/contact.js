@@ -11,7 +11,7 @@ let searchFlag = new Boolean(false);
 function login()
 {
 	readCookie();
-	document.getElementById("welcometext").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
+	document.getElementById("welcometextNavBar").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
 }
 
 function readCookie()
@@ -341,12 +341,12 @@ function editInfo(infoType, alreadyClickedBool)
     infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter new info'>`;
     document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
   }
-  
+
 }
 
 function removeEditIcons()
 {
-  
+
     var nameEditObj = document.getElementById("NameEditIcon");
     var phoneEditObj = document.getElementById("PhoneEditIcon");
     var emailEditObj = document.getElementById("EmailEditIcon");
@@ -388,7 +388,7 @@ function removeEditIcons()
     birthInfo.style.display="block";
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>'
-  
+
 
 }
 
@@ -527,6 +527,5 @@ function displayMainWelcomeScreen()
     <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
   </div>
 </div>`;
-  
-}
 
+}
