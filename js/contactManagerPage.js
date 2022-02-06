@@ -1,26 +1,7 @@
-let isInserted = false;
 
-function editInfo(infoType)
+function insertEditIcons(isInsertedBool)
 {
-  console.log(typeof infoType);
-  if (isInserted == true)
-  {
-    let infoDiv = document.getElementById(`${infoType}Div`);
-    let infoText = document.getElementById(`${infoType}InfoText`);
-    let editBtn = document.getElementById(`${infoType}EditIcon`);
-
-    let oldInfo =infoText.innerHTML;
-    console.log(oldInfo);
-    infoText.style.display = "none";
-
-    infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter new info'>`;
-    return oldInfo;
-  }
-}
-
-function insertEditIcons()
-{
-    if (isInserted == false)
+    if (isInsertedBool == false)
     {
       var nameEditObj = document.getElementById("NameEditDiv");
       var phoneEditObj = document.getElementById("PhoneEditDiv");
@@ -28,20 +9,36 @@ function insertEditIcons()
       var birthEditObj = document.getElementById("BirthEditDiv");
       var cancelSaveDivObj = document.getElementById("CancelSaveButtonDiv");
 
-      nameEditObj.innerHTML +="<button id='NameEditIcon' class='fas fa-pen fa-2x editPenIcon'></button>";
-      phoneEditObj.innerHTML +=`<button id='PhoneEditIcon' onclick="editInfo('Phone')" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      emailEditObj.innerHTML +=`<button id='EmailEditIcon' onclick="editInfo('Email')" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      birthEditObj.innerHTML +=`<button id='BirthEditIcon' onclick="editInfo('Birth')" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      cancelSaveDivObj.innerHTML +="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
+      nameEditObj.innerHTML ="<button id='NameEditIcon' class='fas fa-pen fa-2x editPenIcon'></button>";
+      phoneEditObj.innerHTML =`<button id='PhoneEditIcon' onclick="editInfo('Phone', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      emailEditObj.innerHTML =`<button id='EmailEditIcon' onclick="editInfo('Email', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      birthEditObj.innerHTML =`<button id='BirthEditIcon' onclick="editInfo('Birth', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
 
-      isInserted = true;
+      document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(true)"> <i class="far fa-edit fa-3x"></i> </button>'
     }
+}
+
+function editInfo(infoType, alreadyClickedBool)
+{
+  let infoDiv = document.getElementById(`${infoType}Div`);
+  let infoText = document.getElementById(`${infoType}InfoText`);
+  let editBtn = document.getElementById(`${infoType}EditIcon`);
+
+  let oldInfo =infoText.innerHTML;
+  infoText.style.display = "none";
+
+  if (alreadyClickedBool == false)
+  {
+    infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter new info'>`;
+    document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+  }
+  
 }
 
 function removeEditIcons()
 {
-  if (isInserted == true)
-  {
+  
     var nameEditObj = document.getElementById("NameEditIcon");
     var phoneEditObj = document.getElementById("PhoneEditIcon");
     var emailEditObj = document.getElementById("EmailEditIcon");
@@ -59,22 +56,31 @@ function removeEditIcons()
     var birthInfo = document.getElementById("BirthInfoText");
 
 
+    // removes all edit icons
     nameEditObj.remove();
     phoneEditObj.remove();
     emailEditObj.remove();
     birthEditObj.remove();
     cancelEditBtn.remove();
     saveEditBtn.remove();
-    phoneTextBox.remove();
-    emailTextBox.remove();
+
+
+    // removes input boxes
+    if (phoneTextBox != null)
+      phoneTextBox.remove();
+
+    if (emailTextBox != null)
+      emailTextBox.remove();
+
+    if (birthTextBox != null)
     birthTextBox.remove();
 
     phoneInfo.style.display="block";
     emailInfo.style.display="block";
     birthInfo.style.display="block";
 
-    isInserted = false;
-  }
+    document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>'
+  
 
 }
 
@@ -105,7 +111,7 @@ function displayContactInfo(firstName, lastName)
 {
    let htmlString = `    <div id="info">
    <h1 id="EditDeleteHeader">
-     <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons()"> <i class="far fa-edit fa-3x"></i> </button>
+     <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>
      <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-3x"></i> </button>
    </h1>
    <div id="top-info">
