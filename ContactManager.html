@@ -10,7 +10,11 @@
 
     <body>
     -->
-  <body onload="login();">
+  <body>
+    <script type="text/javascript">
+      login();
+      htmlGetData();
+    </script>
     <div id="topbar">
       <!-- image is temporary -->
       <div id = "topBarIconNameCombo">
@@ -19,11 +23,11 @@
 
       </div>
 
-      <button type="submit" id = "LogOutButton">Log Out</button></li>
+      <button type="submit" id = "LogOutButton" onclick = "doLogout()">Log Out</button></li>
 
     </div>
-		<div id="inner-screen"onload = "htmlGetData()">
-			<div id="scroll-bar" onload = "loadContactsOnToHtml()">
+		<div id="inner-screen">
+			<div id="scroll-bar">
         <div id = "contactScrollBarBox">
           <h2 id="contact-subtitle">Contacts </h2>
           <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"  onclick= "displayCreateUserPage();"> <i class="fas fa-user-plus fa-lg AddContactButtonInside "></i> </button>

@@ -1,7 +1,7 @@
 const urlBase = 'http://superawesomecontactmanager3000.com/';
 const extension = 'php';
 
-let userId = 0;
+let userId = -2;
 let uFName = "";
 let uLName = "";
 let dataDic = {};
@@ -11,7 +11,7 @@ let searchFlag = new Boolean(false);
 function login()
 {
 	readCookie();
-
+	
 }
 
 function displayName()
@@ -36,9 +36,10 @@ function readCookie()
 		{
 			uLName = tokens[1];
 		}
-		else if( tokens[0] == "UserId" )
+		else if( tokens[0] == "UserID" )
 		{
 			userId = parseInt( tokens[1].trim() );
+			
 		}
 	}
 
@@ -46,28 +47,22 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
-	else
-	{
-		document.getElementById("UserName").innerHTML = "Logged in as " + uFName + " " + uLName;
-	}
+	
 }
 
 function htmlGetData()
 {
-  args = {UserID:userId, Offset:offset};
-  temp = getData(args);
-  for(let i = 0; i < temp.length; i++)
-  {
-	dataDic[offset++] = temp[i];
-  }
+  let args = {UserID:userId, Offset:offset};
+  let temp = getData(args);
+  console.log(temp);
+
 }
 
 function getData(args)
 {
   let jsonPayload = JSON.stringify(args);
   let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
-
-  let temp = [];
+  let returnObj;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -75,41 +70,45 @@ function getData(args)
 
 	try
 	{
-		xhr.onreadystatechange() = function()
+		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
+				
 
-				if(jsonObject.hasOwnProperty('error'))
-				{
-					document.getElementById("contactError").innerHTML = "Error creating contact";
-					console.log(jsonObject.error);
-					return;
-				}
+       	jsonObject = jsonObject.results;
+				jsonObject = jsonObject[0].results;
 
-       			jsonObject = jsonObject.results;
+				setReturnData(jsonObject);
 
-				for(let i=0; i < jsonObject.results.length; i++)
-        		{
-         			 temp += jsonObject.results[i];
-        		}
-
-				return temp;
+				
 			}
 		};
+		
+		xhr.send(jsonPayload);
+		
 	}
 	catch(err)
 	{
-		// ???
+		console.log(err);
+		return -20000;
 	}
+
 }
 
-// loads from datadict
-function loadContactsOnToHtml()
+function setReturnData(arr)
 {
-	console.log(Object.keys(dataDic));
+	for(let i = 0; i < arr.length; i++)
+  	{
+		dataDic[arr[i]['ID']] = arr[i];
+
+		appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID']);
+  	}
+
+	
 }
+
 
 function htmlSearchData()
 {
@@ -169,7 +168,6 @@ function searchData(args)
 
 function createContact(args)
 {
-	console.log('MADE iT');
 	let jsonPayload = JSON.stringify(args);
 	let url = urlBase + 'LAMPAPI/CreateContact.' + extension;
 
@@ -207,18 +205,6 @@ function createContact(args)
 	}
 }
 
-function editClick()
-{
-	let ID = document.getElementById("EditID").value;
-	let fName = document.getElementById("EditFirstName").value;
-	let lName = document.getElementById("EditLastName").value;
-	let email = document.getElementById("EditEmail").value;
-	let pNumber = document.getElementById("EditPhoneNumber").value;
-	let dob = document.getElementById("EditBirthday").value;
-
-	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId, ID:ID};
-	editContact(args);
-}
 
 function editContact(args)
 {
@@ -260,18 +246,17 @@ function editContact(args)
 	}
 }
 
-function deleteClick()
+function deleteClick(contactID)
 {
-	let ID = document.getElementById("DeleteID").value;
-
-	let args = {ID:ID, UserID:userId};
-	editContact(args);
+  let args = {ID:contactID, UserID:userId};
+  console.log(args);
+	deleteContact(args);
+  displayMainWelcomeScreen();
 }
 
-function deleteContact(contactId)
+function deleteContact(args)
 {
-	let tmp = {userId:userId, contactId:contactId};
-	let jsonPayload = JSON.stringify(tmp);
+	let jsonPayload = JSON.stringify(args);
 	let url = urlBase + 'LAMPAPI/deleteContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -280,8 +265,6 @@ function deleteContact(contactId)
 
 	try
 	{
-		xhr.send(jsonPayload);
-
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
@@ -302,10 +285,12 @@ function deleteContact(contactId)
 				return;
 			}
 		};
+
+    xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		// still dont know
+		console.log(err);
 	}
 }
 
@@ -495,21 +480,22 @@ function saveNewInfo()
 		let finalPhone = phoneInfo.textContent;
 		let finalEmail = emailInfo.textContent;
 		let finalBirth = birthInfo.textContent;
+    let finalContactId = document.getElementById("currentContactId").textContent;
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
+
+    let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId};
+	  editContact(args);
 }
 
 // adds a div to the side bar with a user's picture and name
-function appendUserContactsToSideBar()
+function appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId)
 {
   // firstName, lastName
 
-  let firstName = "Mr.";
-  let lastName = "Patrick";
+  	let username = firstName + " " + lastName;
 
-  let username = firstName + " " + lastName;
-
-	let htmlString = `<button id = '${username}' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('${firstName}', '${lastName}');">
+	let htmlString = `<button id = '${username}' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('${firstName}', '${lastName}', '${email}', '${birthday}', '${phoneNum}', '${contactId}');">
 	<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
 	<p id = "contactFullName"> ${username} </p>
     </button>`;
@@ -521,13 +507,15 @@ function appendUserContactsToSideBar()
 }
 
 
+
+
 // clicking a contact on the side bar will pull from the hashMap and display a user's info
-function displayContactInfo(firstName, lastName)
+function displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId)
 {
    let htmlString = `    <div id="info">
    <h1 id="EditDeleteHeader">
      <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>
-     <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon"> <i class="far fa-trash-alt fa-3x"></i> </button>
+     <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon" onclick = "deleteClick(${contactId})"> <i class="far fa-trash-alt fa-3x"></i> </button>
    </h1>
    <div id="top-info">
      <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
@@ -548,7 +536,7 @@ function displayContactInfo(firstName, lastName)
        <div id="PhoneEditDiv" class="editIconDiv">
        </div>
        <p class="infoLabels" id="phoneLabel"> <i class="fas fa-phone"></i> Phone </p>
-       <p id = "PhoneInfoText">FAKE PHONE </p>
+       <p id = "PhoneInfoText">${phoneNum} </p>
      </div>
      <hr>
 
@@ -556,7 +544,7 @@ function displayContactInfo(firstName, lastName)
        <div id="EmailEditDiv"class="editIconDiv">
        </div>
        <p class="infoLabels" id="emailLabel"> <i class="far fa-envelope"></i> E-mail </p>
-       <p id = "EmailInfoText">FAKE EMAIL </p>
+       <p id = "EmailInfoText">${email} </p>
      </div>
      <hr>
 
@@ -564,12 +552,13 @@ function displayContactInfo(firstName, lastName)
        <div id="BirthEditDiv"class="editIconDiv">
        </div>
        <p class="infoLabels" id="birthLabel"> <i class="fas fa-birthday-cake"></i> Birthday </p>
-       <p id = "BirthInfoText">FAKE B-DAY </p>
+       <p id = "BirthInfoText">${birthday} </p>
      </div>
      <div id = "CancelSaveButtonDiv">
      </div>
    </div>
    <hr class = white-page-line>
+   <p id = "currentContactId" style = "display: none;"> ${contactId}</p>
  </div>`
 
   let displayScreen = document.getElementById("inner-screen");
