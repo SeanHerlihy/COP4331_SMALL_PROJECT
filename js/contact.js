@@ -20,14 +20,14 @@ function htmlGetData()
   temp = getData(args);
   for(let i = 0; i < temp.length; i++)
   {
-      dataDic.push(offset++:temp[i]);
+	dataDic[offset++] = temp[i];
   }
 }
 
 function getData(args)
 {
   let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
+  let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
 
   let temp = [];
 
@@ -50,12 +50,12 @@ function getData(args)
 					return;
 				}
 
-        let jsonObject = jsonObject.results;
+       			jsonObject = jsonObject.results;
 
 				for(let i=0; i < jsonObject.results.length; i++)
-        {
-          temp += jsonObject.results[i];
-        }
+        		{
+         			 temp += jsonObject.results[i];
+        		}
 
 				return temp;
 			}
@@ -75,7 +75,7 @@ function htmlSearchData()
   temp = searchData(args);
   for(let i = 0; i < temp.length; i++)
   {
-      dataDic.push(offset++:temp[i]);
+      dataDic[offset++] = temp[i];
   }
 }
 
@@ -92,7 +92,7 @@ function searchData(args)
 
 	try
 	{
-		xhr.onreadystatechange() = function()
+		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
@@ -105,12 +105,12 @@ function searchData(args)
 					return;
 				}
 
-        let jsonObject = jsonObject.results;
+        		jsonObject = jsonObject.results;
 
 				for(let i=0; i < jsonObject.results.length; i++)
-        {
-          temp += jsonObject.results[i];
-        }
+				{
+					temp += jsonObject.results[i];
+				}
 
 				return temp;
 			}
@@ -122,22 +122,12 @@ function searchData(args)
 	}
 }
 
-function createClick()
-{
-	let fName = document.getElementById("FirstName").value;
-	let lName = document.getElementById("LastName").value;
-	let email = document.getElementById("Email").value;
-	let pNumber = document.getElementById("PhoneNumber").value;
-	let dob = document.getElementById("Birthday").value;
-
-	let args = {FirstName:fName, LastName:lName, Email:email, Phone:pNumber, BirthDay:dob, UserID:userId};
-	createContact(args);
-}
 
 function createContact(args)
 {
+	console.log('MADE iT');
 	let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/addContact.' + extension;
+	let url = urlBase + 'LAMPAPI/CreateContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -145,9 +135,7 @@ function createContact(args)
 
 	try
 	{
-		xhr.send(jsonPayload);
-
-		xhr.onreadystatechange() = function()
+		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
@@ -166,10 +154,12 @@ function createContact(args)
 				return jsonObject.contactId;
 			}
 		};
+
+		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		// ???
+		console.log(err);
 	}
 }
 
@@ -199,7 +189,7 @@ function editContact(args)
 	{
 		xhr.send(jsonPayload);
 
-		xhr.onreadystatechange() = function()
+		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
@@ -248,7 +238,7 @@ function deleteContact(contactId)
 	{
 		xhr.send(jsonPayload);
 
-		xhr.onreadystatechange() = function()
+		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
@@ -518,10 +508,11 @@ function grabUserInfoForCreateClick()
   console.log(document.getElementById('PhoneNumberCreateInput').value);
   console.log(document.getElementById('BirthdayCreateInput').value);
 
-  let args = {FirstName: document.getElementById('FirstNameCreateInput').value, LastName:document.getElementById('LastNameCreateInput').value, Email:document.getElementById('EmailCreateInput').value, Phone:document.getElementById('PhoneNumberCreateInput').value, BirthDay:document.getElementById('BirthdayCreateInput'), UserID: userId};
+  let args = {FirstName: document.getElementById('FirstNameCreateInput').value, LastName:document.getElementById('LastNameCreateInput').value, Email:document.getElementById('EmailCreateInput').value, Phone:document.getElementById('PhoneNumberCreateInput').value, BirthDay:document.getElementById('BirthdayCreateInput').value, UserID: userId};
 
   console.log(args);
   createContact(args);
+  displayCreateUserPage();
 }
 
 function displayMainWelcomeScreen()

@@ -3,7 +3,6 @@
   <head>
     <link rel="stylesheet" href="./css/contactManagerStyles.css">
     <script type="text/javascript" src="./js/contact.js"></script>
-      <script type="text/javascript" src="./js/contactManagerPage.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   </head>
@@ -24,10 +23,14 @@
        <h2 id="contact-subtitle">Contacts </h2>
        <div id="SearchAddDiv">
           <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
-          <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"  onclick= "appendUserContactsToSideBar();"> <i class="fas fa-user-plus fa-lg"></i> </button>
+          <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"  onclick= "displayCreateUserPage();"> <i class="fas fa-user-plus fa-lg"></i> </button>
         </div>
         <hr class = white-page-line>
-
+        
+        <button id = 'Mr. Patrick' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('Mr.', 'Patrick');">
+          <img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
+          <p id = "contactFullName"> Mr. Patrick </p>
+        </button>
       </div>
 
       <div id="info">
@@ -39,4 +42,5 @@
       </div>
 
     </div>
+    <p id = "contactError"> </p>
 </body>
