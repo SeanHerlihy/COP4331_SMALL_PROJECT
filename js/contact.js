@@ -11,6 +11,11 @@ let searchFlag = new Boolean(false);
 function login()
 {
 	readCookie();
+	
+}
+
+function displayName()
+{
 	document.getElementById("welcometextNavBar").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
 }
 
@@ -98,6 +103,12 @@ function getData(args)
 	{
 		// ???
 	}
+}
+
+// loads from datadict
+function loadContactsOnToHtml()
+{
+	console.log(Object.keys(dataDic));
 }
 
 function htmlSearchData()
@@ -553,5 +564,11 @@ function displayMainWelcomeScreen()
   </div>
 </div>`;
   
+}
+
+function searchBarFunction()
+{
+	let input =  document.getElementById('searchInput').value;
+	
 }
 
