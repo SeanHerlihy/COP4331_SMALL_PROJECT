@@ -203,13 +203,11 @@ a:hover {
   flex-direction: column;
 }
 #loginResult{
-	width: 100%;
   height: 10%;
 	color: red;
 	margin: auto;
   padding-bottom: 5%;
-
-
+  display: block;
 }
 #login {
   button-height: 36px;
