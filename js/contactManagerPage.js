@@ -13,7 +13,7 @@ function insertEditIcons(isInsertedBool)
       phoneEditObj.innerHTML =`<button id='PhoneEditIcon' onclick="editInfo('Phone', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
       emailEditObj.innerHTML =`<button id='EmailEditIcon' onclick="editInfo('Email', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
       birthEditObj.innerHTML =`<button id='BirthEditIcon' onclick="editInfo('Birth', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
+      cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton' onclick='saveNewInfo();'>Save</button>";
 
       document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(true)"> <i class="far fa-edit fa-3x"></i> </button>'
     }
@@ -33,12 +33,12 @@ function editInfo(infoType, alreadyClickedBool)
     infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter new info'>`;
     document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
   }
-  
+
 }
 
 function removeEditIcons()
 {
-  
+
     var nameEditObj = document.getElementById("NameEditIcon");
     var phoneEditObj = document.getElementById("PhoneEditIcon");
     var emailEditObj = document.getElementById("EmailEditIcon");
@@ -80,8 +80,87 @@ function removeEditIcons()
     birthInfo.style.display="block";
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>'
-  
 
+}
+
+function saveNewInfo()
+{
+    var nameEditObj = document.getElementById("NameEditIcon");
+    var phoneEditObj = document.getElementById("PhoneEditIcon");
+    var emailEditObj = document.getElementById("EmailEditIcon");
+    var birthEditObj = document.getElementById("BirthEditIcon");
+    var cancelEditBtn = document.getElementById("CancelEditButton");
+    var saveEditBtn = document.getElementById("SaveEditButton");
+
+    var firstNameTextBox = document.getElementById("inputFirstName")
+    var firstNameInfo = document.getElementById("FirstNameInfoText");
+
+    var lastNameTextBox = document.getElementById("inputLastName")
+    var lastNameInfo = document.getElementById("LastNameInfoText");
+
+    var phoneTextBox = document.getElementById("inputPhone");
+    var phoneInfo = document.getElementById("PhoneInfoText");
+
+    var emailTextBox = document.getElementById("inputEmail");
+    var emailInfo = document.getElementById("EmailInfoText");
+
+    var birthTextBox = document.getElementById("inputBirth");
+    var birthInfo = document.getElementById("BirthInfoText");
+
+    // removes all edit icons
+    nameEditObj.remove();
+    phoneEditObj.remove();
+    emailEditObj.remove();
+    birthEditObj.remove();
+    cancelEditBtn.remove();
+    saveEditBtn.remove();
+
+    // removes input boxes and stores input data
+    if (firstNameTextBox != null)
+    {
+      firstNameInfo.textContent = document.getElementById("inputFirstName").value;
+      firstNameTextBox.remove();
+    }
+
+    if (lastNameTextBox != null)
+		{
+			lastNameInfo.textContent = document.getElementById("inputLastName").value;
+      lastNameTextBox.remove();
+		}
+
+    if (phoneTextBox != null)
+		{
+			phoneInfo.textContent = document.getElementById("inputPhone").value;
+			phoneTextBox.remove();
+		}
+
+    if (emailTextBox != null)
+		{
+			emailInfo.textContent = document.getElementById("inputEmail").value;
+			emailTextBox.remove();
+		}
+
+    if (birthTextBox != null)
+		{
+			birthInfo.textContent = document.getElementById("inputBirth").value;
+			birthTextBox.remove();
+		}
+
+    firstNameInfo.style.display="block";
+    lastNameInfo.style.display="block";
+    phoneInfo.style.display="block";
+    emailInfo.style.display="block";
+    birthInfo.style.display="block";
+
+		let finalFirstName = firstNameInfo.textContent;
+		let finalLastName = lastNameInfo.textContent;
+		let finalPhone = phoneInfo.textContent;
+		let finalEmail = emailInfo.textContent;
+		let finalBirth = birthInfo.textContent;
+
+    document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
+    let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:ID};
+    editContact(args);
 }
 
 // adds a div to the side bar with a user's picture and name
@@ -203,5 +282,5 @@ function displayMainWelcomeScreen()
     <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
   </div>
 </div>`;
-  
+
 }
