@@ -8,30 +8,29 @@
   </head>
   <!-- 
 
-    <body onload="login();">
-  -->
-  <body>
+    <body>
+    -->
+  <body onload="login();">
     <div id="topbar">
       <!-- image is temporary -->
       <div id = "topBarIconNameCombo">
         <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="profile icon" class="topBarIcons">
-        <a id = "welcometextNavBar" onclick="displayMainWelcomeScreen()">Welcome default name</a> <!-- Is this set to update with JS already? -aribel -->
-
+        <a id = "welcometextNavBar" onclick="displayMainWelcomeScreen()" onload = "displayName()">Welcome</a> <!-- Is this set to update with JS already? -aribel -->
+  
       </div>
 
       <button type="submit" id = "LogOutButton">Log Out</button></li>
 
     </div>
-		<div id="inner-screen">
-			<div id="scroll-bar">
-        <hr> <!-- I tried making the line above contactss-->
+		<div id="inner-screen"onload = "htmlGetData()">
+			<div id="scroll-bar" onload = "loadContactsOnToHtml()">
         <div id = "contactScrollBarBox"> 
           <h2 id="contact-subtitle">Contacts </h2>
           <button class="clickableAwesomeFont" id="AddContactButton" title=" Create New Contact" alt="add contact icon"  onclick= "displayCreateUserPage();"> <i class="fas fa-user-plus fa-lg AddContactButtonInside "></i> </button>
 
         </div>
        <div id="SearchAddDiv">
-          <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onclick = "createClick();">
+          <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onkeyup="searchBarFunction()">
         </div>
         <hr class = white-page-line>
         
