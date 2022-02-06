@@ -165,9 +165,11 @@ button:hover
 	border-top-right-radius: 50px;
 	margin: auto;
 	/*background-color:rgba(139, 204, 235, 0.8);*/
-	/*background: linear-gradient(45deg, #215b81, #8bcceb, #b3c9e6);*/
-
-	background-color: rgba(65, 112, 126, 1);
+	
+	background: #41707e;
+	/*
+		background: linear-gradient(-45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
+	*/
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -186,18 +188,19 @@ button:hover
 
 #LogOutButton
 {
+
 	margin-right: 2%;
 	height: 100%;
-  border-color: white;
-  color: black;
-  background-color: #DBDBDB;
-  border-style: solid;
-  border-width: 2px;
-  width: 5%;
-  height: 35px;
+    border-color: white;
+    color: black;
+    background-color: #DBDBDB;
+    border-style: solid;
+    border-width: 2px;
+    width: 5%;
+    height: 35px;
 
-  font-weight: bold;
-  border-radius: 15px
+    font-weight: bold;
+    border-radius: 15px
 
 }
 /* all the icons */
@@ -219,7 +222,7 @@ button:hover
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 1px;
+	padding: 10px;
 }
 
 #AddContactButton {
@@ -266,7 +269,7 @@ button:hover
 #scroll-bar {
 	background: linear-gradient(45deg, rgba(12, 82, 102, 0.80), rgba(8, 79, 102, 1), rgba(6, 60, 77, 0.90));
 	height: 100%;
-	width: 28%;
+	width: 25%;
 	margin-right: 0%;
 	overflow-y: scroll;
 	text-align: center;
@@ -338,9 +341,10 @@ button:hover
 }
 
 #WelcomePic {
-	width: 40vw;
+	width: 20vw;
 	margin: auto;
-	border-radius: 50px;
+	margin-top: 5%;
+
 }
 
 
