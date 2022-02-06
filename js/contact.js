@@ -14,6 +14,39 @@ function login()
 	document.getElementById("welcometext").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
 }
 
+function readCookie()
+{
+	userId = -1;
+	let data = document.cookie;
+	let splits = data.split(",");
+	for(let i = 0; i < splits.length; i++)
+	{
+		let thisOne = splits[i].trim();
+		let tokens = thisOne.split("=");
+		if( tokens[0] == "FirstName" )
+		{
+			uFName = tokens[1];
+		}
+		else if( tokens[0] == "LastName" )
+		{
+			uLName = tokens[1];
+		}
+		else if( tokens[0] == "UserId" )
+		{
+			userId = parseInt( tokens[1].trim() );
+		}
+	}
+
+	if( userId <= 0 )
+	{
+		window.location.href = "index.html";
+	}
+	else
+	{
+		document.getElementById("UserName").innerHTML = "Logged in as " + uFName + " " + uLName;
+	}
+}
+
 function htmlGetData()
 {
   args = {UserID:userId, Offset:offset};
@@ -271,38 +304,6 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function readCookie()
-{
-	userId = -1;
-	let data = document.cookie;
-	let splits = data.split(",");
-	for(let i = 0; i < splits.length; i++)
-	{
-		let thisOne = splits[i].trim();
-		let tokens = thisOne.split("=");
-		if( tokens[0] == "FirstName" )
-		{
-			uFName = tokens[1];
-		}
-		else if( tokens[0] == "LastName" )
-		{
-			uLName = tokens[1];
-		}
-		else if( tokens[0] == "UserId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
-	}
-
-	if( userId <= 0 )
-	{
-		window.location.href = "index.html";
-	}
-	else
-	{
-		document.getElementById("UserName").innerHTML = "Logged in as " + uFName + " " + uLName;
-	}
-}
 
 // CODE FOR HTML
 
@@ -502,17 +503,17 @@ function displayCreateUserPage()
 
 function grabUserInfoForCreateClick()
 {
-  console.log(document.getElementById('FirstNameCreateInput').value);
-  console.log(document.getElementById('LastNameCreateInput').value);
+  let firstName = document.getElementById('FirstNameCreateInput').value;
+  let lastName = document.getElementById('LastNameCreateInput').value;
   console.log(document.getElementById('EmailCreateInput').value);
   console.log(document.getElementById('PhoneNumberCreateInput').value);
   console.log(document.getElementById('BirthdayCreateInput').value);
 
-  let args = {FirstName: document.getElementById('FirstNameCreateInput').value, LastName:document.getElementById('LastNameCreateInput').value, Email:document.getElementById('EmailCreateInput').value, Phone:document.getElementById('PhoneNumberCreateInput').value, BirthDay:document.getElementById('BirthdayCreateInput').value, UserID: userId};
+  let args = {FirstName: firstName, LastName: lastName, Email:document.getElementById('EmailCreateInput').value, Phone:document.getElementById('PhoneNumberCreateInput').value, BirthDay:document.getElementById('BirthdayCreateInput').value, UserID: userId};
 
   console.log(args);
   createContact(args);
-  displayCreateUserPage();
+  displayContactInfo(firstName, lastName);
 }
 
 function displayMainWelcomeScreen()
