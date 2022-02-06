@@ -43,11 +43,8 @@ button:hover
 }
 #NameEditDiv {
 	height: 100%;
-	margin-left: 5%;
-}
-#NameEditIcon {
-	margin-left: 80%;
-	margin-bottom: 100%;
+	margin-left: 4%;
+	margin-top: 3.7%;
 }
 .EditInfoButton {
 	border: none;
@@ -70,24 +67,6 @@ button:hover
 #PhoneInfoText {
 	margin-left: 4%;
 }
-#inputFirstName {
-	margin-top: 13%;
-	padding-left: 8.8px;
-	margin-left: 3.3%;
-	height: 57px;
-	font-size: 20px;
-	width: 300px;
-	border-radius: 10px;
-}
-#inputLastName {
-	margin-top: 13%;
-	padding-left: 8.8px;
-	margin-left: 3.3%;
-	height: 57px;
-	font-size: 20px;
-	width: 300px;
-	border-radius: 10px;
-}
 #inputPhone {
 	margin-top: 1%;
 	padding-left: 8.8px;
@@ -109,7 +88,7 @@ button:hover
 #inputBirth {
 	margin-top: 1%;
 	padding-left: 8.8px;
-	margin-left: 2.1%;
+	margin-left: 3.8%;
 	height: 57px;
 	font-size: 20px;
 	width: 300px;
@@ -159,9 +138,7 @@ button:hover
 }
 
 #topbar{
-	display: flex;
-	justify-content: flex-start;
-	height: 10%;
+	height: 8%;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 	margin: auto;
@@ -323,7 +300,7 @@ button:hover
 
 #WelcomeInsideDiv
 {
-  display: flex;
+    display: flex;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
@@ -347,7 +324,6 @@ button:hover
 	width: 20vw;
 	margin: auto;
 	margin-top: 5%;
-
 }
 
 
@@ -529,25 +505,19 @@ button:hover
 	margin-top: 1.4%;
 	margin-bottom: .5%;
 }
-#NameDiv {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	width: 50%;
-}
-#FirstNameDiv {
-	margin-left: 5%;
-}
-#LastNameDiv {
-	margin-left: 8%;
-}
-#FirstNameInfoText {
+#ProfileNameFirst {
 	font-family: Arial, sans-serif;
+	margin-left: 3%;
 	font-size: 35pt;
+	margin-top: 4%;
+	margin-bottom: 0%;
 }
-#LastNameInfoText {
+#ProfileNameSecond {
 	font-family: Arial, sans-serif;
+	margin-left: 3%;
 	font-size: 35pt;
+	margin-top: 4%;
+	margin-bottom: 0%;
 }
 #secondary-info {
 	background-color: none;
