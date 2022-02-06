@@ -42,12 +42,13 @@ button:hover
 	background: none;
 }
 #NameEditDiv {
-	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-left: 5%;
 }
 #NameEditIcon {
 	margin-left: 80%;
-	margin-bottom: 100%;
 }
 .EditInfoButton {
 	border: none;
@@ -71,7 +72,6 @@ button:hover
 	margin-left: 4%;
 }
 #inputFirstName {
-	margin-top: 13%;
 	padding-left: 8.8px;
 	margin-left: 3.3%;
 	height: 57px;
@@ -80,7 +80,6 @@ button:hover
 	border-radius: 10px;
 }
 #inputLastName {
-	margin-top: 13%;
 	padding-left: 8.8px;
 	margin-left: 3.3%;
 	height: 57px;
@@ -435,6 +434,7 @@ button:hover
 #top-info {
 	display:flex;
 	justify-content: flex-start;
+	align-items: center;
 	margin-top: 1%;
 	margin-left: 7%;
 }
