@@ -11,7 +11,7 @@ let searchFlag = new Boolean(false);
 function login()
 {
 	readCookie();
-	
+
 }
 
 function displayName()
@@ -39,7 +39,7 @@ function readCookie()
 		else if( tokens[0] == "UserID" )
 		{
 			userId = parseInt( tokens[1].trim() );
-			
+
 		}
 	}
 
@@ -47,7 +47,7 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
-	
+
 }
 
 function htmlGetData()
@@ -75,19 +75,19 @@ function getData(args)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
-				
+
 
        	jsonObject = jsonObject.results;
 				jsonObject = jsonObject[0].results;
 
 				setReturnData(jsonObject);
 
-				
+
 			}
 		};
-		
+
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch(err)
 	{
@@ -106,14 +106,26 @@ function setReturnData(arr)
 		appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID']);
   	}
 
-	
+
 }
 
-
+// Called from HTML to initiate search.
 function htmlSearchData()
 {
   dataDic = {};
   offset = 0;
+  searchFlag = true;
+  args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
+  temp = searchData(args);
+  for(let i = 0; i < temp.length; i++)
+  {
+      dataDic[offset++] = temp[i];
+  }
+}
+
+// Called from HTML while scrolling if searchFlag is true.
+function loadSearchData()
+{
   args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
   temp = searchData(args);
   for(let i = 0; i < temp.length; i++)
