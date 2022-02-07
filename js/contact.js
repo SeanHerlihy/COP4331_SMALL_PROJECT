@@ -237,9 +237,14 @@ function editContact(args)
 function deleteClick(contactID, username)
 {
   let args = {ID:contactID, UserID:userId};
-	deleteContact(args);
-  document.getElementById(`${username}`).remove();
-  displayMainWelcomeScreen();
+
+  if (confirm("Are you sure you want to delete this contact?"))
+  {
+    deleteContact(args);
+    document.getElementById(`${username}`).remove();
+    displayMainWelcomeScreen();
+
+  }
 }
 
 function deleteContact(args)
@@ -651,9 +656,7 @@ function displayMainWelcomeScreen()
   displayScreen.lastElementChild.remove();
   displayScreen.innerHTML += `<div id="info">
   <div id = "WelcomeInsideDiv">
-    <p id = "WelcomeMSG">Welcome back to SUPER AWESOME CONTACT MANAGER 3000</p>
-    <p id = "welcomeDivUserName"> @Person Logged-in!!!!</p>
-    <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
+     <img src="./css/images/Logo.png" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
   </div>
 </div>`;
 
