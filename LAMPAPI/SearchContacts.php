@@ -13,10 +13,10 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("select * from Contacts where ((FirstName like ?) or (LastName like ?)) and UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
+		$stmt = $conn->prepare("select * from Contacts where (((FirstName like ?) or (LastName like ?)) or ((FirstName like ?) AND (LastName like ?))) and UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
 		$contactName = "%" . $inData["search"] . "%";
 		$contactName2 = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ssss", $contactName, $contactName2, $inData["UserID"], $inData["Offset"]);
+		$stmt->bind_param("ssssss", $contactName, $contactName2, $pieces[0], $pieces[1], $inData["UserID"], $inData["Offset"]);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
@@ -33,7 +33,7 @@
 
 			$thisJSONObject = '{"First":"' . $row["FirstName"] . '","Last":"' . $row["LastName"]
 				          . '","Phone":"' . $row["Phone"] . '","Email":"' . $row["Email"]
-						. '","BirthDay":"' . $row["BirthDay"] . '","ID":"' . $row["ID"] . '"}';
+						. '","BirthDay":"' . $row["BirthDay"] . '","PhotoID":"' .$row["PhotoID"] . '","ID":"' . $row["ID"] . '"}';
 			$searchResults .= $thisJSONObject;
 			//echo $thisJSONObject;
 		}

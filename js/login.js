@@ -43,7 +43,7 @@ function doLogin()
 
 				saveCookie();
 
-				window.location.href = "ContactManager.html";
+				window.location.href = "ContactManager.html?#";
 			}
 		};
 		xhr.send(jsonPayload);

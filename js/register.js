@@ -10,6 +10,7 @@ function doRegister()
 	var fName = document.getElementById("FirstName").value;
 	var lName = document.getElementById("LastName").value;
 	var confirmPass = document.getElementById("CreateConfirmPass").value;
+	var photoID = Math.floor(Math.random() * 20);
 
 	if(fName == "")
 	{
@@ -40,7 +41,7 @@ function doRegister()
 		return;
 	}
 
-	var jsonPayload = JSON.stringify({FirstName:fName,LastName:lName,Login:login,Password:pass});
+	var jsonPayload = JSON.stringify({FirstName:fName,LastName:lName,Login:login,Password:pass, PhotoID: photoID});
 	var url = urlBase + 'LAMPAPI/RegisterUser.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -49,7 +50,6 @@ function doRegister()
 
 	try
 	{
-		xhr.send(jsonPayload);
 
 		xhr.onreadystatechange = function()
 		{
