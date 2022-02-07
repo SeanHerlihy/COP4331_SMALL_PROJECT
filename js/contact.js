@@ -305,7 +305,7 @@ function insertEditIcons(isInsertedBool)
       phoneEditObj.innerHTML =`<button id='PhoneEditIcon' onclick="editInfo('Phone', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
       emailEditObj.innerHTML =`<button id='EmailEditIcon' onclick="editInfo('Email', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
       birthEditObj.innerHTML =`<button id='BirthEditIcon' onclick="editInfo('Birth', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton' onclick='saveNewInfo();'>Save</button>";
+      cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
 
       document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(true)"> <i class="far fa-edit fa-3x"></i> </button>'
     }
@@ -325,12 +325,22 @@ function editInfo(infoType, alreadyClickedBool)
   {
     if (infoType == "FirstName" || infoType == "LastName")
     {
-      infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter ${infoType}' title='Enter ${infoType}'>`;
+      infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' required placeholder=' Please enter ${infoType}' title='Enter ${infoType}'>`;
       document.getElementById(`NameEditDiv`).innerHTML = `<button id='NameEditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-2x editPenIcon'></button>`;
+    }
+    else if (infoType == "Birth")
+    {
+      infoDiv.innerHTML += `<input type='Date' id = 'input${infoType}' required placeholder=' Please enter ${infoType}'>`;
+      document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+    }
+    else if (infoType == "Phone")
+    {
+      infoDiv.innerHTML += `<input type='Text' id = 'input${infoType}' required placeholder=' Please enter ${infoType}' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">`;
+      document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
     }
     else
     {
-      infoDiv.innerHTML += `<input type='text' id = 'input${infoType}' placeholder=' Please enter ${infoType}'>`;
+      infoDiv.innerHTML += `<input type='${infoType}' id = 'input${infoType}' required placeholder=' Please enter ${infoType}'>`;
       document.getElementById(`${infoType}EditDiv`).innerHTML = `<button id='${infoType}EditIcon' onclick="editInfo('${infoType}', true)" class='fas fa-pen fa-sm editPenIcon'></button>`;
     }
   }
@@ -520,18 +530,25 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
      <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>
      <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon" onclick = "deleteClick(${contactId}, '${username}')"> <i class="far fa-trash-alt fa-3x"></i> </button>
    </h1>
+   <form action="#" onsubmit = 'saveNewInfo()'>
    <div id="top-info">
-     <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
-     <div id= "NameDiv">
+
+    <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
+    <div id= "NameDiv">
+
        <div id="FirstNameDiv">
          <h2 id="FirstNameInfoText">${firstName}</h2>
        </div>
+
        <div id="LastNameDiv">
          <h2 id = "LastNameInfoText"> ${lastName}</h2>
        </div>
+
        <div id="NameEditDiv" class="editIconDiv">
        </div>
+
     </div>
+
    </div>
    <hr class =" white-page-line-displayContact">
    <div id="secondary-info">
@@ -559,8 +576,8 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
      </div>
      <div id = "CancelSaveButtonDiv">
      </div>
+   </form>
    </div>
-   <hr class = "white-page-line-displayContact">
    <p id = "currentContactId" style = "display: none;"> ${contactId}</p>
    <p id = "currentContactphoto" style = "display: none;"> ${photoId}</p>
  </div>`
