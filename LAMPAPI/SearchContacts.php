@@ -13,7 +13,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("select * from Contacts where ((FirstName like ?) or (LastName like ?)) or ((FirstName like ?) AND (LastName like ?)) and UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
+		$stmt = $conn->prepare("select * from Contacts where (((FirstName like ?) or (LastName like ?)) or ((FirstName like ?) AND (LastName like ?))) and UserID=? order by FirstName asc, LastName asc LIMIT ?, 25");
 		$contactName = "%" . $inData["search"] . "%";
 		$contactName2 = "%" . $inData["search"] . "%";
 		$pieces = explode(" ", $inData["search"]);
