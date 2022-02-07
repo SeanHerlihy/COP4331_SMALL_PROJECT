@@ -13,7 +13,7 @@ function login()
 {
 	readCookie();
   displayName();
-
+	
 }
 
 function displayName()
@@ -42,7 +42,7 @@ function readCookie()
 		else if( tokens[0] == "UserID" )
 		{
 			userId = parseInt( tokens[1].trim() );
-
+			
 		}
 	}
 
@@ -50,7 +50,7 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
-
+	
 }
 
 function htmlGetData()
@@ -77,19 +77,19 @@ function getData(args)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
-
+				
 
        	jsonObject = jsonObject.results;
 				jsonObject = jsonObject[0].results;
 
 				setReturnData(jsonObject);
 
-
+				
 			}
 		};
-
+		
 		xhr.send(jsonPayload);
-
+		
 	}
 	catch(err)
 	{
@@ -113,7 +113,7 @@ function setReturnData(arr)
 		  appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID'], arr[i]['PhotoID']);
   	}
 
-
+	
 }
 
 function searchData(args)
@@ -433,45 +433,30 @@ function saveNewInfo()
     if (firstNameTextBox != null)
     {
       firstNameInfo.textContent = document.getElementById("inputFirstName").value;
-			firstNameTextBox.remove();
+      firstNameTextBox.remove();
     }
 
     if (lastNameTextBox != null)
 		{
 			lastNameInfo.textContent = document.getElementById("inputLastName").value;
-			lastNameTextBox.remove();
-		}
-
-		if (firstNameInfo.textContent === "" || lastNameInfo.textContent === "")
-		{
-			var nameDiv = document.getElementById("NameDiv");
-			nameDiv.innerHTML += "<p class='infoErrorBox'>Enter first and last name. </p>";
+      lastNameTextBox.remove();
 		}
 
     if (phoneTextBox != null)
 		{
-			var phoneDiv = document.getElementById("PhoneDiv");
 			phoneInfo.textContent = document.getElementById("inputPhone").value;
-
-			phoneDiv.innerHTML += "<p class='infoErrorBox'>Expected Input: XXX-XXX-XXXX </p>";
 			phoneTextBox.remove();
 		}
 
     if (emailTextBox != null)
 		{
-			var emailDiv = document.getElementById("EmailDiv");
 			emailInfo.textContent = document.getElementById("inputEmail").value;
-
-			emailDiv.innerHTML += "<p class='infoErrorBox'>Enter a valid email. </p>";
 			emailTextBox.remove();
 		}
 
     if (birthTextBox != null)
 		{
-			var birthDiv = document.getElementById("BirthDiv");
 			birthInfo.textContent = document.getElementById("inputBirth").value;
-
-			birthDiv.innerHTML += "<p class='infoErrorBox'>Expected Input: MM/DD/YYYY </p>";
 			birthTextBox.remove();
 		}
 
@@ -494,7 +479,7 @@ function saveNewInfo()
     let contactBtn = document.getElementById(`${initialFirst + " " + initialLast}`);
     contactBtn.innerHTML = `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
     <p id = "contactFullName"> ${finalFirstName + " " + finalLastName}</p>`;
-    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` );
+    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` ); 
     contactBtn.id =`${finalFirstName + " " + finalLastName}`;
 
     let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId};
@@ -548,7 +533,7 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
        </div>
     </div>
    </div>
-   <hr class = white-page-line>
+   <hr class =" white-page-line-displayContact">
    <div id="secondary-info">
      <div id="PhoneDiv">
        <div id="PhoneEditDiv" class="editIconDiv">
@@ -575,7 +560,7 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
      <div id = "CancelSaveButtonDiv">
      </div>
    </div>
-   <hr class = white-page-line>
+   <hr class = "white-page-line-displayContact">
    <p id = "currentContactId" style = "display: none;"> ${contactId}</p>
    <p id = "currentContactphoto" style = "display: none;"> ${photoId}</p>
  </div>`
@@ -590,30 +575,31 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
 // displays the create a new contact page
 function displayCreateUserPage()
 {
+  
   let htmlString = `<div id=CreateAccountDiv>
-  <div id="top-info">
+  <div id="top-info-createContact">
     <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
-    <h2 id="profile-name"></h2>
   </div>
-  <div id="secondary-info">
-    <div class="inputContainer">
+  <div id="secondary-info-createContact">
+    <form class="inputContainer" action="#" onsubmit = 'grabUserInfoForCreateClick()'">
       <div id = "containsNames">
         <h3 class="fieldText"> First Name: </h3>
-        <input type="text" id = "FirstNameCreateInput" placeholder = "First Name" class = "round-borders">
+        <input type="text" id = "FirstNameCreateInput" placeholder = "First Name" class = "round-borders" required>
         <h3 class="fieldText"> Last Name: </h3>
-        <input type="text" id = "LastNameCreateInput" placeholder = "Last Name" class = "round-borders">
+        <input type="text" id = "LastNameCreateInput" placeholder = "Last Name" class = "round-borders" required>
       </div>
       <h3 class="fieldText"> E-mail Address: </h3>
-      <input type="text" id = "EmailCreateInput" placeholder = "E-mail" class = "round-borders">
+      <input type="email" id = "EmailCreateInput" placeholder = "E-mail" class = "round-borders" type = "email" required ">
       <h3 class="fieldText"> Phone Number: </h3>
-      <input type="text" id = "PhoneNumberCreateInput" placeholder = "Phone #" class = "round-borders">
+      <input type="text" id = "PhoneNumberCreateInput" placeholder = "XXX-XXX-XXXX" class = "round-borders" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+      required type = 'tel'>
       <h3 class="fieldText"> Date of Birth (mm/dd/yyyy): </h3>
-      <input type="text" id = "BirthdayCreateInput" placeholder = "mm/dd/yyyy" class = "round-borders">
+      <input type="date" id = "BirthdayCreateInput" placeholder = "mm/dd/yyyy" class = "round-borders" required>
       <div id = "contains-buttons">
         <button type="submit" id = "CancelButton" onclick = 'displayMainWelcomeScreen()'>Cancel</button>
-        <button type="submit" id = "CreateButton" onclick = 'grabUserInfoForCreateClick()'>Create</button>
+        <button type="submit" id = "CreateButton" >Create</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>`;
 
@@ -624,11 +610,14 @@ function displayCreateUserPage()
 
 function grabUserInfoForCreateClick()
 {
+
   let firstName = document.getElementById('FirstNameCreateInput').value;
   let lastName = document.getElementById('LastNameCreateInput').value;
   let email = document.getElementById('EmailCreateInput').value;
   let birthday = document.getElementById('BirthdayCreateInput').value;
   let phoneNum = document.getElementById('PhoneNumberCreateInput').value;
+  
+  
   let contactId = Math.floor(Math.random() * 2147483647);
   let photoId = Math.floor(Math.random() * ICONCOUNT);
 
@@ -656,9 +645,12 @@ function displayMainWelcomeScreen()
 function searchBarFunction()
 {
 	let input =  document.getElementById('searchInput').value;
+
   args = {UserID:userId, search:input, Offset:offset};
+
   let sideBarDiv = document.getElementById("contactListBox");
   sideBarDiv.innerHTML = "";
+
   searchData(args);
 
 }
