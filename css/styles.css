@@ -3,12 +3,17 @@ body
     background-image: url("./images/image.jpg");
     background-size: cover;
 }
+
 img {
   max-width: 100%;
   height: auto;
   margin-top: auto;
   display: block;
   object-fit: contain;
+}
+@font-face {
+  font-family: "Martin";
+  src: url("./fonts/VerminVibes2.otf") format("truetype");
 }
 button
 {
@@ -141,11 +146,14 @@ a:hover {
   height: 50px;
   width: 80%;
 }
-
+#S3000 {
+	margin-top: 0%;
+	font-size: 600%;
+}
 #welcomeText {
   box-sizing: border-box;
   padding: 10px;
-  font-family: Arial;
+  font-family: Martin;
   font-size: max(2.5vmin, 14px);
   color: white;
   text-shadow: 0 0 5px #3c4d57;
@@ -159,7 +167,7 @@ a:hover {
   vertical-align: middle;
   box-sizing: border-box;
   padding: 2px;
-  font-family: Arial;
+  font-family: Martin;
   font-size: max(4.3vmin, 20px);
   color: white;
   text-shadow: 0 0 25px #3c4d57;
