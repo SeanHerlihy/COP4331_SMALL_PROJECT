@@ -50,7 +50,6 @@ function doRegister()
 
 	try
 	{
-		xhr.send(jsonPayload);
 
 		xhr.onreadystatechange = function()
 		{
