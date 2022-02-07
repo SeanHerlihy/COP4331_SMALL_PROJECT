@@ -7,6 +7,7 @@ let uLName = "";
 let dataDic = {};
 let offset = 0;
 let searchFlag = new Boolean(false);
+let ICONCOUNT = 20;
 
 function login()
 {
@@ -18,6 +19,7 @@ function login()
 function displayName()
 {
 	document.getElementById("welcometextNavBar").textContent = "Welcome, " + uFName + " " + uLName + "!";
+  //selectPhotoId(photoId, "topBarIcons");
 }
 
 function readCookie()
@@ -55,7 +57,6 @@ function htmlGetData()
 {
   let args = {UserID:userId, Offset:offset};
   let temp = getData(args);
-  console.log(temp);
 
 }
 
@@ -100,35 +101,25 @@ function getData(args)
 
 function setReturnData(arr)
 {
+  if (arr === undefined)
+    return;
+
+    document.getElementById("contactListBox").innerHTML = ""
+
 	for(let i = 0; i < arr.length; i++)
   	{
-		dataDic[arr[i]['ID']] = arr[i];
+		//dataDic[arr[i]['ID']] = arr[i];
 
-		appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID']);
+		  appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID'], arr[i]['PhotoID']);
   	}
 
 	
 }
 
-
-function htmlSearchData()
-{
-  dataDic = {};
-  offset = 0;
-  args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
-  temp = searchData(args);
-  for(let i = 0; i < temp.length; i++)
-  {
-      dataDic[offset++] = temp[i];
-  }
-}
-
 function searchData(args)
 {
   let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/LoadContacts.' + extension;
-
-  let temp = [];
+	let url = urlBase + 'LAMPAPI/SearchContacts.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -142,27 +133,22 @@ function searchData(args)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
 
-				if(jsonObject.hasOwnProperty('error'))
-				{
-					document.getElementById("contactError").innerHTML = "Error creating contact";
-					console.log(jsonObject.error);
-					return;
-				}
+        jsonObject = jsonObject.results;
 
-        		jsonObject = jsonObject.results;
+        if (jsonObject === undefined)
+          return;
 
-				for(let i=0; i < jsonObject.results.length; i++)
-				{
-					temp += jsonObject.results[i];
-				}
+				jsonObject = jsonObject[0].results;
 
-				return temp;
+				setReturnData(jsonObject);
 			}
 		};
+
+    xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		// ???
+		console.log(err);
 	}
 }
 
@@ -210,7 +196,7 @@ function createContact(args)
 function editContact(args)
 {
 	let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/editContact.' + extension;
+	let url = urlBase + 'LAMPAPI/EditContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -218,7 +204,6 @@ function editContact(args)
 
 	try
 	{
-		xhr.send(jsonPayload);
 
 		xhr.onreadystatechange = function()
 		{
@@ -240,10 +225,12 @@ function editContact(args)
 				return;
 			}
 		};
+
+    xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		// still dont know
+		console.log(err);
 	}
 }
 
@@ -431,6 +418,9 @@ function saveNewInfo()
     var birthTextBox = document.getElementById("inputBirth");
     var birthInfo = document.getElementById("BirthInfoText");
 
+    let initialFirst = firstNameInfo.textContent.trim();
+    let initialLast = lastNameInfo.textContent.trim();
+
     // removes all edit icons
     nameEditObj.remove();
     phoneEditObj.remove();
@@ -485,23 +475,31 @@ function saveNewInfo()
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
 
+
+    let contactBtn = document.getElementById(`${initialFirst + " " + initialLast}`);
+    contactBtn.innerHTML = `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
+    <p id = "contactFullName"> ${finalFirstName + " " + finalLastName}</p>`;
+    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` ); 
+    contactBtn.id =`${finalFirstName + " " + finalLastName}`;
+
     let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId};
 	  editContact(args);
 }
 
 // adds a div to the side bar with a user's picture and name
-function appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId)
+function appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId, photoId)
 {
   // firstName, lastName
 
   	let username = firstName + " " + lastName;
+    let imgHtml = selectPhotoId(photoId, "profilePicture");
 
-	let htmlString = `<button id = '${username}' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('${firstName}', '${lastName}', '${email}', '${birthday}', '${phoneNum}', '${contactId}');">
+	let htmlString = `<button id = '${username}' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('${firstName}', '${lastName}', '${email}', '${birthday}', '${phoneNum}', '${contactId}', '${photoId}');">
 	<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
 	<p id = "contactFullName"> ${username} </p>
     </button>`;
 
-	let sideBarDiv = document.getElementById("scroll-bar");
+	let sideBarDiv = document.getElementById("contactListBox");
 
 	sideBarDiv.innerHTML += htmlString;
 
@@ -511,10 +509,11 @@ function appendUserContactsToSideBar(firstName, lastName, email, birthday, phone
 
 
 // clicking a contact on the side bar will pull from the hashMap and display a user's info
-function displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId)
+function displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId, photoId)
 {
 
   let username = firstName + " " + lastName;
+  let imgHtml = selectPhotoId(photoId, "profile-pic");
 
    let htmlString = `    <div id="info">
    <h1 id="EditDeleteHeader">
@@ -563,6 +562,7 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
    </div>
    <hr class = white-page-line>
    <p id = "currentContactId" style = "display: none;"> ${contactId}</p>
+   <p id = "currentContactphoto" style = "display: none;"> ${photoId}</p>
  </div>`
 
   let displayScreen = document.getElementById("inner-screen");
@@ -615,12 +615,13 @@ function grabUserInfoForCreateClick()
   let birthday = document.getElementById('BirthdayCreateInput').value;
   let phoneNum = document.getElementById('PhoneNumberCreateInput').value;
   let contactId = Math.floor(Math.random() * 2147483647);
+  let photoId = Math.floor(Math.random() * ICONCOUNT);
 
-  let args = {ID: contactId, FirstName: firstName, LastName: lastName, Email:email, Phone: phoneNum, BirthDay:birthday, UserID: userId};
+  let args = {ID: contactId, FirstName: firstName, LastName: lastName, Email:email, Phone: phoneNum, BirthDay:birthday, UserID: userId, PhotoID: photoId};
 
   createContact(args);
-  appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId);
-  displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId);
+  appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId, photoId);
+  displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId, photoId);
 }
 
 function displayMainWelcomeScreen()
@@ -640,5 +641,19 @@ function displayMainWelcomeScreen()
 function searchBarFunction()
 {
 	let input =  document.getElementById('searchInput').value;
+  args = {UserID:userId, search:input, Offset:offset};
+  let sideBarDiv = document.getElementById("contactListBox");
+  sideBarDiv.innerHTML = "";
+  searchData(args);
 
+}
+
+// takes in a photoId, htmlIdTag and returns an html tag with the correct photo, and class
+function selectPhotoId(photoId, htmlIdTag)
+{
+  switch(photoId)
+  {
+    case 0:
+      return `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = '${htmlIdTag}'></img>`;
+  }
 }
