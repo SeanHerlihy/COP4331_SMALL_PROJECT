@@ -14,7 +14,7 @@
     <div id="topbar">
       <!-- image is temporary -->
       <div id = "topBarIconNameCombo">
-        <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="profile icon" class="topBarIcons">
+        <img src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="profile icon" id="topBarIcons">
         <a id = "welcometextNavBar" onclick="displayMainWelcomeScreen()" onload = "displayName()">Welcome</a> <!-- Is this set to update with JS already? -aribel -->
 
         <script type="text/javascript">
@@ -37,11 +37,10 @@
           <input type="text" id="searchInput" placeholder="Search.." <button type = "submit" id="add-icon" alt="add contact icon" onkeyup="searchBarFunction()">
         </div>
         <hr class = white-page-line>
+        <div id = "contactListBox">
 
-        <button id = 'Mr. Patrick' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('Mr.', 'Patrick');">
-          <img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
-          <p id = "contactFullName"> Mr. Patrick </p>
-        </button>
+        </div>
+        
       </div>
 
       <div id="info">
