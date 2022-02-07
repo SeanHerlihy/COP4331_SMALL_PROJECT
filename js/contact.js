@@ -11,12 +11,13 @@ let searchFlag = new Boolean(false);
 function login()
 {
 	readCookie();
-
+  displayName();
+	
 }
 
 function displayName()
 {
-	document.getElementById("welcometextNavBar").innerHTML = "Welcome, " + uFName + " " + uLName + "!";
+	document.getElementById("welcometextNavBar").textContent = "Welcome, " + uFName + " " + uLName + "!";
 }
 
 function readCookie()
@@ -39,7 +40,7 @@ function readCookie()
 		else if( tokens[0] == "UserID" )
 		{
 			userId = parseInt( tokens[1].trim() );
-
+			
 		}
 	}
 
@@ -47,7 +48,7 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
-
+	
 }
 
 function htmlGetData()
@@ -75,19 +76,19 @@ function getData(args)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
-
+				
 
        	jsonObject = jsonObject.results;
 				jsonObject = jsonObject[0].results;
 
 				setReturnData(jsonObject);
 
-
+				
 			}
 		};
-
+		
 		xhr.send(jsonPayload);
-
+		
 	}
 	catch(err)
 	{
@@ -106,26 +107,14 @@ function setReturnData(arr)
 		appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID']);
   	}
 
-
+	
 }
 
-// Called from HTML to initiate search.
+
 function htmlSearchData()
 {
   dataDic = {};
   offset = 0;
-  searchFlag = true;
-  args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
-  temp = searchData(args);
-  for(let i = 0; i < temp.length; i++)
-  {
-      dataDic[offset++] = temp[i];
-  }
-}
-
-// Called from HTML while scrolling if searchFlag is true.
-function loadSearchData()
-{
   args = {UserID:userId, search:document.getElementById("searchInput").value, Offset:offset};
   temp = searchData(args);
   for(let i = 0; i < temp.length; i++)
@@ -258,18 +247,18 @@ function editContact(args)
 	}
 }
 
-function deleteClick(contactID)
+function deleteClick(contactID, username)
 {
   let args = {ID:contactID, UserID:userId};
-  console.log(args);
 	deleteContact(args);
+  document.getElementById(`${username}`).remove();
   displayMainWelcomeScreen();
 }
 
 function deleteContact(args)
 {
 	let jsonPayload = JSON.stringify(args);
-	let url = urlBase + 'LAMPAPI/deleteContact.' + extension;
+	let url = urlBase + 'LAMPAPI/DeleteContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -524,10 +513,13 @@ function appendUserContactsToSideBar(firstName, lastName, email, birthday, phone
 // clicking a contact on the side bar will pull from the hashMap and display a user's info
 function displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId)
 {
+
+  let username = firstName + " " + lastName;
+
    let htmlString = `    <div id="info">
    <h1 id="EditDeleteHeader">
      <button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>
-     <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon" onclick = "deleteClick(${contactId})"> <i class="far fa-trash-alt fa-3x"></i> </button>
+     <button class="clickableAwesomeFont" id="DeleteButton" title="Delete Contact" alt="delete contact icon" onclick = "deleteClick(${contactId}, '${username}')"> <i class="far fa-trash-alt fa-3x"></i> </button>
    </h1>
    <div id="top-info">
      <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
@@ -619,15 +611,16 @@ function grabUserInfoForCreateClick()
 {
   let firstName = document.getElementById('FirstNameCreateInput').value;
   let lastName = document.getElementById('LastNameCreateInput').value;
-  console.log(document.getElementById('EmailCreateInput').value);
-  console.log(document.getElementById('PhoneNumberCreateInput').value);
-  console.log(document.getElementById('BirthdayCreateInput').value);
+  let email = document.getElementById('EmailCreateInput').value;
+  let birthday = document.getElementById('BirthdayCreateInput').value;
+  let phoneNum = document.getElementById('PhoneNumberCreateInput').value;
+  let contactId = Math.floor(Math.random() * 2147483647);
 
-  let args = {FirstName: firstName, LastName: lastName, Email:document.getElementById('EmailCreateInput').value, Phone:document.getElementById('PhoneNumberCreateInput').value, BirthDay:document.getElementById('BirthdayCreateInput').value, UserID: userId};
+  let args = {ID: contactId, FirstName: firstName, LastName: lastName, Email:email, Phone: phoneNum, BirthDay:birthday, UserID: userId};
 
-  console.log(args);
   createContact(args);
-  displayContactInfo(firstName, lastName);
+  appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId);
+  displayContactInfo(firstName, lastName, email, birthday, phoneNum, contactId);
 }
 
 function displayMainWelcomeScreen()
