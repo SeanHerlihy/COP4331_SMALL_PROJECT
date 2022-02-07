@@ -71,6 +71,13 @@ button:hover
 #PhoneInfoText {
 	margin-left: 4%;
 }
+.infoErrorBox {
+	display: flex;
+	align-items: center;
+	color: red;
+	font-size: 20px;
+	margin-left: 2%;
+}
 #inputFirstName {
 	padding-left: 8.8px;
 	margin-left: 3.3%;

@@ -13,7 +13,7 @@ function login()
 {
 	readCookie();
   displayName();
-	
+
 }
 
 function displayName()
@@ -42,7 +42,7 @@ function readCookie()
 		else if( tokens[0] == "UserID" )
 		{
 			userId = parseInt( tokens[1].trim() );
-			
+
 		}
 	}
 
@@ -50,7 +50,7 @@ function readCookie()
 	{
 		window.location.href = "index.html";
 	}
-	
+
 }
 
 function htmlGetData()
@@ -77,19 +77,19 @@ function getData(args)
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
-				
+
 
        	jsonObject = jsonObject.results;
 				jsonObject = jsonObject[0].results;
 
 				setReturnData(jsonObject);
 
-				
+
 			}
 		};
-		
+
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch(err)
 	{
@@ -113,7 +113,7 @@ function setReturnData(arr)
 		  appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID'], arr[i]['PhotoID']);
   	}
 
-	
+
 }
 
 function searchData(args)
@@ -433,30 +433,45 @@ function saveNewInfo()
     if (firstNameTextBox != null)
     {
       firstNameInfo.textContent = document.getElementById("inputFirstName").value;
-      firstNameTextBox.remove();
+			firstNameTextBox.remove();
     }
 
     if (lastNameTextBox != null)
 		{
 			lastNameInfo.textContent = document.getElementById("inputLastName").value;
-      lastNameTextBox.remove();
+			lastNameTextBox.remove();
+		}
+
+		if (firstNameInfo.textContent === "" || lastNameInfo.textContent === "")
+		{
+			var nameDiv = document.getElementById("NameDiv");
+			nameDiv.innerHTML += "<p class='infoErrorBox'>Enter first and last name. </p>";
 		}
 
     if (phoneTextBox != null)
 		{
+			var phoneDiv = document.getElementById("PhoneDiv");
 			phoneInfo.textContent = document.getElementById("inputPhone").value;
+
+			phoneDiv.innerHTML += "<p class='infoErrorBox'>Expected Input: XXX-XXX-XXXX </p>";
 			phoneTextBox.remove();
 		}
 
     if (emailTextBox != null)
 		{
+			var emailDiv = document.getElementById("EmailDiv");
 			emailInfo.textContent = document.getElementById("inputEmail").value;
+
+			emailDiv.innerHTML += "<p class='infoErrorBox'>Enter a valid email. </p>";
 			emailTextBox.remove();
 		}
 
     if (birthTextBox != null)
 		{
+			var birthDiv = document.getElementById("BirthDiv");
 			birthInfo.textContent = document.getElementById("inputBirth").value;
+
+			birthDiv.innerHTML += "<p class='infoErrorBox'>Expected Input: MM/DD/YYYY </p>";
 			birthTextBox.remove();
 		}
 
@@ -479,7 +494,7 @@ function saveNewInfo()
     let contactBtn = document.getElementById(`${initialFirst + " " + initialLast}`);
     contactBtn.innerHTML = `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
     <p id = "contactFullName"> ${finalFirstName + " " + finalLastName}</p>`;
-    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` ); 
+    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` );
     contactBtn.id =`${finalFirstName + " " + finalLastName}`;
 
     let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId};
