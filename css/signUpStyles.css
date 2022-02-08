@@ -94,16 +94,16 @@ a:hover {
   width: 80%;
 }
 
-.responsive-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 6%;
-  height: auto;
-}
+  .responsive-image {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  max-width: 100%;
+	  margin-left: auto;
+	  margin-right: auto;
+	  height: auto;
+	}
+
 .valid {
   color: green;
 }

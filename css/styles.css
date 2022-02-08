@@ -100,7 +100,6 @@ a:hover {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6%;
   height: auto;
 }
 .valid {
@@ -195,7 +194,7 @@ a:hover {
   display: block;
 }
 #login {
-  
+
   margin-right: 40px;
 }
 #loginText {
@@ -208,7 +207,7 @@ a:hover {
 @media (max-width: 1100px)
 {
   #loginHeading {
-  
+
     font-size: 10vw;
   }
   #UserName{
