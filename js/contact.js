@@ -312,11 +312,12 @@ function insertEditIcons(isInsertedBool)
       var emailEditObj = document.getElementById("EmailEditDiv");
       var birthEditObj = document.getElementById("BirthEditDiv");
       var cancelSaveDivObj = document.getElementById("CancelSaveButtonDiv");
+      document.getElementById("btn-profile-pic").setAttribute( "onClick", "changeBackgroundImage('create-profile-pic')");
 
-      nameEditObj.innerHTML =`<button id='NameEditIcon' onclick="editInfo('FirstName', false); editInfo('LastName', false)" class='fas fa-pen fa-2x editPenIcon'></button>`;
-      phoneEditObj.innerHTML =`<button id='PhoneEditIcon' onclick="editInfo('Phone', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      emailEditObj.innerHTML =`<button id='EmailEditIcon' onclick="editInfo('Email', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
-      birthEditObj.innerHTML =`<button id='BirthEditIcon' onclick="editInfo('Birth', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      nameEditObj.innerHTML =`<button type = "button" id='NameEditIcon' onclick="editInfo('FirstName', false); editInfo('LastName', false)" class='fas fa-pen fa-2x editPenIcon'></button>`;
+      phoneEditObj.innerHTML =`<button type = "button" id='PhoneEditIcon' onclick="editInfo('Phone', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      emailEditObj.innerHTML =`<button type = "button" id='EmailEditIcon' onclick="editInfo('Email', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
+      birthEditObj.innerHTML =`<button type = "button" id='BirthEditIcon' onclick="editInfo('Birth', false)" class='fas fa-pen fa-sm editPenIcon'></button>`;
       cancelSaveDivObj.innerHTML ="<button type='submit' id = 'CancelEditButton' onclick='removeEditIcons();'>Cancel</button> <button type='submit' id = 'SaveEditButton'>Save</button>";
 
       document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(true)"> <i class="far fa-edit fa-3x"></i> </button>'
@@ -413,6 +414,11 @@ function removeEditIcons()
     emailInfo.style.display="block";
     birthInfo.style.display="block";
 
+    document.getElementById("btn-profile-pic").setAttribute( "onClick", "");
+    let num = document.getElementById("currentContactphoto").textContent;
+    document.getElementById("storesProfilePicNum").textContent = num;
+    document.getElementById("create-profile-pic").src = `./css/images/pic${num}.png`;
+
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
 }
 
@@ -488,24 +494,26 @@ function saveNewInfo()
     emailInfo.style.display="block";
     birthInfo.style.display="block";
 
-		let finalFirstName = firstNameInfo.textContent;
-		let finalLastName = lastNameInfo.textContent;
+		let finalFirstName = firstNameInfo.textContent.trim();
+		let finalLastName = lastNameInfo.textContent.trim();
 		let finalPhone = phoneInfo.textContent;
 		let finalEmail = emailInfo.textContent;
 		let finalBirth = birthInfo.textContent;
     let finalContactId = document.getElementById("currentContactId").textContent;
-    let finalphotoId = document.getElementById("currentContactphoto").textContent.trim();
+    let finalphotoId = document.getElementById("storesProfilePicNum").textContent;
+
+    document.getElementById("btn-profile-pic").setAttribute( "onClick", "");
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
-
+    document.getElementById("currentContactphoto").textContent = finalphotoId;
 
     let contactBtn = document.getElementById(`${initialFirst + " " + initialLast}`);
     contactBtn.innerHTML = `<img src = "./css/images/pic${finalphotoId}.png" id = "profilePicture">
     <p id = "contactFullName"> ${finalFirstName + " " + finalLastName}</p>`;
-    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` ); 
+    contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}', ${finalphotoId});` ); 
     contactBtn.id =`${finalFirstName + " " + finalLastName}`;
 
-    let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId};
+    let args = {FirstName:finalFirstName, LastName:finalLastName, Email:finalEmail, Phone:finalPhone, BirthDay:finalBirth, UserID:userId, ID:finalContactId, PhotoID:finalphotoId};
 	  editContact(args);
 }
 
@@ -513,6 +521,8 @@ function saveNewInfo()
 function appendUserContactsToSideBar(firstName, lastName, email, birthday, phoneNum, contactId, photoId)
 {
   // firstName, lastName
+  firstName = firstName.trim();
+  lastName = lastName.trim();
 
   	let username = firstName + " " + lastName;
 
@@ -558,8 +568,10 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
    </h1>
    <form action="#" onsubmit = 'saveNewInfo()'>
    <div id="top-info">
-
-    <img id="profile-pic" src="./css/images/pic${photoId}.png" alt="">
+    <button id="btn-profile-pic" onclick = "" type = "button">
+      <img id="create-profile-pic" src="./css/images/pic${photoId}.png" alt="">
+      <p id ="storesProfilePicNum" style = "display:none;" >${photoId}</p>
+    </button>
     <div id= "NameDiv">
 
        <div id="FirstNameDiv">
@@ -622,7 +634,7 @@ function displayCreateUserPage()
   
   let htmlString = `<div id=CreateAccountDiv>
   <div id="top-info-createContact">
-    <button id = "change-create-profile-pic" onclick = changeBackgroundImage("create-profile-pic") >
+    <button type = "button" id = "change-create-profile-pic" onclick = changeBackgroundImage("create-profile-pic") >
       <img id = "create-profile-pic" src = "./css/images/pic${randomNum}.png">
       <p id ="storesProfilePicNum" style = "display:none;" >${randomNum}</p>
     </button>
@@ -675,8 +687,8 @@ function changeBackgroundImage(idString)
 function grabUserInfoForCreateClick()
 {
 
-  let firstName = document.getElementById('FirstNameCreateInput').value;
-  let lastName = document.getElementById('LastNameCreateInput').value;
+  let firstName = document.getElementById('FirstNameCreateInput').value.trim();
+  let lastName = document.getElementById('LastNameCreateInput').value.trim();
   let email = document.getElementById('EmailCreateInput').value;
   let birthday = document.getElementById('BirthdayCreateInput').value;
   let phoneNum = document.getElementById('PhoneNumberCreateInput').value;
