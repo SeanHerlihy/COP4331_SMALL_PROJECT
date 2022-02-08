@@ -11,10 +11,6 @@ img {
   display: block;
   object-fit: contain;
 }
-@font-face {
-  font-family: "Martin";
-  src: url("./fonts/VerminVibes2.otf") format("truetype");
-}
 button
 {
     background: #215b81;
@@ -49,7 +45,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 10px;
   background: no-repeat linear-gradient(45deg, #215b81, #8bcceb, #b3c9e6);
   background-color: rgb(0, 0, 0);
   width: 50%;
@@ -68,11 +63,9 @@ a:hover {
   border-bottom-right-radius: 10px;
 }
 .inputContainer {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  vertical-align: middle;
   background-color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -116,17 +109,6 @@ a:hover {
 .invalid{
   color: red;
 }
-@media (max-width: 875px)
-{
-    .logoContainer
-    {
-        display: none;
-    }
-    .loginContainer {
-        width: 100%;
-        opacity: 85%;
-    }
-}
 
 #UserName{
   background: url(https://i.ibb.co/MNK2Kz8/userlogin.png) no-repeat;
@@ -153,7 +135,7 @@ a:hover {
 #welcomeText {
   box-sizing: border-box;
   padding: 10px;
-  font-family: Martin;
+  font-family: Arial;
   font-size: max(2.5vmin, 14px);
   color: white;
   text-shadow: 0 0 5px #3c4d57;
@@ -167,7 +149,7 @@ a:hover {
   vertical-align: middle;
   box-sizing: border-box;
   padding: 2px;
-  font-family: Martin;
+  font-family: Arial;
   font-size: max(4.3vmin, 20px);
   color: white;
   text-shadow: 0 0 25px #3c4d57;
@@ -183,21 +165,16 @@ a:hover {
   box-sizing: border-box;
   padding: 10%;
   width: 100%;
-  height: 100%;
+  height: 80%;
   display: table-cell;
-  align-items: center;
-  position: relative;
   overflow: auto;
 }
 #loginHeading {
-  position: relative;
   font-family: Arial;
   font-size: max(3vw, 30px);
   color: black;
   text-align: center;
   padding-top: 1px;
-  margin-top: -10%;
-  padding-bottom: 7%;
 }
 
 #nameContainer {
@@ -218,7 +195,7 @@ a:hover {
   display: block;
 }
 #login {
-  button-height: 36px;
+  
   margin-right: 40px;
 }
 #loginText {
@@ -226,4 +203,41 @@ a:hover {
   text-align: center;
 }
 
+
+
+@media (max-width: 1100px)
+{
+  #loginHeading {
+  
+    font-size: 10vw;
+  }
+  #UserName{
+    height: 80px;
+    width: 90%;
+    background-size: 3vw;
+    padding-left: 5vw;
+  }
+  #PassWord{
+    height: 80px;
+    width: 90%;
+    background-size: 3vw;
+    padding-left: 5vw;
+  }
+  .round-borders
+  {
+    font-size: 3vw;
+  }
+  .logoContainer
+  {
+      display: none;
+  }
+  .loginContainer {
+      width: 100%;
+      opacity: 85%;
+  }
+  #loginButton
+  {
+    height: 80px;
+    width: 90%;
+  }
 }

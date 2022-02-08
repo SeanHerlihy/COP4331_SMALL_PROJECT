@@ -31,7 +31,7 @@
 
 			$thisJSONObject = '{"First":"' . $row["FirstName"] . '","Last":"' . $row["LastName"]
 				          . '","Phone":"' . $row["Phone"] . '","Email":"' . $row["Email"]
-						. '","BirthDay":"' . $row["BirthDay"] . '","ID":"' . $row["ID"] . '"}';
+						. '","BirthDay":"' . $row["BirthDay"] . '","PhotoID":"' .$row["PhotoID"] . '","ID":"' . $row["ID"] . '"}';
 			$searchResults .= $thisJSONObject;
 			//echo $thisJSONObject;
 		}

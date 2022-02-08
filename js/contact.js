@@ -8,6 +8,7 @@ let dataDic = {};
 let offset = 0;
 let searchFlag = new Boolean(false);
 let ICONCOUNT = 20;
+let alreadyRunning = false;
 
 function login()
 {
@@ -19,6 +20,7 @@ function login()
 function displayName()
 {
 	document.getElementById("welcometextNavBar").textContent = "Welcome, " + uFName + " " + uLName + "!";
+  document.getElementById("topBarIcons").src = `./css/images/pic${Math.floor(Math.random() * ICONCOUNT)}.png`; 
   //selectPhotoId(photoId, "topBarIcons");
 }
 
@@ -80,9 +82,12 @@ function getData(args)
 				
 
        	jsonObject = jsonObject.results;
+
+        if (jsonObject === undefined)
+          return;
 				jsonObject = jsonObject[0].results;
 
-				setReturnData(jsonObject);
+				setReturnData(jsonObject, false);
 
 				
 			}
@@ -99,20 +104,22 @@ function getData(args)
 
 }
 
-function setReturnData(arr)
+function setReturnData(arr, isSearchBool)
 {
   if (arr === undefined)
     return;
 
-    document.getElementById("contactListBox").innerHTML = ""
-
 	for(let i = 0; i < arr.length; i++)
   	{
 		//dataDic[arr[i]['ID']] = arr[i];
-
+      offset++;
 		  appendUserContactsToSideBar(arr[i]['First'], arr[i]['Last'], arr[i]['Email'], arr[i]['BirthDay'], arr[i]['Phone'], arr[i]['ID'], arr[i]['PhotoID']);
   	}
 
+  if (offset % 25 == 0)
+  {
+    appendLoadContactDivToSideBar(isSearchBool);
+  }
 	
 }
 
@@ -140,7 +147,7 @@ function searchData(args)
 
 				jsonObject = jsonObject[0].results;
 
-				setReturnData(jsonObject);
+				setReturnData(jsonObject, true);
 			}
 		};
 
@@ -487,12 +494,13 @@ function saveNewInfo()
 		let finalEmail = emailInfo.textContent;
 		let finalBirth = birthInfo.textContent;
     let finalContactId = document.getElementById("currentContactId").textContent;
+    let finalphotoId = document.getElementById("currentContactphoto").textContent.trim();
 
     document.getElementById('EditDeleteHeader').firstChild =  '<button class="clickableAwesomeFont" id="EditButton" title="Edit Contact" alt="edit contact icon" onclick="insertEditIcons(false)"> <i class="far fa-edit fa-3x"></i> </button>';
 
 
     let contactBtn = document.getElementById(`${initialFirst + " " + initialLast}`);
-    contactBtn.innerHTML = `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
+    contactBtn.innerHTML = `<img src = "./css/images/pic${finalphotoId}.png" id = "profilePicture">
     <p id = "contactFullName"> ${finalFirstName + " " + finalLastName}</p>`;
     contactBtn.setAttribute( "onClick", `displayContactInfo('${finalFirstName}', '${finalLastName}', '${finalEmail}', '${finalBirth}', '${finalPhone}', '${finalContactId}');` ); 
     contactBtn.id =`${finalFirstName + " " + finalLastName}`;
@@ -507,10 +515,13 @@ function appendUserContactsToSideBar(firstName, lastName, email, birthday, phone
   // firstName, lastName
 
   	let username = firstName + " " + lastName;
-    let imgHtml = selectPhotoId(photoId, "profilePicture");
+
+    if (photoId >= ICONCOUNT || photoId < 0)
+      photoId = ICONCOUNT - 1;
+
 
 	let htmlString = `<button id = '${username}' class ="img-responsive userContactSideBarDiv" onclick = "displayContactInfo('${firstName}', '${lastName}', '${email}', '${birthday}', '${phoneNum}', '${contactId}', '${photoId}');">
-	<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = "profilePicture">
+	<img src = "./css/images/pic${photoId}.png" id = "profilePicture">
 	<p id = "contactFullName"> ${username} </p>
     </button>`;
 
@@ -520,6 +531,17 @@ function appendUserContactsToSideBar(firstName, lastName, email, birthday, phone
 
 }
 
+function appendLoadContactDivToSideBar(searchBool)
+{
+
+  let htmlString = `<div id = "scrollMoreContactDiv" style = "display:none;">${searchBool}</div>`;;
+
+  let sideBarDiv = document.getElementById("contactListBox");
+
+	sideBarDiv.innerHTML += htmlString;
+}
+
+
 
 
 
@@ -528,7 +550,6 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
 {
 
   let username = firstName + " " + lastName;
-  let imgHtml = selectPhotoId(photoId, "profile-pic");
 
    let htmlString = `    <div id="info">
    <h1 id="EditDeleteHeader">
@@ -538,7 +559,7 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
    <form action="#" onsubmit = 'saveNewInfo()'>
    <div id="top-info">
 
-    <img id="profile-pic" src="https://i.ibb.co/QbzfxWp/relaxing-cat-1.jpg" alt="">
+    <img id="profile-pic" src="./css/images/pic${photoId}.png" alt="">
     <div id= "NameDiv">
 
        <div id="FirstNameDiv">
@@ -583,13 +604,12 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
      </div>
    </form>
    </div>
-   <p id = "currentContactId" style = "display: none;"> ${contactId}</p>
-   <p id = "currentContactphoto" style = "display: none;"> ${photoId}</p>
+   <p id = "currentContactId" style = "display: none;">${contactId}</p>
+   <p id = "currentContactphoto" style = "display: none;">${photoId}</p>
  </div>`
 
   let displayScreen = document.getElementById("inner-screen");
-  displayScreen.lastElementChild.remove();
-  displayScreen.innerHTML += htmlString;
+  displayScreen.lastElementChild.innerHTML = htmlString;
 }
 
 
@@ -597,10 +617,15 @@ function displayContactInfo(firstName, lastName, email, birthday, phoneNum, cont
 // displays the create a new contact page
 function displayCreateUserPage()
 {
+
+  let randomNum = Math.floor(Math.random() * ICONCOUNT);
   
   let htmlString = `<div id=CreateAccountDiv>
   <div id="top-info-createContact">
-    <img id="create-profile-pic" src="https://i.ibb.co/n6ps4Cx/l60Hf.png" alt="">
+    <button id = "change-create-profile-pic" onclick = changeBackgroundImage("create-profile-pic") >
+      <img id = "create-profile-pic" src = "./css/images/pic${randomNum}.png">
+      <p id ="storesProfilePicNum" style = "display:none;" >${randomNum}</p>
+    </button>
   </div>
   <div id="secondary-info-createContact">
     <form class="inputContainer" action="#" onsubmit = 'grabUserInfoForCreateClick()'">
@@ -626,8 +651,25 @@ function displayCreateUserPage()
 </div>`;
 
   let displayScreen = document.getElementById("inner-screen");
-  displayScreen.lastElementChild.remove();
-  displayScreen.innerHTML += htmlString;
+  displayScreen.lastElementChild.innerHTML= htmlString
+}
+
+function changeBackgroundImage(idString)
+{
+  let imageBtnHTML = document.getElementById(idString);
+  let currNumHTML = document.getElementById("storesProfilePicNum");
+  let actualNum = currNumHTML.textContent;
+
+  if (++actualNum >= ICONCOUNT)
+  {
+    actualNum = 0;
+  }
+  
+  imageBtnHTML.src = `./css/images/pic${actualNum}.png`;
+
+
+  document.getElementById("storesProfilePicNum").textContent = actualNum;
+
 }
 
 function grabUserInfoForCreateClick()
@@ -638,10 +680,12 @@ function grabUserInfoForCreateClick()
   let email = document.getElementById('EmailCreateInput').value;
   let birthday = document.getElementById('BirthdayCreateInput').value;
   let phoneNum = document.getElementById('PhoneNumberCreateInput').value;
+  let photoId =  document.getElementById("storesProfilePicNum").textContent;
+  console.log(typeof photoId);
+  console.log(photoId);
   
   
   let contactId = Math.floor(Math.random() * 2147483647);
-  let photoId = Math.floor(Math.random() * ICONCOUNT);
 
   let args = {ID: contactId, FirstName: firstName, LastName: lastName, Email:email, Phone: phoneNum, BirthDay:birthday, UserID: userId, PhotoID: photoId};
 
@@ -653,8 +697,7 @@ function grabUserInfoForCreateClick()
 function displayMainWelcomeScreen()
 {
   let displayScreen = document.getElementById("inner-screen");
-  displayScreen.lastElementChild.remove();
-  displayScreen.innerHTML += `<div id="info">
+  displayScreen.lastElementChild.innerHTML =`<div id="info">
   <div id = "WelcomeInsideDiv">
      <img src="./css/images/Logo.png" id = WelcomePic alt ="https://i.ibb.co/vzWSRXY/Screenshot-594.png"></img>
   </div>
@@ -664,6 +707,7 @@ function displayMainWelcomeScreen()
 
 function searchBarFunction()
 {
+  offset = 0;
 	let input =  document.getElementById('searchInput').value;
 
   args = {UserID:userId, search:input, Offset:offset};
@@ -675,12 +719,40 @@ function searchBarFunction()
 
 }
 
-// takes in a photoId, htmlIdTag and returns an html tag with the correct photo, and class
-function selectPhotoId(photoId, htmlIdTag)
+function addScrollBarLogic()
 {
-  switch(photoId)
-  {
-    case 0:
-      return `<img src = "https://i.ibb.co/n6ps4Cx/l60Hf.png" id = '${htmlIdTag}'></img>`;
-  }
+  document.getElementById("scroll-bar").addEventListener('scroll', () => {
+
+    const 
+    {
+        scrollTop,
+        scrollHeight,
+        clientHeight
+    } = document.getElementById("scroll-bar");
+    
+    if (scrollTop + clientHeight >= scrollHeight && !alreadyRunning) 
+    {
+      alreadyRunning = true;
+      if (document.getElementById("scrollMoreContactDiv")== null)
+      {
+        alreadyRunning = false;
+        return;
+      }
+      if (document.getElementById("scrollMoreContactDiv").innerHTML == "true")
+      {
+        console.log("MADE IT");
+        setTimeout(searchData({UserID:userId, search:document.getElementById('searchInput').value, Offset:offset}), 0);
+      }
+      else
+      {
+        setTimeout(getData({UserID:userId, Offset:offset}), 0);
+      }
+
+      alreadyRunning = false;
+    }
+
+    
+  
+  }, { passive: true});
 }
+
